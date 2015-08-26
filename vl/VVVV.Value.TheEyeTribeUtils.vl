@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VLDOCUMENT Version="0.31.1173.0">
+  <DEPENDENCIES>
+    <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
+    <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
+    <DEPENDENCY Name="System.Collections.Immutable.dll.vlimport" Location="System.Collections.Immutable.dll.vlimport" />
+    <DEPENDENCY Name="System.Interactive.dll.vlimport" Location="System.Interactive.dll.vlimport" />
+    <DEPENDENCY Name="System.Reactive.Linq.dll.vlimport" Location="System.Reactive.Linq.dll.vlimport" />
+    <DEPENDENCY Name="System.Drawing.dll.vlimport" Location="System.Drawing.dll.vlimport" />
+    <DEPENDENCY Name="System.Windows.Forms.dll.vlimport" Location="System.Windows.Forms.dll.vlimport" />
+    <DEPENDENCY Name="SharpDX.dll.vlimport" Location="SharpDX.dll.vlimport" />
+    <DEPENDENCY Name="VVVV.Utils.dll.vlimport" Location="VVVV.Utils.dll.vlimport" />
+    <DEPENDENCY Name="VL.Lib.Basics.dll" Location="VL.Lib.Basics.dll" />
+    <DEPENDENCY Name="Basics.vl" Location="Basics.vl" />
+    <DEPENDENCY Name="VL.Lib.Integration.dll" Location="VL.Lib.Integration.dll" />
+    <DEPENDENCY Name="Integration.vl" Location="Integration.vl" />
+    <DEPENDENCY Name="VL.Core.dll" Location="VL.Core.dll" />
+    <DEPENDENCY Name="Newtonsoft.Json.dll" Location="..\tetdlls\Newtonsoft.Json.dll" />
+    <DEPENDENCY Name="TETCSharpClient.dll.vlimport" Location="..\tetdlls\TETCSharpClient.dll.vlimport" />
+    <DEPENDENCY Name="TETWrapper.dll.vlimport" Location="..\tetdlls\TETWrapper.dll.vlimport" />
+  </DEPENDENCIES>
+  <PATCHES>
+    <PATCH Name="Utils" Category="2D" IsClosed="true">
+      <BODY Name="UtilsBody">
+        <LAYERS>
+          <LAYER Name="TETPoint2DtoVector2" />
+          <LAYER Name="Update" />
+          <LAYER Name="PixelXYtoVVVVCoord" />
+          <LAYER Name="Coordinates" />
+          <LAYER Name="VVVVCoordToPixelXY" />
+          <LAYER Name="Vector2ToTETPoint2D" />
+          <LAYER Name="HasListeners" />
+        </LAYERS>
+        <INLETS>
+          <INLET Name="Vector2" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-432.319733" y="219.539948" />
+          </INLET>
+          <INLET Name="Map Values#1" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-299.393646" y="219.539948" />
+          </INLET>
+          <INLET Name="TETPoint2D" Layer="TETPoint2DtoVector2">
+            <POSITION x="132" y="209" />
+          </INLET>
+          <INLET Name="Map Values" Layer="TETPoint2DtoVector2">
+            <POSITION x="308" y="209" />
+          </INLET>
+          <INLET Name="GazeManager" Layer="HasListeners">
+            <POSITION x="502.143066" y="236.0398" />
+          </INLET>
+        </INLETS>
+        <OUTLETS>
+          <OUTLET Name="Point2D" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-436.747131" y="745.0502" />
+          </OUTLET>
+          <OUTLET Name="X" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-337.802032" y="745.0502" />
+          </OUTLET>
+          <OUTLET Name="Y" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-295.274933" y="745.0502" />
+          </OUTLET>
+          <OUTLET Name="Vector2" Layer="TETPoint2DtoVector2">
+            <POSITION x="115.836517" y="794.5375" />
+          </OUTLET>
+          <OUTLET Name="GazeManager" Layer="HasListeners">
+            <POSITION x="498.816223" y="519.457458" />
+          </OUTLET>
+          <OUTLET Name="HasListeners" Layer="HasListeners">
+            <POSITION x="654.8162" y="519.457458" />
+          </OUTLET>
+        </OUTLETS>
+        <CONSTS>
+          <CONST Name="zero" Layer="HasListeners">
+            <POSITION x="685.746643" y="481.278778" />
+            <VALUE><![CDATA[0]]></VALUE>
+          </CONST>
+        </CONSTS>
+        <REGIONS>
+          <REGION Name="IfElse" Layer="TETPoint2DtoVector2" Kind="IfElse">
+            <POSITION x="123.858734" y="408.346344" />
+            <SIZE x="357" y="231" />
+            <INPUTS>
+              <INPUT Name="Condition" />
+              <INPUT Name="Output Default" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+            <BODY Name="IfElseBody">
+              <LAYERS>
+                <LAYER Name="True" />
+              </LAYERS>
+              <INLETS>
+                <INLET Name="Output" Layer="True">
+                  <POSITION x="132.6278" y="409.724518" />
+                </INLET>
+              </INLETS>
+              <OUTLETS>
+                <OUTLET Name="Output" Layer="True">
+                  <POSITION x="132.6278" y="695.9579" />
+                </OUTLET>
+              </OUTLETS>
+              <CONSTS>
+                <CONST Name="Output Maximum#1" Layer="True">
+                  <POSITION x="267.443878" y="577.431641" />
+                  <SIZE width="40" height="42.233696" />
+                  <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":-1.0}}]]></VALUE>
+                </CONST>
+                <CONST Name="Output Minimum#2" Layer="True">
+                  <POSITION x="222.946625" y="545.354736" />
+                  <SIZE width="40" height="39.7499924" />
+                  <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":-1.0,"Y":1.0}}]]></VALUE>
+                </CONST>
+              </CONSTS>
+              <REGIONS />
+              <NODES>
+                <OPERATION Name="Vector#1" Layer="True">
+                  <POSITION x="161.202728" y="526.575745" />
+                  <NODEREF LastCat="2D.Vector2" LastFile="SharpDX.dll">
+                    <OPERATIONNODE Name="Vector" Version="Join" />
+                    <CATEGORY Name="Vector2" IsDirectParent="true" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="X" />
+                    <INPUT Name="Y" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="ScreenResolutionWidth" Layer="True">
+                  <POSITION x="162.285" y="479.120728" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="ScreenResolutionWidth" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                    <OUPUT Name="Screen Resolution Width" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="ScreenResolutionHeight" Layer="True">
+                  <POSITION x="283.284" y="481.203369" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="ScreenResolutionHeight" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                    <OUPUT Name="Screen Resolution Height" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="Map#2" Layer="True">
+                  <POSITION x="128.858734" y="634.7665" />
+                  <NODEREF LastCat="2D" LastFile="Basics.vl">
+                    <OPERATIONNODE Name="Map" />
+                    <CATEGORY Name="2D" IsDirectParent="true" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                    <INPUT Name="Input Minimum" />
+                    <INPUT Name="Input Maximum" />
+                    <INPUT Name="Output Minimum" />
+                    <INPUT Name="Output Maximum" />
+                    <INPUT Name="Mode" />
+                    <INPUT Name="Enabled" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="get_Instance#2" Layer="True">
+                  <POSITION x="161.708054" y="444.701324" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <CATEGORY Name="GazeManager" />
+                    <OPERATIONNODE Name="get_Instance" />
+                  </NODEREF>
+                  <INPUTS />
+                  <OUTPUTS>
+                    <OUPUT Name="Result" />
+                  </OUTPUTS>
+                </OPERATION>
+              </NODES>
+              <LINKS>
+                <Link source="Constants/Output Maximum#1" sink="Nodes/Map#2/Inputs/Output Maximum" />
+                <Link source="Constants/Output Minimum#2" sink="Nodes/Map#2/Inputs/Output Minimum" />
+                <Link source="Nodes/Vector#1/Outputs/Output" sink="Nodes/Map#2/Inputs/Input Maximum" />
+                <Link source="Nodes/ScreenResolutionWidth/Outputs/Screen Resolution Width" sink="Nodes/Vector#1/Inputs/X" />
+                <Link source="Nodes/ScreenResolutionHeight/Outputs/Screen Resolution Height" sink="Nodes/Vector#1/Inputs/Y" />
+                <Link source="Nodes/Map#2/Outputs/Output" sink="Outlets/Output" />
+                <Link source="Inlets/Output" sink="Nodes/Map#2/Inputs/Input" />
+                <Link source="Nodes/get_Instance#2/Outputs/Result" sink="Nodes/ScreenResolutionWidth/Inputs/Input" />
+                <Link source="Nodes/ScreenResolutionWidth/Outputs/Output" sink="Nodes/ScreenResolutionHeight/Inputs/Input" />
+              </LINKS>
+            </BODY>
+          </REGION>
+          <REGION Name="IfElse#1" Layer="Vector2ToTETPoint2D" Kind="IfElse">
+            <POSITION x="-438.2075" y="323.698639" />
+            <SIZE x="80" y="80" />
+            <INPUTS>
+              <INPUT Name="Condition" />
+              <INPUT Name="Output Default" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+            <BODY Name="IfElseBody">
+              <LAYERS>
+                <LAYER Name="True" />
+              </LAYERS>
+              <INLETS>
+                <INLET Name="Output" Layer="True">
+                  <POSITION x="-435.7075" y="325.0768" />
+                </INLET>
+              </INLETS>
+              <OUTLETS>
+                <OUTLET Name="Output" Layer="True">
+                  <POSITION x="-435.7075" y="634.9051" />
+                </OUTLET>
+              </OUTLETS>
+              <CONSTS>
+                <CONST Name="Output Minimum#1" Layer="True">
+                  <POSITION x="-364.3416" y="475.633331" />
+                  <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":0.0,"Y":0.0}}]]></VALUE>
+                </CONST>
+                <CONST Name="Input Maximum" Layer="True">
+                  <POSITION x="-376.342926" y="417.965485" />
+                  <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":-1.0}}]]></VALUE>
+                </CONST>
+                <CONST Name="Input Minimum" Layer="True">
+                  <POSITION x="-388.879547" y="368.16983" />
+                  <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":-1.0,"Y":1.0}}]]></VALUE>
+                </CONST>
+              </CONSTS>
+              <REGIONS />
+              <NODES>
+                <OPERATION Name="Map#1" Layer="True">
+                  <POSITION x="-431.71582" y="573.8024" />
+                  <NODEREF LastCat="2D" LastFile="Basics.vl">
+                    <OPERATIONNODE Name="Map" />
+                    <CATEGORY Name="2D" IsDirectParent="true" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                    <INPUT Name="Input Minimum" />
+                    <INPUT Name="Input Maximum" />
+                    <INPUT Name="Output Minimum" />
+                    <INPUT Name="Output Maximum" />
+                    <INPUT Name="Mode" />
+                    <INPUT Name="Enabled" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="get_Instance#2" Layer="True">
+                  <POSITION x="-228.554642" y="418.866943" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <CATEGORY Name="GazeManager" />
+                    <OPERATIONNODE Name="get_Instance" />
+                  </NODEREF>
+                  <INPUTS />
+                  <OUTPUTS>
+                    <OUPUT Name="Result" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="ScreenResolutionWidth" Layer="True">
+                  <POSITION x="-227.977692" y="453.286346" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="ScreenResolutionWidth" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                    <OUPUT Name="Screen Resolution Width" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="Vector#1" Layer="True">
+                  <POSITION x="-229.059967" y="500.7414" />
+                  <NODEREF LastCat="2D.Vector2" LastFile="SharpDX.dll">
+                    <OPERATIONNODE Name="Vector" Version="Join" />
+                    <CATEGORY Name="Vector2" IsDirectParent="true" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="X" />
+                    <INPUT Name="Y" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="ScreenResolutionHeight" Layer="True">
+                  <POSITION x="-106.9787" y="455.369" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="ScreenResolutionHeight" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                    <OUPUT Name="Screen Resolution Height" />
+                  </OUTPUTS>
+                </OPERATION>
+              </NODES>
+              <LINKS>
+                <Link source="Constants/Output Minimum#1" sink="Nodes/Map#1/Inputs/Output Minimum" />
+                <Link source="Constants/Input Maximum" sink="Nodes/Map#1/Inputs/Input Maximum" />
+                <Link source="Constants/Input Minimum" sink="Nodes/Map#1/Inputs/Input Minimum" />
+                <Link source="Inlets/Output" sink="Nodes/Map#1/Inputs/Input" />
+                <Link source="Nodes/Map#1/Outputs/Output" sink="Outlets/Output" />
+                <Link source="Nodes/get_Instance#2/Outputs/Result" sink="Nodes/ScreenResolutionWidth/Inputs/Input" />
+                <Link source="Nodes/ScreenResolutionWidth/Outputs/Output" sink="Nodes/ScreenResolutionHeight/Inputs/Input" />
+                <Link source="Nodes/ScreenResolutionWidth/Outputs/Screen Resolution Width" sink="Nodes/Vector#1/Inputs/X" />
+                <Link source="Nodes/ScreenResolutionHeight/Outputs/Screen Resolution Height" sink="Nodes/Vector#1/Inputs/Y" />
+                <Link source="Nodes/Vector#1/Outputs/Output" sink="Nodes/Map#1/Inputs/Output Maximum" />
+              </LINKS>
+            </BODY>
+          </REGION>
+        </REGIONS>
+        <NODES>
+          <OPERATION Name="ToFloat32#1" Layer="TETPoint2DtoVector2">
+            <POSITION x="200.578491" y="329.814575" />
+            <NODEREF LastCat="Math.Float64" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="ToFloat32" />
+              <CATEGORY Name="Float64" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="ToFloat32" Layer="TETPoint2DtoVector2">
+            <POSITION x="133" y="330.2844" />
+            <NODEREF LastCat="Math.Float64" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="ToFloat32" />
+              <CATEGORY Name="Float64" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Vector" Layer="TETPoint2DtoVector2">
+            <POSITION x="133.552368" y="373.9901" />
+            <NODEREF LastCat="2D.Vector2" LastFile="SharpDX.dll">
+              <OPERATIONNODE Name="Vector" Version="Join" />
+              <CATEGORY Name="Vector2" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="X" />
+              <INPUT Name="Y" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="X" Layer="TETPoint2DtoVector2">
+            <POSITION x="134.1065" y="274.9606" />
+            <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="X" />
+              <CATEGORY Name="Point2D" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="X" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Y" Layer="TETPoint2DtoVector2">
+            <POSITION x="134.404114" y="237" />
+            <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="Y" />
+              <CATEGORY Name="Point2D" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Y" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Vector#1" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-434.1114" y="667.699341" />
+            <NODEREF LastCat="2D.Vector2" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="Vector" Version="Split" />
+              <CATEGORY Name="Vector2" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="X" />
+              <OUPUT Name="Y" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Create" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-434.909454" y="697.2259" />
+            <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
+              <CATEGORY Name="Point2D" />
+              <OPERATIONNODE Name="Create" Version="Double Double" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="X" />
+              <INPUT Name="Y" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Floor" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-337.438873" y="678.863037" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+              <OPERATIONNODE Name="Floor" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="Floor#1" Layer="Vector2ToTETPoint2D">
+            <POSITION x="-294.018524" y="678.045" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+              <OPERATIONNODE Name="Floor" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="+" Layer="HasListeners">
+            <POSITION x="657.6302" y="439.4951" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="+" />
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+              <INPUT Name="Input 2" />
+              <INPUT Name="Input 3" />
+              <INPUT Name="Input 4" />
+              <INPUT Name="Input 5" />
+              <INPUT Name="Enabled" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="&gt;" Layer="HasListeners">
+            <POSITION x="657.579651" y="490.961243" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="&gt;" />
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+              <INPUT Name="Input 2" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumTrackerStateListeners" Layer="HasListeners">
+            <POSITION x="504.1493" y="412.4372" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumTrackerStateListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumGazeListeners" Layer="HasListeners">
+            <POSITION x="506.143066" y="359.909515" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumGazeListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumConnectionStateListeners" Layer="HasListeners">
+            <POSITION x="505.143066" y="323.7122" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumConnectionStateListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumCalibrationResultListeners" Layer="HasListeners">
+            <POSITION x="505.143066" y="282.039734" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumCalibrationResultListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+        </NODES>
+        <LINKS>
+          <Link source="Nodes/ToFloat32#1/Outputs/Result" sink="Nodes/Vector/Inputs/Y" />
+          <Link source="Nodes/ToFloat32/Outputs/Result" sink="Nodes/Vector/Inputs/X" />
+          <Link source="Nodes/X/Outputs/X" sink="Nodes/ToFloat32/Inputs/Input" />
+          <Link source="Nodes/Y/Outputs/Output" sink="Nodes/X/Inputs/Input" />
+          <Link source="Nodes/Y/Outputs/Y" sink="Nodes/ToFloat32#1/Inputs/Input" />
+          <Link source="Inlets/TETPoint2D" sink="Nodes/Y/Inputs/Input" />
+          <Link source="Regions/IfElse/Outputs/Output" sink="Outlets/Vector2" />
+          <Link source="Nodes/Vector/Outputs/Output" sink="Regions/IfElse/Inputs/Output Default" />
+          <Link source="Inlets/Map Values" sink="Regions/IfElse/Inputs/Condition">
+            <SEGMENTS>
+              <Point x="-10" y="165" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Nodes/Vector#1/Outputs/X" sink="Nodes/Create/Inputs/X" />
+          <Link source="Nodes/Vector#1/Outputs/Y" sink="Nodes/Create/Inputs/Y" />
+          <Link source="Regions/IfElse#1/Outputs/Output" sink="Nodes/Vector#1/Inputs/Input" />
+          <Link source="Inlets/Vector2" sink="Regions/IfElse#1/Inputs/Output Default" />
+          <Link source="Inlets/Map Values#1" sink="Regions/IfElse#1/Inputs/Condition">
+            <SEGMENTS>
+              <Point x="-3.61825562" y="58.914856" />
+              <Point x="-147.337982" y="66.3916" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Nodes/Create/Outputs/Output" sink="Outlets/Point2D" />
+          <Link source="Nodes/Vector#1/Outputs/X" sink="Nodes/Floor/Inputs/Input" />
+          <Link source="Nodes/Vector#1/Outputs/Y" sink="Nodes/Floor#1/Inputs/Input" />
+          <Link source="Nodes/Floor/Outputs/Result" sink="Outlets/X" />
+          <Link source="Nodes/Floor#1/Outputs/Result" sink="Outlets/Y" />
+          <Link source="Nodes/+/Outputs/Output" sink="Nodes/&gt;/Inputs/Input" />
+          <Link source="Constants/zero" sink="Nodes/&gt;/Inputs/Input 2" />
+          <Link source="Nodes/GetNumTrackerStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input" />
+          <Link source="Nodes/GetNumGazeListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 2" />
+          <Link source="Nodes/GetNumGazeListeners/Outputs/Output" sink="Nodes/GetNumTrackerStateListeners/Inputs/Input" />
+          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 3" />
+          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Output" sink="Nodes/GetNumGazeListeners/Inputs/Input" />
+          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 4" />
+          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Output" sink="Nodes/GetNumConnectionStateListeners/Inputs/Input" />
+          <Link source="Inlets/GazeManager" sink="Nodes/GetNumCalibrationResultListeners/Inputs/Input" />
+          <Link source="Nodes/&gt;/Outputs/Result" sink="Outlets/HasListeners" />
+          <Link source="Nodes/GetNumTrackerStateListeners/Outputs/Output" sink="Outlets/GazeManager" />
+        </LINKS>
+      </BODY>
+    </PATCH>
+  </PATCHES>
+</VLDOCUMENT>

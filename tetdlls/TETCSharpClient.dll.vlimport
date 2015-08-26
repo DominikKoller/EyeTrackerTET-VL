@@ -1,0 +1,1395 @@
+{
+  "Version": 2,
+  "Types": [
+    {
+      "TypeAttribute": {
+        "Name": "Accuracy",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Average",
+            "ShowCategory": true
+          },
+          "DotNetName": "Average"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Left",
+            "ShowCategory": true
+          },
+          "DotNetName": "Left"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Right",
+            "ShowCategory": true
+          },
+          "DotNetName": "Right"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.Accuracy"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "CalibrationPoint",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Accuracy",
+            "ShowCategory": true
+          },
+          "DotNetName": "Accuracy"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Coordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "Coordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "MeanError",
+            "ShowCategory": true
+          },
+          "DotNetName": "MeanError"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "MeanEstimatedCoords",
+            "ShowCategory": true
+          },
+          "DotNetName": "MeanEstimatedCoords"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_NO_DATA"
+          },
+          "DotNetName": "STATE_NO_DATA"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_OK"
+          },
+          "DotNetName": "STATE_OK"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_RESAMPLE"
+          },
+          "DotNetName": "STATE_RESAMPLE"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "StandardDeviation",
+            "ShowCategory": true
+          },
+          "DotNetName": "StandardDeviation"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "State",
+            "ShowCategory": true
+          },
+          "DotNetName": "State"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.CalibrationPoint"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "CalibrationResult",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "AverageErrorDegree",
+            "ShowCategory": true
+          },
+          "DotNetName": "AverageErrorDegree"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "AverageErrorDegreeLeft",
+            "ShowCategory": true
+          },
+          "DotNetName": "AverageErrorDegreeLeft"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "AverageErrorDegreeRight",
+            "ShowCategory": true
+          },
+          "DotNetName": "AverageErrorDegreeRight"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Calibpoints",
+            "ShowCategory": true
+          },
+          "DotNetName": "Calibpoints"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Result",
+            "ShowCategory": true
+          },
+          "DotNetName": "Result"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.CalibrationResult"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "Eye",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "PupilCenterCoordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "PupilCenterCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "PupilSize",
+            "ShowCategory": true
+          },
+          "DotNetName": "PupilSize"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RawCoordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "RawCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "SmoothedCoordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "SmoothedCoordinates"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.Eye"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "GazeData",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasRawGazeCoordinates"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasRawGazeCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasSmoothedGazeCoordinates"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasSmoothedGazeCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "IsFixated",
+            "ShowCategory": true
+          },
+          "DotNetName": "IsFixated"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "LeftEye",
+            "ShowCategory": true
+          },
+          "DotNetName": "LeftEye"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RawCoordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "RawCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RightEye",
+            "ShowCategory": true
+          },
+          "DotNetName": "RightEye"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_TRACKING_EYES"
+          },
+          "DotNetName": "STATE_TRACKING_EYES"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_TRACKING_FAIL"
+          },
+          "DotNetName": "STATE_TRACKING_FAIL"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_TRACKING_GAZE"
+          },
+          "DotNetName": "STATE_TRACKING_GAZE"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_TRACKING_LOST"
+          },
+          "DotNetName": "STATE_TRACKING_LOST"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "STATE_TRACKING_PRESENCE"
+          },
+          "DotNetName": "STATE_TRACKING_PRESENCE"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "SmoothedCoordinates",
+            "ShowCategory": true
+          },
+          "DotNetName": "SmoothedCoordinates"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "State",
+            "ShowCategory": true
+          },
+          "DotNetName": "State"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "StateToString"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.String",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "StateToString"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "TIMESTAMP_STRING_FORMAT"
+          },
+          "DotNetName": "TIMESTAMP_STRING_FORMAT"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "TimeStamp",
+            "ShowCategory": true
+          },
+          "DotNetName": "TimeStamp"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "TimeStampString",
+            "ShowCategory": true
+          },
+          "DotNetName": "TimeStampString"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.GazeData"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "GazeManager",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "AddCalibrationResultListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ICalibrationResultListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "DotNetName": "AddCalibrationResultListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "AddConnectionStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IConnectionStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "DotNetName": "AddConnectionStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "AddGazeListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IGazeListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "DotNetName": "AddGazeListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "AddTrackerStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ITrackerStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "DotNetName": "AddTrackerStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationAbort"
+          },
+          "DotNetName": "CalibrationAbort"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationClear"
+          },
+          "DotNetName": "CalibrationClear"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationPointEnd"
+          },
+          "DotNetName": "CalibrationPointEnd"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationPointStart"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "x"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "y"
+            }
+          ],
+          "DotNetName": "CalibrationPointStart"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ClearListeners"
+          },
+          "DotNetName": "ClearListeners"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Deactivate"
+          },
+          "DotNetName": "Deactivate"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Framerate",
+            "ShowCategory": true
+          },
+          "DotNetName": "Framerate"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNumCalibrationResultListeners"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Int32",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNumCalibrationResultListeners"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNumConnectionStateListeners"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Int32",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNumConnectionStateListeners"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNumGazeListeners"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Int32",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNumGazeListeners"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNumTrackerStateListeners"
+          },
+          "ReturnValue": {
+            "TypeFullName": "System.Int32",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNumTrackerStateListeners"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasCalibrationResultListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ICalibrationResultListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasCalibrationResultListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasConnectionStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IConnectionStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasConnectionStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasGazeListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IGazeListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasGazeListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "HasTrackerStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ITrackerStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "HasTrackerStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "IsActivated",
+            "ShowCategory": true
+          },
+          "DotNetName": "IsActivated"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "IsCalibrated",
+            "ShowCategory": true
+          },
+          "DotNetName": "IsCalibrated"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "IsCalibrating",
+            "ShowCategory": true
+          },
+          "DotNetName": "IsCalibrating"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "IsConnected",
+            "ShowCategory": true
+          },
+          "DotNetName": "IsConnected"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "LastCalibrationResult",
+            "ShowCategory": true
+          },
+          "DotNetName": "LastCalibrationResult"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnGazeApiConnectionStateChanged"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Boolean",
+              "DotNetName": "isConnected"
+            }
+          ],
+          "DotNetName": "OnGazeApiConnectionStateChanged"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnGazeApiResponse"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.String",
+              "DotNetName": "response"
+            }
+          ],
+          "DotNetName": "OnGazeApiResponse"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RemoveCalibrationResultListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ICalibrationResultListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "RemoveCalibrationResultListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RemoveConnectionStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IConnectionStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "RemoveConnectionStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RemoveGazeListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.IGazeListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "RemoveGazeListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "RemoveTrackerStateListener"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.ITrackerStateListener",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Boolean",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "RemoveTrackerStateListener"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ScreenIndex",
+            "ShowCategory": true
+          },
+          "DotNetName": "ScreenIndex"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ScreenPhysicalHeight",
+            "ShowCategory": true
+          },
+          "DotNetName": "ScreenPhysicalHeight"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ScreenPhysicalWidth",
+            "ShowCategory": true
+          },
+          "DotNetName": "ScreenPhysicalWidth"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ScreenResolutionHeight",
+            "ShowCategory": true
+          },
+          "DotNetName": "ScreenResolutionHeight"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "ScreenResolutionWidth",
+            "ShowCategory": true
+          },
+          "DotNetName": "ScreenResolutionWidth"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "SwitchScreen"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenIndex"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenResW"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenResH"
+            },
+            {
+              "TypeFullName": "System.Single",
+              "DotNetName": "screenPsyW"
+            },
+            {
+              "TypeFullName": "System.Single",
+              "DotNetName": "screenPsyH"
+            }
+          ],
+          "DotNetName": "SwitchScreen"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Trackerstate",
+            "ShowCategory": true
+          },
+          "DotNetName": "Trackerstate"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "get_Instance"
+          },
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.GazeManager",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "get_Instance"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.GazeManager"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "GazeUtils",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Create"
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetDistancePoint2D"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "a"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "b"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Double",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetDistancePoint2D"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesCenterNormalized"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.GazeData",
+              "DotNetName": "gazeData"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesCenterNormalized"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesCenterNormalized",
+            "Version": "Eye Eye"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "leftEye"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "rightEye"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesCenterNormalized"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesCenterPixels"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.GazeData",
+              "DotNetName": "gazeData"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenHeight"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesCenterPixels"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesCenterPixels",
+            "Version": "Eye Eye Int32 Int32"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "leftEye"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "rightEye"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenHeight"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesCenterPixels"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesDistanceNormalized"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.GazeData",
+              "DotNetName": "gazeData"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Double",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesDistanceNormalized"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetEyesDistanceNormalized",
+            "Version": "Eye Eye"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "leftEye"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.Data.Eye",
+              "DotNetName": "rightEye"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Double",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetEyesDistanceNormalized"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNormalizedCoords"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "point"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenHeight"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNormalizedCoords"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetNormalizedMapping"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "point"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenHeight"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetNormalizedMapping"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetRelativeToScreenSpace"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "point"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenHeight"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.Data.Point2D",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetRelativeToScreenSpace"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetTimeDeltaNow"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.GazeData",
+              "DotNetName": "gazeData"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.Int64",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetTimeDeltaNow"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.GazeUtils"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "ICalibrationProcessHandler",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "OnCalibrationProcessing"
+          },
+          "DotNetName": "OnCalibrationProcessing"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnCalibrationProgress"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "progress"
+            }
+          ],
+          "DotNetName": "OnCalibrationProgress"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnCalibrationResult"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.CalibrationResult",
+              "DotNetName": "calibResult"
+            }
+          ],
+          "DotNetName": "OnCalibrationResult"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnCalibrationStarted"
+          },
+          "DotNetName": "OnCalibrationStarted"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.ICalibrationProcessHandler"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "ICalibrationResultListener",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "OnCalibrationChanged"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Boolean",
+              "DotNetName": "isCalibrated"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.Data.CalibrationResult",
+              "DotNetName": "calibResult"
+            }
+          ],
+          "DotNetName": "OnCalibrationChanged"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.ICalibrationResultListener"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "IConnectionStateListener",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "OnConnectionStateChanged"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Boolean",
+              "DotNetName": "isConnected"
+            }
+          ],
+          "DotNetName": "OnConnectionStateChanged"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.IConnectionStateListener"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "IGazeListener",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "OnGazeUpdate"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.GazeData",
+              "DotNetName": "gazeData"
+            }
+          ],
+          "DotNetName": "OnGazeUpdate"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.IGazeListener"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "ITrackerStateListener",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "OnScreenStatesChanged"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenIndex"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenResolutionWidth"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "screenResolutionHeight"
+            },
+            {
+              "TypeFullName": "System.Single",
+              "DotNetName": "screenPhysicalWidth"
+            },
+            {
+              "TypeFullName": "System.Single",
+              "DotNetName": "screenPhysicalHeight"
+            }
+          ],
+          "DotNetName": "OnScreenStatesChanged"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "OnTrackerStateChanged"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.GazeManager.TrackerState",
+              "DotNetName": "trackerState"
+            }
+          ],
+          "DotNetName": "OnTrackerStateChanged"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.ITrackerStateListener"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "MeanError",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Average",
+            "ShowCategory": true
+          },
+          "DotNetName": "Average"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create"
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Left",
+            "ShowCategory": true
+          },
+          "DotNetName": "Left"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Right",
+            "ShowCategory": true
+          },
+          "DotNetName": "Right"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.MeanError"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "Point2D",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Create"
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "Version": "Double Double"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "x"
+            },
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "y"
+            }
+          ],
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "Version": "Point2D"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point2D",
+              "DotNetName": "point"
+            }
+          ],
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "X",
+            "ShowCategory": true
+          },
+          "DotNetName": "X"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Y",
+            "ShowCategory": true
+          },
+          "DotNetName": "Y"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.Point2D"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "Point3D",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Create"
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "Version": "Double Double Double"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "x"
+            },
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "y"
+            },
+            {
+              "TypeFullName": "System.Double",
+              "DotNetName": "z"
+            }
+          ],
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "Version": "Point3D"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.Data.Point3D",
+              "DotNetName": "other"
+            }
+          ],
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Z",
+            "ShowCategory": true
+          },
+          "DotNetName": "Z"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.Point3D"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "StandardDeviation",
+        "Category": "TETCSharpClient.Data"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Average",
+            "ShowCategory": true
+          },
+          "DotNetName": "Average"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Create",
+            "IsDefaultValue": true
+          },
+          "DotNetName": ".ctor"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Left",
+            "ShowCategory": true
+          },
+          "DotNetName": "Left"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Right",
+            "ShowCategory": true
+          },
+          "DotNetName": "Right"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.Data.StandardDeviation"
+    }
+  ],
+  "DotNetName": "TETCSharpClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+}

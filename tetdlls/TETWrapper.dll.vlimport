@@ -1,0 +1,201 @@
+{
+  "Version": 2,
+  "Types": [
+    {
+      "TypeAttribute": {
+        "Name": "CalibrationNotificationType",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationProcessing"
+          },
+          "DotNetName": "CalibrationProcessing"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationProgress"
+          },
+          "DotNetName": "CalibrationProgress"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationResult"
+          },
+          "DotNetName": "CalibrationResult"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationStarted"
+          },
+          "DotNetName": "CalibrationStarted"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.CalibrationNotificationType"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "CalibrationPointState",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Calibrating"
+          },
+          "DotNetName": "Calibrating"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Idle"
+          },
+          "DotNetName": "Idle"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Inactive"
+          },
+          "DotNetName": "Inactive"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.CalibrationPointState"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "CalibrationState",
+        "Category": "TETCSharpClient"
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "AllDataCollected"
+          },
+          "DotNetName": "AllDataCollected"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Calibrating"
+          },
+          "DotNetName": "Calibrating"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Computing"
+          },
+          "DotNetName": "Computing"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Done"
+          },
+          "DotNetName": "Done"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Error"
+          },
+          "DotNetName": "Error"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "Inactive"
+          },
+          "DotNetName": "Inactive"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.CalibrationState"
+    },
+    {
+      "TypeAttribute": {
+        "Name": "TETHelper",
+        "Category": "TETCSharpClient",
+        "IsImmutable": true
+      },
+      "Members": [
+        {
+          "NodeAttribute": {
+            "Name": "Activate",
+            "Category": "TETCSharpClient"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.GazeManager",
+              "DotNetName": "gazemanager"
+            }
+          ],
+          "DotNetName": "Activate"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CalibrationStart",
+            "Category": "TETCSharpClient"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.GazeManager",
+              "DotNetName": "gazemanager"
+            },
+            {
+              "TypeFullName": "System.Int32",
+              "DotNetName": "numCalibrationPoints"
+            },
+            {
+              "TypeFullName": "TETCSharpClient.ICalibrationProcessHandler",
+              "DotNetName": "listener"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.GazeManager",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "CalibrationStart"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "CreateWorkaround",
+            "Category": "TETCSharpClient"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "System.Func<System.IObserver<TData>, System.Tuple<TSubscriptionData, System.Action<TSubscriptionData>>>",
+              "DotNetName": "onSubscribe"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "System.IObservable<TData>",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "CreateWorkaround"
+        },
+        {
+          "NodeAttribute": {
+            "Name": "GetTrackerState",
+            "Category": "TETCSharpClient"
+          },
+          "Parameters": [
+            {
+              "TypeFullName": "TETCSharpClient.GazeManager",
+              "DotNetName": "gazemanager"
+            },
+            {
+              "TypeFullName": "out System.String",
+              "PinDirection": 1,
+              "DotNetName": "state"
+            }
+          ],
+          "ReturnValue": {
+            "TypeFullName": "TETCSharpClient.GazeManager",
+            "PinDirection": 1,
+            "DotNetName": "return"
+          },
+          "DotNetName": "GetTrackerState"
+        }
+      ],
+      "DotNetName": "TETCSharpClient.TETHelper"
+    }
+  ],
+  "DotNetName": "TETWrapper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+}
