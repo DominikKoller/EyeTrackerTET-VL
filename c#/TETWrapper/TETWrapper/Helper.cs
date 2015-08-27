@@ -31,24 +31,18 @@ namespace TETCSharpClient
             return gazemanager;
         }
 
-        // Workaround: VL is very strict in regards to mutablility. 
-        // Patch would've gotten very complex as data linked into delegate regions needs to be immutable.
-        public static IObservable<TData> CreateWorkaround<TData, TSubscriptionData>(
-            Func<IObserver<TData>, Tuple<TSubscriptionData, Action<TSubscriptionData>>> onSubscribe)
+        // Workaround: VL is very strict in regards to mutablility: Data linked into delegate regions needs to be immutable.
+        // Therefore explicetly pipe data from subscribe to unsubscribe. This data we call "TDataForUnsubscribe"
+        public static IObservable<TData> CreateObservable<TData, TDataForUnsubscribe>(
+            Func<IObserver<TData>, TDataForUnsubscribe> onSubscribe, 
+            Action<TDataForUnsubscribe> onUnsubscribe)
         {
             return
               Observable.Create<TData>((observer) =>
-                  {
-                      Action subscribeAction;
-                      var subscribeResult = onSubscribe(observer);
-
-                      var subscriptionData = subscribeResult.Item1;
-                      var unsubscriptionAction = subscribeResult.Item2;
-
-                      subscribeAction = () => { unsubscriptionAction(subscriptionData); };
-
-                      return subscribeAction;
-                  });
+              {
+                  var dataForUnsubscribe = onSubscribe(observer);
+                  return () => { onUnsubscribe(dataForUnsubscribe); };               
+              });
         }
     }
 

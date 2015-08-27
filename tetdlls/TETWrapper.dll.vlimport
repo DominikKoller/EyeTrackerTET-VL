@@ -154,13 +154,17 @@
         },
         {
           "NodeAttribute": {
-            "Name": "CreateWorkaround",
+            "Name": "CreateObservable",
             "Category": "TETCSharpClient"
           },
           "Parameters": [
             {
-              "TypeFullName": "System.Func<System.IObserver<TData>, System.Tuple<TSubscriptionData, System.Action<TSubscriptionData>>>",
+              "TypeFullName": "System.Func<System.IObserver<TData>, TDataForUnsubscribe>",
               "DotNetName": "onSubscribe"
+            },
+            {
+              "TypeFullName": "System.Action<TDataForUnsubscribe>",
+              "DotNetName": "onUnsubscribe"
             }
           ],
           "ReturnValue": {
@@ -168,7 +172,7 @@
             "PinDirection": 1,
             "DotNetName": "return"
           },
-          "DotNetName": "CreateWorkaround"
+          "DotNetName": "CreateObservable"
         },
         {
           "NodeAttribute": {

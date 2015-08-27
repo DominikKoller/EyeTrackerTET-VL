@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VLDOCUMENT Version="0.31.1173.0">
+<VLDOCUMENT Version="0.31.1172.0">
   <DEPENDENCIES>
     <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
     <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
@@ -285,11 +285,11 @@
           </INLET>
         </INLETS>
         <OUTLETS>
+          <OUTLET Name="OCalibrationData" Layer="Create" PadType="Field">
+            <POSITION x="-386.6133" y="645.1629" />
+          </OUTLET>
           <OUTLET Name="CalibrationData#2" Layer="GetCalibrationData">
             <POSITION x="-384.957336" y="882.010559" />
-          </OUTLET>
-          <OUTLET Name="OCalibrationData" Layer="Create" PadType="Field">
-            <POSITION x="-383.654327" y="767.5609" />
           </OUTLET>
           <OUTLET Name="CalibrationPointsPositions" Layer="Create" PadType="Field">
             <POSITION x="43.7700348" y="225.937332" />
@@ -333,300 +333,11 @@
           </CONST>
           <CONST Name="comment#1" Layer="Update" Type="String">
             <POSITION x="2175.52246" y="999.120239" />
-            <SIZE width="210.062225" height="10.7563477" />
+            <SIZE width="210.062241" height="13.0400391" />
             <VALUE><![CDATA["< Yes, this is a mess and will be cleaned up."]]></VALUE>
           </CONST>
         </CONSTS>
         <REGIONS>
-          <REGION Name="Create2" Layer="Create" Kind="HigherOrderFunction">
-            <POSITION x="-379.6746" y="150.207352" />
-            <SIZE x="100" y="100" />
-            <NODEREF LastCat="TETCSharpClient" LastFile="TETWrapper.dll">
-              <OPERATIONNODE Name="CreateWorkaround" />
-            </NODEREF>
-            <INPUTS />
-            <OUTPUTS>
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-            <BODY Name="Create2Body">
-              <LAYERS>
-                <LAYER Name="On Subscribe" />
-              </LAYERS>
-              <INLETS>
-                <INLET Name="Source" Layer="On Subscribe">
-                  <POSITION x="-377.1746" y="153.81604" />
-                </INLET>
-              </INLETS>
-              <OUTLETS>
-                <OUTLET Name="Result" Layer="On Subscribe">
-                  <POSITION x="-361.5508" y="738.9098" />
-                </OUTLET>
-              </OUTLETS>
-              <CONSTS />
-              <REGIONS>
-                <REGION Name="Abstraction" Layer="On Subscribe" Kind="Abstraction">
-                  <POSITION x="-319.7735" y="470.432556" />
-                  <SIZE x="80" y="80" />
-                  <INPUTS />
-                  <OUTPUTS>
-                    <OUPUT Name="Functionality" />
-                  </OUTPUTS>
-                  <BODY Name="AbstractionBody">
-                    <LAYERS>
-                      <LAYER Name="Update" />
-                    </LAYERS>
-                    <INLETS>
-                      <INLET Name="Input" Layer="Update">
-                        <POSITION x="-317.2735" y="470.81073" />
-                      </INLET>
-                    </INLETS>
-                    <OUTLETS />
-                    <CONSTS />
-                    <REGIONS />
-                    <NODES>
-                      <OPERATION Name="CalibrationAbort" Layer="Update">
-                        <POSITION x="-304.2187" y="570.947" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                          <OPERATIONNODE Name="CalibrationAbort" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="Input" />
-                          <INPUT Name="Enabled" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="Output" />
-                        </OUTPUTS>
-                      </OPERATION>
-                      <OPERATION Name="get_Instance" Layer="Update">
-                        <POSITION x="-304.8721" y="501.759277" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                          <OPERATIONNODE Name="get_Instance" />
-                        </NODEREF>
-                        <INPUTS />
-                        <OUTPUTS>
-                          <OUPUT Name="Result" />
-                        </OUTPUTS>
-                      </OPERATION>
-                      <OPERATION Name="Deactivate" Layer="Update">
-                        <POSITION x="-302.8198" y="641.3165" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                          <OPERATIONNODE Name="Deactivate" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="Input" />
-                          <INPUT Name="Enabled" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="Output" />
-                        </OUTPUTS>
-                      </OPERATION>
-                      <OPERATION Name="NOT" Layer="Update">
-                        <POSITION x="-211.404175" y="625.537964" />
-                        <NODEREF LastCat="Control.Boolean" LastFile="VL.Lib.Basics.dll">
-                          <OPERATIONNODE Name="NOT" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="Input" />
-                          <INPUT Name="Enabled" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="Output" />
-                        </OUTPUTS>
-                      </OPERATION>
-                      <OPERATION Name="IsCalibrating" Layer="Update">
-                        <POSITION x="-304.449554" y="535.3699" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                          <OPERATIONNODE Name="IsCalibrating" />
-                          <CATEGORY Name="GazeManager" IsDirectParent="true" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="Input" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="Output" />
-                          <OUPUT Name="Is Calibrating" />
-                        </OUTPUTS>
-                      </OPERATION>
-                      <OPERATION Name="HasListeners#1" Layer="Update">
-                        <POSITION x="-303.763458" y="607.7136" />
-                        <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
-                          <OPERATIONNODE Name="HasListeners" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="GazeManager" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="GazeManager" />
-                          <OUPUT Name="HasListeners" />
-                        </OUTPUTS>
-                      </OPERATION>
-                    </NODES>
-                    <LINKS>
-                      <Link source="Nodes/IsCalibrating/Outputs/Output" sink="Nodes/CalibrationAbort/Inputs/Input" />
-                      <Link source="Nodes/IsCalibrating/Outputs/Is Calibrating" sink="Nodes/CalibrationAbort/Inputs/Enabled" />
-                      <Link source="Nodes/NOT/Outputs/Output" sink="Nodes/Deactivate/Inputs/Enabled" />
-                      <Link source="Nodes/CalibrationAbort/Outputs/Output" sink="Nodes/HasListeners#1/Inputs/GazeManager" />
-                      <Link source="Nodes/HasListeners#1/Outputs/GazeManager" sink="Nodes/Deactivate/Inputs/Input" />
-                      <Link source="Nodes/HasListeners#1/Outputs/HasListeners" sink="Nodes/NOT/Inputs/Input" />
-                      <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsCalibrating/Inputs/Input" />
-                    </LINKS>
-                  </BODY>
-                </REGION>
-                <REGION Name="IfElse" Layer="On Subscribe" Kind="IfElse">
-                  <POSITION x="-218.966644" y="270.902771" />
-                  <SIZE x="80" y="80" />
-                  <INPUTS>
-                    <INPUT Name="Condition" />
-                    <INPUT Name="Output Default" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                  <BODY Name="IfElseBody">
-                    <LAYERS>
-                      <LAYER Name="True" />
-                    </LAYERS>
-                    <INLETS>
-                      <INLET Name="Output" Layer="True">
-                        <POSITION x="-216.466644" y="272.280945" />
-                      </INLET>
-                    </INLETS>
-                    <OUTLETS>
-                      <OUTLET Name="Output" Layer="True">
-                        <POSITION x="-215.844208" y="354.981842" />
-                      </OUTLET>
-                    </OUTLETS>
-                    <CONSTS />
-                    <REGIONS />
-                    <NODES>
-                      <OPERATION Name="Activate" Layer="True">
-                        <POSITION x="-214.108826" y="308.279755" />
-                        <NODEREF LastCat="TETCSharpClient" LastFile="TETWrapper.dll">
-                          <OPERATIONNODE Name="Activate" />
-                        </NODEREF>
-                        <INPUTS>
-                          <INPUT Name="Gazemanager" />
-                        </INPUTS>
-                        <OUTPUTS>
-                          <OUPUT Name="Output" />
-                        </OUTPUTS>
-                      </OPERATION>
-                    </NODES>
-                    <LINKS>
-                      <Link source="Inlets/Output" sink="Nodes/Activate/Inputs/Gazemanager" />
-                      <Link source="Nodes/Activate/Outputs/Output" sink="Outlets/Output" />
-                    </LINKS>
-                  </BODY>
-                </REGION>
-              </REGIONS>
-              <NODES>
-                <OPERATION Name="Join" Layer="On Subscribe">
-                  <POSITION x="-359.0798" y="708.350342" />
-                  <NODEREF LastCat="Primitive.Tuple (2 Items)" LastFile="CommonLanguageRuntimeLibrary">
-                    <CATEGORY Name="Tuple (2 Items)" />
-                    <OPERATIONNODE Name="Join" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Item 1" />
-                    <INPUT Name="Item 2" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="Create" Layer="On Subscribe">
-                  <POSITION x="-373.882416" y="191.2876" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationProcessHandlerAdapter" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="Create" />
-                    <CATEGORY Name="CalibrationProcessHandlerAdapter" IsDirectParent="true" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Observer" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="ShareInstance" Layer="On Subscribe">
-                  <POSITION x="-374.1633" y="310.832336" />
-                  <NODEREF LastCat="Primitive.Object" LastFile="VL.Lib.Basics.dll">
-                    <OPERATIONNODE Name="ShareInstance" Version="KillTheSystemsExpectations" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Instance" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output 1" />
-                    <OUPUT Name="Output 2" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="CalibrationStart" Layer="On Subscribe">
-                  <POSITION x="-334.7991" y="439.8531" />
-                  <NODEREF LastFile="TETWrapper.dll">
-                    <OPERATIONNODE Name="CalibrationStart" />
-                    <CATEGORYPATH Name="TETCSharpClient" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Gazemanager" />
-                    <INPUT Name="Num Calibration Points" />
-                    <INPUT Name="Listener" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="get_Instance" Layer="On Subscribe">
-                  <POSITION x="-215.738739" y="173.207352" />
-                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                    <OPERATIONNODE Name="get_Instance" />
-                  </NODEREF>
-                  <INPUTS />
-                  <OUTPUTS>
-                    <OUPUT Name="Result" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="IsActivated" Layer="On Subscribe">
-                  <POSITION x="-215.7388" y="205.964737" />
-                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-                    <OPERATIONNODE Name="IsActivated" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Input" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                    <OUPUT Name="Is Activated" />
-                  </OUTPUTS>
-                </OPERATION>
-                <OPERATION Name="NOT" Layer="On Subscribe">
-                  <POSITION x="-184.437286" y="241.633926" />
-                  <NODEREF LastCat="Control.Boolean" LastFile="VL.Lib.Basics.dll">
-                    <OPERATIONNODE Name="NOT" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Input" />
-                    <INPUT Name="Enabled" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                </OPERATION>
-              </NODES>
-              <LINKS>
-                <Link source="Nodes/Join/Outputs/Output" sink="Outlets/Result" />
-                <Link source="Regions/Abstraction/Outputs/Functionality" sink="Nodes/Join/Inputs/Item 2" />
-                <Link source="Inlets/Source" sink="Nodes/Create/Inputs/Observer" />
-                <Link source="Nodes/Create/Outputs/Output" sink="Nodes/ShareInstance/Inputs/Instance" />
-                <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsActivated/Inputs/Input" />
-                <Link source="Nodes/IsActivated/Outputs/Is Activated" sink="Nodes/NOT/Inputs/Input" />
-                <Link source="Nodes/NOT/Outputs/Output" sink="Regions/IfElse/Inputs/Condition" />
-                <Link source="Nodes/IsActivated/Outputs/Output" sink="Regions/IfElse/Inputs/Output Default" />
-                <Link source="Regions/IfElse/Outputs/Output" sink="Nodes/CalibrationStart/Inputs/Gazemanager" />
-                <Link source="Nodes/ShareInstance/Outputs/Output 1" sink="Nodes/Join/Inputs/Item 1" />
-                <Link source="Nodes/ShareInstance/Outputs/Output 2" sink="Nodes/CalibrationStart/Inputs/Listener" />
-              </LINKS>
-            </BODY>
-          </REGION>
           <REGION Name="ForEachLoop#1" Layer="Update" Kind="ForEachLoop">
             <POSITION x="1149.44678" y="148.845337" />
             <SIZE x="80" y="80" />
@@ -893,7 +604,7 @@
                 </CONST>
                 <CONST Name="comment" Layer="True" Type="String">
                   <POSITION x="1502.179" y="1069.786" />
-                  <SIZE width="293.51532" height="10.7563477" />
+                  <SIZE width="293.51532" height="16.14685" />
                   <VALUE><![CDATA["Check if CurrentCalibrationpoint is due to be Started or Ended"]]></VALUE>
                 </CONST>
                 <CONST Name="state#1" Layer="True">
@@ -1537,6 +1248,258 @@
               </LINKS>
             </BODY>
           </REGION>
+          <REGION Name="Abstraction" Layer="Create" Kind="Abstraction">
+            <POSITION x="-383.447662" y="281.1478" />
+            <SIZE x="80" y="80" />
+            <INPUTS />
+            <OUTPUTS>
+              <OUPUT Name="Functionality" />
+            </OUTPUTS>
+            <BODY Name="AbstractionBody">
+              <LAYERS>
+                <LAYER Name="Update" />
+              </LAYERS>
+              <INLETS>
+                <INLET Name="Observer" Layer="Update">
+                  <POSITION x="-255.964142" y="289.772217" />
+                </INLET>
+              </INLETS>
+              <OUTLETS>
+                <OUTLET Name="OnUnsubscribe" Layer="Update">
+                  <POSITION x="-55.23871" y="548.076355" />
+                </OUTLET>
+              </OUTLETS>
+              <CONSTS />
+              <REGIONS>
+                <REGION Name="Abstraction" Layer="Update" Kind="Abstraction">
+                  <POSITION x="-54.4506836" y="339.219" />
+                  <SIZE x="80" y="80" />
+                  <INPUTS />
+                  <OUTPUTS>
+                    <OUPUT Name="Functionality" />
+                  </OUTPUTS>
+                  <BODY Name="AbstractionBody">
+                    <LAYERS>
+                      <LAYER Name="Update" />
+                    </LAYERS>
+                    <INLETS />
+                    <OUTLETS />
+                    <CONSTS />
+                    <REGIONS />
+                    <NODES>
+                      <OPERATION Name="CalibrationAbort" Layer="Update">
+                        <POSITION x="-48.7973633" y="416.406738" />
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                          <OPERATIONNODE Name="CalibrationAbort" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="Input" />
+                          <INPUT Name="Enabled" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="Output" />
+                        </OUTPUTS>
+                      </OPERATION>
+                      <OPERATION Name="get_Instance" Layer="Update">
+                        <POSITION x="-49.4506836" y="347.219" />
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                          <OPERATIONNODE Name="get_Instance" />
+                        </NODEREF>
+                        <INPUTS />
+                        <OUTPUTS>
+                          <OUPUT Name="Result" />
+                        </OUTPUTS>
+                      </OPERATION>
+                      <OPERATION Name="Deactivate" Layer="Update">
+                        <POSITION x="-47.3983154" y="486.776245" />
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                          <OPERATIONNODE Name="Deactivate" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="Input" />
+                          <INPUT Name="Enabled" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="Output" />
+                        </OUTPUTS>
+                      </OPERATION>
+                      <OPERATION Name="NOT" Layer="Update">
+                        <POSITION x="44.0172119" y="470.997681" />
+                        <NODEREF LastCat="Control.Boolean" LastFile="VL.Lib.Basics.dll">
+                          <OPERATIONNODE Name="NOT" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="Input" />
+                          <INPUT Name="Enabled" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="Output" />
+                        </OUTPUTS>
+                      </OPERATION>
+                      <OPERATION Name="IsCalibrating" Layer="Update">
+                        <POSITION x="-49.0280762" y="380.8296" />
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                          <OPERATIONNODE Name="IsCalibrating" />
+                          <CATEGORY Name="GazeManager" IsDirectParent="true" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="Input" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="Output" />
+                          <OUPUT Name="Is Calibrating" />
+                        </OUTPUTS>
+                      </OPERATION>
+                      <OPERATION Name="HasListeners#1" Layer="Update">
+                        <POSITION x="-48.34204" y="453.17334" />
+                        <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                          <OPERATIONNODE Name="HasListeners" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="GazeManager" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="GazeManager" />
+                          <OUPUT Name="HasListeners" />
+                        </OUTPUTS>
+                      </OPERATION>
+                    </NODES>
+                    <LINKS>
+                      <Link source="Nodes/IsCalibrating/Outputs/Output" sink="Nodes/CalibrationAbort/Inputs/Input" />
+                      <Link source="Nodes/IsCalibrating/Outputs/Is Calibrating" sink="Nodes/CalibrationAbort/Inputs/Enabled" />
+                      <Link source="Nodes/NOT/Outputs/Output" sink="Nodes/Deactivate/Inputs/Enabled" />
+                      <Link source="Nodes/CalibrationAbort/Outputs/Output" sink="Nodes/HasListeners#1/Inputs/GazeManager" />
+                      <Link source="Nodes/HasListeners#1/Outputs/GazeManager" sink="Nodes/Deactivate/Inputs/Input" />
+                      <Link source="Nodes/HasListeners#1/Outputs/HasListeners" sink="Nodes/NOT/Inputs/Input" />
+                      <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsCalibrating/Inputs/Input" />
+                    </LINKS>
+                  </BODY>
+                </REGION>
+                <REGION Name="IfElse" Layer="Update" Kind="IfElse">
+                  <POSITION x="-345.1957" y="401.843231" />
+                  <SIZE x="80" y="80" />
+                  <INPUTS>
+                    <INPUT Name="Condition" />
+                    <INPUT Name="Output Default" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                  <BODY Name="IfElseBody">
+                    <LAYERS>
+                      <LAYER Name="True" />
+                    </LAYERS>
+                    <INLETS>
+                      <INLET Name="Output" Layer="True">
+                        <POSITION x="-342.553558" y="403.2214" />
+                      </INLET>
+                    </INLETS>
+                    <OUTLETS>
+                      <OUTLET Name="Output" Layer="True">
+                        <POSITION x="-341.567474" y="482.96402" />
+                      </OUTLET>
+                    </OUTLETS>
+                    <CONSTS />
+                    <REGIONS />
+                    <NODES>
+                      <OPERATION Name="Activate" Layer="True">
+                        <POSITION x="-340.1957" y="439.220154" />
+                        <NODEREF LastCat="TETCSharpClient" LastFile="TETWrapper.dll">
+                          <OPERATIONNODE Name="Activate" />
+                        </NODEREF>
+                        <INPUTS>
+                          <INPUT Name="Gazemanager" />
+                        </INPUTS>
+                        <OUTPUTS>
+                          <OUPUT Name="Output" />
+                        </OUTPUTS>
+                      </OPERATION>
+                    </NODES>
+                    <LINKS>
+                      <Link source="Inlets/Output" sink="Nodes/Activate/Inputs/Gazemanager" />
+                      <Link source="Nodes/Activate/Outputs/Output" sink="Outlets/Output" />
+                    </LINKS>
+                  </BODY>
+                </REGION>
+              </REGIONS>
+              <NODES>
+                <OPERATION Name="CalibrationStart" Layer="Update">
+                  <POSITION x="-341.4749" y="521.1833" />
+                  <NODEREF LastFile="TETWrapper.dll">
+                    <OPERATIONNODE Name="CalibrationStart" />
+                    <CATEGORYPATH Name="TETCSharpClient" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Gazemanager" />
+                    <INPUT Name="Num Calibration Points" />
+                    <INPUT Name="Listener" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="NOT" Layer="Update">
+                  <POSITION x="-310.524139" y="372.574371" />
+                  <NODEREF LastCat="Control.Boolean" LastFile="VL.Lib.Basics.dll">
+                    <OPERATIONNODE Name="NOT" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                    <INPUT Name="Enabled" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="IsActivated" Layer="Update">
+                  <POSITION x="-341.825653" y="336.905182" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="IsActivated" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Input" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                    <OUPUT Name="Is Activated" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="Create" Layer="Update">
+                  <POSITION x="-254.400787" y="319.025" />
+                  <NODEREF LastCat="TheEyeTribe.CalibrationProcessHandlerAdapter" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="Create" />
+                    <CATEGORY Name="CalibrationProcessHandlerAdapter" IsDirectParent="true" />
+                  </NODEREF>
+                  <INPUTS>
+                    <INPUT Name="Observer" />
+                  </INPUTS>
+                  <OUTPUTS>
+                    <OUPUT Name="Output" />
+                  </OUTPUTS>
+                </OPERATION>
+                <OPERATION Name="get_Instance" Layer="Update">
+                  <POSITION x="-341.825653" y="304.1478" />
+                  <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+                    <OPERATIONNODE Name="get_Instance" />
+                  </NODEREF>
+                  <INPUTS />
+                  <OUTPUTS>
+                    <OUPUT Name="Result" />
+                  </OUTPUTS>
+                </OPERATION>
+              </NODES>
+              <LINKS>
+                <Link source="Regions/Abstraction/Outputs/Functionality" sink="Outlets/OnUnsubscribe" />
+                <Link source="Regions/IfElse/Outputs/Output" sink="Nodes/CalibrationStart/Inputs/Gazemanager" />
+                <Link source="Nodes/NOT/Outputs/Output" sink="Regions/IfElse/Inputs/Condition" />
+                <Link source="Nodes/IsActivated/Outputs/Output" sink="Regions/IfElse/Inputs/Output Default" />
+                <Link source="Nodes/IsActivated/Outputs/Is Activated" sink="Nodes/NOT/Inputs/Input" />
+                <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsActivated/Inputs/Input" />
+                <Link source="Inlets/Observer" sink="Nodes/Create/Inputs/Observer" />
+                <Link source="Nodes/Create/Outputs/Output" sink="Nodes/CalibrationStart/Inputs/Listener" />
+              </LINKS>
+            </BODY>
+          </REGION>
         </REGIONS>
         <NODES>
           <OPERATION Name="Create" Layer="Create">
@@ -1567,7 +1530,7 @@
             </FRAGMENTS>
           </PROCESS>
           <OPERATION Name="Count" Layer="Create">
-            <POSITION x="-103.030518" y="194.151077" />
+            <POSITION x="-88.48176" y="196.575867" />
             <NODEREF LastCat="Collections.Spread" LastFile="VL.Core.dll">
               <OPERATIONNODE Name="Count" />
               <CATEGORY Name="Spread" IsDirectParent="true" />
@@ -1663,9 +1626,20 @@
               <OUPUT Name="Output" />
             </OUTPUTS>
           </OPERATION>
+          <OPERATION Name="Create#1" Layer="Create">
+            <POSITION x="-382.482574" y="598.6067" />
+            <NODEREF LastCat="Reactive.Observable" LastFile="System.Reactive.Linq.dll">
+              <OPERATIONNODE Name="Create" Version="Action" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Subscribe" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
         </NODES>
         <LINKS>
-          <Link source="Regions/Create2/Outputs/Result" sink="Outlets/OCalibrationData" />
           <Link source="Inlets/OCalibrationData" sink="Nodes/Sampler/Inputs/Async Notifications" />
           <Link source="Nodes/Sampler/Outputs/Notifications" sink="Regions/ForEachLoop#1/Inputs/CalibrationNotifications" />
           <Link source="Inlets/CalibrationData" sink="Regions/ForEachLoop#1/Inputs/CalibrationData" />
@@ -1694,13 +1668,16 @@
           <Link source="Inlets/CalibrationPoints" sink="Outlets/CalibrationPointsPositions" />
           <Link source="Inlets/CalibrationPointsPositions" sink="Regions/ForEachLoop#1/ForEachLoopBody/Nodes/InitializeCalibration/Inputs/CalibrationPointsPositions" />
           <Link source="Inlets/CalibrationPoints" sink="Nodes/Count/Inputs/Input" />
-          <Link source="Nodes/Count/Outputs/Count" sink="Regions/Create2/Create2Body/Nodes/CalibrationStart/Inputs/Num Calibration Points">
-            <SEGMENTS>
-              <Point x="-51.8966064" y="203.3127" />
-            </SEGMENTS>
-          </Link>
           <Link source="Inlets/PointIdleTime#1" sink="Regions/ForEachLoop#1/ForEachLoopBody/Nodes/InitializeCalibration/Inputs/Idle Timespan" />
           <Link source="Inlets/PointCalibrationTime#1" sink="Regions/ForEachLoop#1/ForEachLoopBody/Nodes/InitializeCalibration/Inputs/Calibration Timespan" />
+          <Link source="Nodes/Create#1/Outputs/Result" sink="Outlets/OCalibrationData" />
+          <Link source="Regions/Abstraction/Outputs/Functionality" sink="Nodes/Create#1/Inputs/Subscribe" />
+          <Link source="Nodes/Count/Outputs/Count" sink="Regions/Abstraction/AbstractionBody/Nodes/CalibrationStart/Inputs/Num Calibration Points">
+            <SEGMENTS>
+              <Point x="-0.8239441" y="280.3523" />
+              <Point x="-213.819855" y="283.310577" />
+            </SEGMENTS>
+          </Link>
         </LINKS>
       </BODY>
     </PATCH>
