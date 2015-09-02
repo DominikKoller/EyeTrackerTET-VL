@@ -28,31 +28,20 @@
       <BODY Name="TemplatePatch">
         <LAYERS>
           <LAYER Name="Create" />
-          <LAYER Name="Update" />
           <LAYER Name="Destroy" />
-          <LAYER Name="GetGazeData" />
-          <LAYER Name="GetTrackerState" />
+          <LAYER Name="GetObservable" />
         </LAYERS>
         <INLETS>
-          <INLET Name="OGazeData" Layer="Update" PadType="Field">
-            <POSITION x="904.6216" y="254.629181" />
-          </INLET>
-          <INLET Name="GazeData" Layer="Update" PadType="Field">
-            <POSITION x="1027.0835" y="289.857025" />
-          </INLET>
-          <INLET Name="GazeData#1" Layer="GetGazeData" PadType="Field">
-            <POSITION x="1131.00146" y="305.9407" />
+          <INLET Name="OGazeData#1" Layer="GetObservable" PadType="Field">
+            <POSITION x="392.836121" y="569.7866" />
           </INLET>
         </INLETS>
         <OUTLETS>
+          <OUTLET Name="GazeData#1" Layer="GetObservable">
+            <POSITION x="392.836121" y="604.696167" />
+          </OUTLET>
           <OUTLET Name="OGazeData" Layer="Create" PadType="Field">
             <POSITION x="393.402344" y="518.723" />
-          </OUTLET>
-          <OUTLET Name="GazeData" Layer="Update" PadType="Field">
-            <POSITION x="1026.47949" y="347.844" />
-          </OUTLET>
-          <OUTLET Name="GazeData#1" Layer="GetGazeData">
-            <POSITION x="1131.00146" y="340.85025" />
           </OUTLET>
         </OUTLETS>
         <CONSTS />
@@ -360,36 +349,6 @@
           </REGION>
         </REGIONS>
         <NODES>
-          <PROCESS Name="Sampler">
-            <POSITION x="906.5623" y="283.550751" />
-            <NODEREF LastCat="Reactive" LastFile="VL.Lib.Basics.dll">
-              <PROCESSNODE Name="Sampler" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Async Notifications" FragmentId="Sample" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" FragmentId="Sample" />
-              <OUPUT Name="Notifications" FragmentId="Sample" />
-            </OUTPUTS>
-            <FRAGMENTS>
-              <FRAGMENT Name="Sample" Layer="Update" />
-            </FRAGMENTS>
-          </PROCESS>
-          <OPERATION Name="LastOrDefault" Layer="Update">
-            <POSITION x="944.8091" y="314.807556" />
-            <NODEREF LastCat="Collections.Sequence" LastFile="VL.Lib.Basics.dll">
-              <OPERATIONNODE Name="LastOrDefault" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-              <INPUT Name="Default Value" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
           <OPERATION Name="CreateObservable" Layer="Create">
             <POSITION x="397.492218" y="476.2348" />
             <NODEREF LastCat="TETCSharpClient" LastFile="TETWrapper.dll">
@@ -405,11 +364,7 @@
           </OPERATION>
         </NODES>
         <LINKS>
-          <Link source="Inlets/OGazeData" sink="Nodes/Sampler/Inputs/Async Notifications" />
-          <Link source="Inlets/GazeData" sink="Nodes/LastOrDefault/Inputs/Default Value" />
-          <Link source="Nodes/Sampler/Outputs/Notifications" sink="Nodes/LastOrDefault/Inputs/Input" />
-          <Link source="Nodes/LastOrDefault/Outputs/Result" sink="Outlets/GazeData" />
-          <Link source="Inlets/GazeData#1" sink="Outlets/GazeData#1" />
+          <Link source="Inlets/OGazeData#1" sink="Outlets/GazeData#1" />
           <Link source="Regions/Abstraction/Outputs/Functionality" sink="Nodes/CreateObservable/Inputs/On Subscribe" />
           <Link source="Regions/Abstraction#1/Outputs/Functionality" sink="Nodes/CreateObservable/Inputs/On Unsubscribe" />
           <Link source="Nodes/CreateObservable/Outputs/Result" sink="Outlets/OGazeData" />
@@ -472,53 +427,60 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="Split" Category="VVVV.GazeData" IsClosed="true" IsMutable="true">
+    <PATCH Name="GazeData" Category="VVVV.GazeData" Version="TheEyeTribe Split" IsDatatype="true" IsClosed="true" IsMutable="true">
       <BODY Name="Utils2Body">
         <LAYERS>
-          <LAYER Name="GazeData" Version="TheEyeTribe Split" />
+          <LAYER Name="Create" />
+          <LAYER Name="Update" />
         </LAYERS>
         <INLETS>
-          <INLET Name="GazeData#3" Layer="GazeData (TheEyeTribe Split)" Type="GazeData">
-            <POSITION x="118.740112" y="109.221237" />
+          <INLET Name="GazeData#3" Layer="Update" Type="Observable&lt;GazeData&gt;">
+            <POSITION x="20.3024139" y="87.52719" />
           </INLET>
-          <INLET Name="Coordinate Smoothing#1" Layer="GazeData (TheEyeTribe Split)" Type="Boolean">
-            <POSITION x="251.919434" y="109.221237" />
+          <INLET Name="GazeData" Layer="Update" PadType="Field">
+            <POSITION x="122.058136" y="125.199081" />
+          </INLET>
+          <INLET Name="Coordinate Smoothing#1" Layer="Update" Type="Boolean">
+            <POSITION x="259.554382" y="87.52719" />
           </INLET>
         </INLETS>
         <OUTLETS>
-          <OUTLET Name="Gaze Coordinates" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="62.06006" y="236.140839" />
+          <OUTLET Name="GazeData" Layer="Update" PadType="Field">
+            <POSITION x="83.4444" y="240.849823" />
           </OUTLET>
-          <OUTLET Name="Is Fixated#1" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="172.568176" y="236.140839" />
+          <OUTLET Name="Gaze Coordinates" Layer="Update">
+            <POSITION x="134.578461" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="State" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="254.863647" y="236.140839" />
+          <OUTLET Name="Is Fixated#1" Layer="Update">
+            <POSITION x="245.086578" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="L Coordinates" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="317.9386" y="236.140839" />
+          <OUTLET Name="State" Layer="Update">
+            <POSITION x="327.38205" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="L Pupil Position" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="415.055969" y="236.140839" />
+          <OUTLET Name="L Coordinates" Layer="Update">
+            <POSITION x="390.457" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="L Pupil Size" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="512.4006" y="236.140839" />
+          <OUTLET Name="L Pupil Position" Layer="Update">
+            <POSITION x="487.574371" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="R Coordinates" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="596.8692" y="236.140839" />
+          <OUTLET Name="L Pupil Size" Layer="Update">
+            <POSITION x="584.9193" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="R Pupil Position" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="693.0206" y="236.140839" />
+          <OUTLET Name="R Coordinates" Layer="Update">
+            <POSITION x="669.387939" y="277.579926" />
           </OUTLET>
-          <OUTLET Name="R Pupil Size" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="799.7785" y="236.140839" />
+          <OUTLET Name="R Pupil Position" Layer="Update">
+            <POSITION x="765.5393" y="277.579926" />
+          </OUTLET>
+          <OUTLET Name="R Pupil Size" Layer="Update">
+            <POSITION x="872.297241" y="277.579926" />
           </OUTLET>
         </OUTLETS>
         <CONSTS />
         <REGIONS />
         <NODES>
-          <OPERATION Name="Split" Layer="GazeData (TheEyeTribe Split)">
-            <POSITION x="119.681976" y="144.215714" />
+          <OPERATION Name="Split" Layer="Update">
+            <POSITION x="125.773865" y="205.0382" />
             <NODEREF LastCat="TheEyeTribe.GazeData" LastFile="VVVV.Value.TheEyeTribe.vl">
               <OPERATIONNODE Name="Split" />
               <CATEGORY Name="GazeData" IsDirectParent="true">
@@ -542,19 +504,53 @@
               <OUPUT Name="R Pupil Size" />
             </OUTPUTS>
           </OPERATION>
+          <PROCESS Name="Sampler">
+            <POSITION x="19.5697784" y="127.170189" />
+            <NODEREF LastCat="Reactive" LastFile="VL.Lib.Basics.dll">
+              <PROCESSNODE Name="Sampler" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Async Notifications" FragmentId="Sample" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" FragmentId="Sample" />
+              <OUPUT Name="Notifications" FragmentId="Sample" />
+            </OUTPUTS>
+            <FRAGMENTS>
+              <FRAGMENT Name="Sample" Layer="Update" />
+            </FRAGMENTS>
+          </PROCESS>
+          <OPERATION Name="LastOrDefault" Layer="Update">
+            <POSITION x="58.2042542" y="155.9129" />
+            <NODEREF LastCat="Collections.Sequence" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="LastOrDefault" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+              <INPUT Name="Default Value" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
         </NODES>
         <LINKS>
-          <Link source="Inlets/GazeData#3" sink="Nodes/Split/Inputs/GazeData" />
-          <Link source="Nodes/Split/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
-          <Link source="Nodes/Split/Outputs/Is Fixated" sink="Outlets/Is Fixated#1" />
-          <Link source="Nodes/Split/Outputs/State" sink="Outlets/State" />
-          <Link source="Nodes/Split/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
-          <Link source="Nodes/Split/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
-          <Link source="Nodes/Split/Outputs/L Pupil Size" sink="Outlets/L Pupil Size" />
-          <Link source="Nodes/Split/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
-          <Link source="Nodes/Split/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
-          <Link source="Nodes/Split/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
           <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/Split/Inputs/Coordinate Smoothing" />
+          <Link source="Nodes/Split/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
+          <Link source="Nodes/Split/Outputs/L Pupil Size" sink="Outlets/L Pupil Size" />
+          <Link source="Nodes/Split/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
+          <Link source="Nodes/Split/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
+          <Link source="Nodes/Split/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
+          <Link source="Nodes/Split/Outputs/Is Fixated" sink="Outlets/Is Fixated#1" />
+          <Link source="Nodes/Split/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
+          <Link source="Nodes/Split/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
+          <Link source="Nodes/Split/Outputs/State" sink="Outlets/State" />
+          <Link source="Inlets/GazeData#3" sink="Nodes/Sampler/Inputs/Async Notifications" />
+          <Link source="Nodes/Sampler/Outputs/Notifications" sink="Nodes/LastOrDefault/Inputs/Input" />
+          <Link source="Inlets/GazeData" sink="Nodes/LastOrDefault/Inputs/Default Value" />
+          <Link source="Nodes/LastOrDefault/Outputs/Result" sink="Nodes/Split/Inputs/GazeData" />
+          <Link source="Nodes/Split/Outputs/GazeData" sink="Outlets/GazeData" />
         </LINKS>
       </BODY>
     </PATCH>
@@ -613,16 +609,16 @@
             <POSITION x="1116.73059" y="830.4112" />
           </OUTLET>
           <OUTLET Name="Is Calibrated" Layer="Update">
-            <POSITION x="1252.22852" y="830.4112" />
+            <POSITION x="1216.05664" y="830.4112" />
           </OUTLET>
           <OUTLET Name="Is Calibrating" Layer="Update">
-            <POSITION x="1347.42407" y="830.4112" />
+            <POSITION x="1311.2522" y="830.4112" />
           </OUTLET>
           <OUTLET Name="TrackerState" Layer="Update">
-            <POSITION x="1443.07373" y="830.4112" />
+            <POSITION x="1406.90186" y="830.4112" />
           </OUTLET>
           <OUTLET Name="Is Activated" Layer="Update">
-            <POSITION x="1544.466" y="830.4112" />
+            <POSITION x="1508.29407" y="830.4112" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
@@ -714,27 +710,16 @@
                   <POSITION x="234.605438" y="426.425049" />
                 </OUTLET>
               </OUTLETS>
-              <CONSTS />
+              <CONSTS>
+                <CONST Name="comment" Layer="True" Type="String">
+                  <POSITION x="262.663147" y="378.6522" />
+                  <VALUE><![CDATA["update was here"]]></VALUE>
+                </CONST>
+              </CONSTS>
               <REGIONS />
-              <NODES>
-                <OPERATION Name="Update" Layer="True">
-                  <POSITION x="235.305389" y="382.6029" />
-                  <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
-                    <OPERATIONNODE Name="Update" />
-                    <CATEGORY Name="EyetrackerVL (TheEyeTribe)" IsDirectParent="true" />
-                  </NODEREF>
-                  <INPUTS>
-                    <INPUT Name="Input" />
-                    <INPUT Name="Enabled" IsEnabled="true" />
-                  </INPUTS>
-                  <OUTPUTS>
-                    <OUPUT Name="Output" />
-                  </OUTPUTS>
-                </OPERATION>
-              </NODES>
+              <NODES />
               <LINKS>
-                <Link source="Inlets/Output" sink="Nodes/Update/Inputs/Input" />
-                <Link source="Nodes/Update/Outputs/Output" sink="Outlets/Output" />
+                <Link source="Inlets/Output" sink="Outlets/Output" />
               </LINKS>
             </BODY>
           </REGION>
@@ -895,10 +880,10 @@
               <FRAGMENT Name="Update" />
             </FRAGMENTS>
           </PROCESS>
-          <OPERATION Name="GetGazeData" Layer="Update">
+          <OPERATION Name="GetObservable" Layer="Update">
             <POSITION x="234.237549" y="596.7312" />
             <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
-              <OPERATIONNODE Name="GetGazeData" />
+              <OPERATIONNODE Name="GetObservable" />
             </NODEREF>
             <INPUTS>
               <INPUT Name="Input" />
@@ -906,31 +891,6 @@
             <OUTPUTS>
               <OUPUT Name="Output" />
               <OUPUT Name="GazeData" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="Split" Layer="Update">
-            <POSITION x="333.555542" y="656.03595" />
-            <NODEREF LastCat="TheEyeTribe.GazeData" LastFile="VVVV.Value.TheEyeTribe.vl">
-              <OPERATIONNODE Name="Split" />
-              <CATEGORY Name="GazeData" IsDirectParent="true">
-                <CATEGORY Name="TheEyeTribe" IsDirectParent="true" />
-              </CATEGORY>
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="GazeData" />
-              <INPUT Name="Coordinate Smoothing" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="GazeData" />
-              <OUPUT Name="Gaze Coordinates" />
-              <OUPUT Name="Is Fixated" />
-              <OUPUT Name="State" />
-              <OUPUT Name="L Coordinates" />
-              <OUPUT Name="L Pupil Position" />
-              <OUPUT Name="L Pupil Size" />
-              <OUPUT Name="R Coordinates" />
-              <OUPUT Name="R Pupil Position" />
-              <OUPUT Name="R Pupil Size" />
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="get_Instance" Layer="Update">
@@ -954,6 +914,44 @@
             <OUTPUTS>
               <OUPUT Name="Output" />
               <OUPUT Name="Is Activated" />
+            </OUTPUTS>
+          </OPERATION>
+          <PROCESS Name="GazeData#1">
+            <POSITION x="336.87323" y="660.3693" />
+            <NODEREF LastCat="VVVV.GazeData" LastFile="VVVV.Value.TheEyeTribe.vl">
+              <PROCESSNODE Name="GazeData" Version="TheEyeTribe Split" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="GazeData" FragmentId="Update" />
+              <INPUT Name="Coordinate Smoothing" FragmentId="Update" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Gaze Coordinates" FragmentId="Update" />
+              <OUPUT Name="Is Fixated" FragmentId="Update" />
+              <OUPUT Name="State" FragmentId="Update" />
+              <OUPUT Name="L Coordinates" FragmentId="Update" />
+              <OUPUT Name="L Pupil Position" FragmentId="Update" />
+              <OUPUT Name="L Pupil Size" FragmentId="Update" />
+              <OUPUT Name="R Coordinates" FragmentId="Update" />
+              <OUPUT Name="R Pupil Position" FragmentId="Update" />
+              <OUPUT Name="R Pupil Size" FragmentId="Update" />
+            </OUTPUTS>
+            <FRAGMENTS>
+              <FRAGMENT Name="Create" />
+              <FRAGMENT Name="Update" />
+            </FRAGMENTS>
+          </PROCESS>
+          <OPERATION Name="ShareInstance" Layer="Update">
+            <POSITION x="233.711182" y="656.2968" />
+            <NODEREF LastCat="Primitive.Object" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="ShareInstance" Version="KillTheSystemsExpectations" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Instance" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output 1" />
+              <OUPUT Name="Output 2" />
             </OUTPUTS>
           </OPERATION>
         </NODES>
@@ -980,16 +978,8 @@
               <Point x="91.36221" y="314.917236" />
             </SEGMENTS>
           </Link>
-          <Link source="Nodes/Split/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
-          <Link source="Nodes/Split/Outputs/L Pupil Size" sink="Outlets/L PupilSize" />
-          <Link source="Nodes/Split/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
-          <Link source="Nodes/Split/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
-          <Link source="Nodes/Split/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
-          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/Split/Inputs/Coordinate Smoothing" />
-          <Link source="Nodes/GetGazeData/Outputs/Output" sink="Outlets/EyetrackerVL" />
-          <Link source="Nodes/Split/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
-          <Link source="Nodes/Split/Outputs/State" sink="Outlets/GazeState" />
-          <Link source="Regions/IfElse#2/Outputs/Output" sink="Nodes/GetGazeData/Inputs/Input" />
+          <Link source="Nodes/GetObservable/Outputs/Output" sink="Outlets/EyetrackerVL" />
+          <Link source="Regions/IfElse#2/Outputs/Output" sink="Nodes/GetObservable/Inputs/Input" />
           <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsActivated/Inputs/Input" />
           <Link source="Nodes/IsActivated/Outputs/Output" sink="Regions/IfElse#3/IfElseBody/Nodes/GetTrackerState#1/Inputs/Gazemanager" />
           <Link source="Nodes/IsActivated/Outputs/Is Activated" sink="Regions/IfElse#3/Inputs/Condition" />
@@ -1001,107 +991,116 @@
               <Point x="229.703491" y="25.758728" />
             </SEGMENTS>
           </Link>
-          <Link source="Nodes/Split/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
-          <Link source="Nodes/Split/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
-          <Link source="Nodes/Split/Outputs/GazeData" sink="Outlets/GazeData" />
-          <Link source="Nodes/GetGazeData/Outputs/GazeData" sink="Nodes/Split/Inputs/GazeData" />
+          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/GazeData#1/Inputs/Coordinate Smoothing" />
+          <Link source="Nodes/GazeData#1/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
+          <Link source="Nodes/GazeData#1/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
+          <Link source="Nodes/GazeData#1/Outputs/State" sink="Outlets/GazeState" />
+          <Link source="Nodes/GazeData#1/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
+          <Link source="Nodes/GazeData#1/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
+          <Link source="Nodes/GazeData#1/Outputs/L Pupil Size" sink="Outlets/L PupilSize" />
+          <Link source="Nodes/GazeData#1/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
+          <Link source="Nodes/GazeData#1/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
+          <Link source="Nodes/GazeData#1/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
+          <Link source="Nodes/GetObservable/Outputs/GazeData" sink="Nodes/ShareInstance/Inputs/Instance" />
+          <Link source="Nodes/ShareInstance/Outputs/Output 2" sink="Nodes/GazeData#1/Inputs/GazeData" />
+          <Link source="Nodes/ShareInstance/Outputs/Output 1" sink="Outlets/GazeData" />
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="SplitVL" Category="TheEyeTribe.GazeData">
+    <PATCH Name="Split" Category="TheEyeTribe.GazeData" IsMutable="true">
       <BODY Name="UtilsBody">
         <LAYERS>
           <LAYER Name="Split" />
         </LAYERS>
         <INLETS>
-          <INLET Name="GazeData#3" Layer="Split" Type="GazeData">
-            <POSITION x="146" y="183" />
+          <INLET Name="GazeData" Layer="Split" Type="GazeData [TETCSharpClient.Data]">
+            <POSITION x="-229.093246" y="278.5034" />
           </INLET>
           <INLET Name="Coordinate Smoothing#1" Layer="Split" Type="Boolean">
-            <POSITION x="1259.69153" y="183" />
+            <POSITION x="884.598267" y="278.5034" />
           </INLET>
         </INLETS>
         <OUTLETS>
           <OUTLET Name="GazeData" Layer="Split">
-            <POSITION x="107" y="671" />
+            <POSITION x="-266.721558" y="811.1894" />
           </OUTLET>
           <OUTLET Name="Gaze Coordinates" Layer="Split">
-            <POSITION x="183.187927" y="673.1275" />
+            <POSITION x="-190.533524" y="813.316956" />
           </OUTLET>
           <OUTLET Name="Is Fixated#1" Layer="Split">
-            <POSITION x="388.584351" y="673.1275" />
+            <POSITION x="14.862915" y="813.316956" />
           </OUTLET>
           <OUTLET Name="State" Layer="Split">
-            <POSITION x="506.590454" y="673.1275" />
+            <POSITION x="132.869019" y="813.316956" />
           </OUTLET>
           <OUTLET Name="L Coordinates" Layer="Split">
-            <POSITION x="629.8634" y="673.1275" />
+            <POSITION x="256.141968" y="813.316956" />
           </OUTLET>
           <OUTLET Name="L Pupil Position" Layer="Split">
-            <POSITION x="791.2599" y="673.1275" />
+            <POSITION x="417.5384" y="813.316956" />
           </OUTLET>
           <OUTLET Name="L Pupil Size" Layer="Split">
-            <POSITION x="1060.0155" y="673.1275" />
+            <POSITION x="686.293945" y="813.316956" />
           </OUTLET>
           <OUTLET Name="R Coordinates" Layer="Split">
-            <POSITION x="1343.44348" y="673.1275" />
+            <POSITION x="969.722046" y="813.316956" />
           </OUTLET>
           <OUTLET Name="R Pupil Position" Layer="Split">
-            <POSITION x="1523.25989" y="673.1275" />
+            <POSITION x="1149.53931" y="813.316956" />
           </OUTLET>
           <OUTLET Name="R Pupil Size" Layer="Split">
-            <POSITION x="1672.87061" y="673.1275" />
+            <POSITION x="1299.1499" y="813.316956" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
           <CONST Name="Map Values#1" Layer="Split">
-            <POSITION x="699.347534" y="554.3615" />
+            <POSITION x="327.44043" y="691.5666" />
             <VALUE><![CDATA[true]]></VALUE>
           </CONST>
           <CONST Name="Map Values" Layer="Split">
-            <POSITION x="266.82843" y="571.649" />
+            <POSITION x="-105.078613" y="684.622742" />
             <SIZE width="40" height="12" />
             <VALUE><![CDATA[true]]></VALUE>
           </CONST>
           <CONST Name="Map Values#4" Layer="Split">
-            <POSITION x="861.616943" y="339.9923" />
+            <POSITION x="513.9413" y="454.9049" />
             <VALUE><![CDATA[false]]></VALUE>
           </CONST>
           <CONST Name="Output Maximum#1" Layer="Split">
-            <POSITION x="875.666748" y="472.223816" />
+            <POSITION x="527.990967" y="587.136047" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":1.0}}]]></VALUE>
           </CONST>
           <CONST Name="Output Minimum#1" Layer="Split">
-            <POSITION x="874.840332" y="433.3808" />
+            <POSITION x="527.1647" y="548.293152" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":-1.0,"Y":-1.0}}]]></VALUE>
           </CONST>
           <CONST Name="Input Maximum#1" Layer="Split">
-            <POSITION x="874.8406" y="393.711365" />
+            <POSITION x="527.1649" y="508.623962" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":1.0}}]]></VALUE>
           </CONST>
           <CONST Name="Map Values#2" Layer="Split">
-            <POSITION x="1410.98987" y="556.8212" />
+            <POSITION x="1039.083" y="669.795" />
             <VALUE><![CDATA[true]]></VALUE>
           </CONST>
           <CONST Name="Map Values#3" Layer="Split">
-            <POSITION x="1542.6073" y="318.5047" />
+            <POSITION x="1170.70117" y="431.4788" />
             <VALUE><![CDATA[false]]></VALUE>
           </CONST>
           <CONST Name="Input Maximum" Layer="Split">
-            <POSITION x="1553.6488" y="381.050171" />
+            <POSITION x="1181.74268" y="494.024261" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":1.0}}]]></VALUE>
           </CONST>
           <CONST Name="Output Minimum" Layer="Split">
-            <POSITION x="1553.64856" y="420.719574" />
+            <POSITION x="1181.74243" y="533.693665" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":-1.0,"Y":-1.0}}]]></VALUE>
           </CONST>
           <CONST Name="Output Maximum" Layer="Split">
-            <POSITION x="1554.475" y="459.562531" />
+            <POSITION x="1182.56885" y="572.5363" />
             <SIZE width="40" height="31.01692" />
             <VALUE><![CDATA[{"type":"Vector2 [2D]","value":{"X":1.0,"Y":1.0}}]]></VALUE>
           </CONST>
@@ -1109,7 +1108,7 @@
         <REGIONS />
         <NODES>
           <OPERATION Name="RawCoordinates#4" Layer="Split">
-            <POSITION x="147.765076" y="270.412781" />
+            <POSITION x="-224.142014" y="383.386871" />
             <NODEREF LastCat="TETCSharpClient.Data.GazeData" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="RawCoordinates" />
               <CATEGORY Name="GazeData" IsDirectParent="true" />
@@ -1123,7 +1122,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SmoothedCoordinates#3" Layer="Split">
-            <POSITION x="147.764648" y="235.359192" />
+            <POSITION x="-224.142441" y="348.333282" />
             <NODEREF LastCat="TETCSharpClient.Data.GazeData" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="GazeData" />
               <OPERATIONNODE Name="SmoothedCoordinates" />
@@ -1137,7 +1136,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="IsFixated#1" Layer="Split">
-            <POSITION x="343.719849" y="237.110168" />
+            <POSITION x="-28.1871948" y="350.084259" />
             <NODEREF LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="IsFixated" />
               <CATEGORYPATH Name="TETCSharpClient.Data.GazeData" />
@@ -1151,7 +1150,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="StateToString" Layer="Split">
-            <POSITION x="444.7992" y="230.645691" />
+            <POSITION x="72.89215" y="343.619781" />
             <NODEREF LastCat="TETCSharpClient.Data.GazeData" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="GazeData" />
               <OPERATIONNODE Name="StateToString" />
@@ -1165,7 +1164,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SwitchInput#4" Layer="Split">
-            <POSITION x="629.8634" y="530.0734" />
+            <POSITION x="257.9563" y="667.2785" />
             <NODEREF LastCat="Control" LastFile="Basics.vl">
               <OPERATIONNODE Name="SwitchInput" />
             </NODEREF>
@@ -1179,7 +1178,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="RawCoordinates#3" Layer="Split">
-            <POSITION x="629.8634" y="393.587463" />
+            <POSITION x="257.9563" y="506.561554" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="RawCoordinates" />
               <CATEGORY Name="Eye" IsDirectParent="true" />
@@ -1193,7 +1192,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SmoothedCoordinates#4" Layer="Split">
-            <POSITION x="629.8634" y="360.9842" />
+            <POSITION x="257.9563" y="473.958282" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="Eye" />
               <OPERATIONNODE Name="SmoothedCoordinates" />
@@ -1207,7 +1206,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="PupilSize#2" Layer="Split">
-            <POSITION x="630.8634" y="285.204163" />
+            <POSITION x="258.9563" y="398.178253" />
             <NODEREF LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="PupilSize" />
               <CATEGORYPATH Name="TETCSharpClient.Data.Eye" />
@@ -1221,7 +1220,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="LeftEye#2" Layer="Split">
-            <POSITION x="629.8634" y="231.9151" />
+            <POSITION x="257.9563" y="344.8892" />
             <NODEREF LastCat="TETCSharpClient.Data.GazeData" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="LeftEye" />
             </NODEREF>
@@ -1234,7 +1233,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="PupilCenterCoordinates" Layer="Split">
-            <POSITION x="629.2599" y="321.86" />
+            <POSITION x="257.352783" y="434.834076" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="Eye" />
               <OPERATIONNODE Name="PupilCenterCoordinates" />
@@ -1248,7 +1247,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SwitchInput#3" Layer="Split">
-            <POSITION x="187.100281" y="555.153748" />
+            <POSITION x="-184.806778" y="668.1275" />
             <NODEREF LastCat="Control" LastFile="Basics.vl">
               <OPERATIONNODE Name="SwitchInput" />
             </NODEREF>
@@ -1262,7 +1261,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="TETPoint2DtoVector2#1" Layer="Split">
-            <POSITION x="629.8634" y="578.9942" />
+            <POSITION x="257.9563" y="716.1993" />
             <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="TETPoint2DtoVector2" />
             </NODEREF>
@@ -1275,7 +1274,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="Map#1" Layer="Split">
-            <POSITION x="772.360962" y="446.6039" />
+            <POSITION x="424.6853" y="561.5163" />
             <NODEREF LastCat="2D" LastFile="Basics.vl">
               <OPERATIONNODE Name="Map" />
               <CATEGORY Name="2D" IsDirectParent="true" />
@@ -1294,7 +1293,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="TETPoint2DtoVector2#4" Layer="Split">
-            <POSITION x="770.7079" y="374.703125" />
+            <POSITION x="423.032166" y="489.615723" />
             <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="TETPoint2DtoVector2" />
             </NODEREF>
@@ -1307,7 +1306,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="TETPoint2DtoVector2" Layer="Split">
-            <POSITION x="187.100281" y="593.9664" />
+            <POSITION x="-184.806778" y="706.9401" />
             <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="TETPoint2DtoVector2" />
             </NODEREF>
@@ -1320,7 +1319,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SmoothedCoordinates#5" Layer="Split">
-            <POSITION x="1318.0719" y="346.266052" />
+            <POSITION x="946.1649" y="459.240143" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="Eye" />
               <OPERATIONNODE Name="SmoothedCoordinates" />
@@ -1334,7 +1333,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="RawCoordinates#5" Layer="Split">
-            <POSITION x="1318.0719" y="379.819641" />
+            <POSITION x="946.1649" y="492.793732" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="RawCoordinates" />
               <CATEGORY Name="Eye" IsDirectParent="true" />
@@ -1348,7 +1347,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="PupilSize#3" Layer="Split">
-            <POSITION x="1317.0719" y="277.732849" />
+            <POSITION x="945.1649" y="390.70694" />
             <NODEREF LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="PupilSize" />
               <CATEGORYPATH Name="TETCSharpClient.Data.Eye" />
@@ -1362,7 +1361,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="RightEye" Layer="Split">
-            <POSITION x="1303.1615" y="234.187317" />
+            <POSITION x="931.2545" y="347.1614" />
             <NODEREF LastCat="TETCSharpClient.Data.GazeData" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="RightEye" />
             </NODEREF>
@@ -1375,7 +1374,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="PupilCenterCoordinates#1" Layer="Split">
-            <POSITION x="1319.25989" y="310.86" />
+            <POSITION x="947.3529" y="423.834076" />
             <NODEREF LastCat="TETCSharpClient.Data.Eye" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="PupilCenterCoordinates" />
             </NODEREF>
@@ -1388,7 +1387,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="TETPoint2DtoVector2#2" Layer="Split">
-            <POSITION x="1347.36584" y="580.638733" />
+            <POSITION x="975.458862" y="693.6125" />
             <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="TETPoint2DtoVector2" />
             </NODEREF>
@@ -1401,7 +1400,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="SwitchInput#5" Layer="Split">
-            <POSITION x="1346.86584" y="529.0317" />
+            <POSITION x="974.958862" y="642.005432" />
             <NODEREF LastCat="Control" LastFile="Basics.vl">
               <OPERATIONNODE Name="SwitchInput" />
             </NODEREF>
@@ -1415,7 +1414,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="TETPoint2DtoVector2#3" Layer="Split">
-            <POSITION x="1451.69824" y="353.215485" />
+            <POSITION x="1079.79175" y="466.1896" />
             <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="TETPoint2DtoVector2" />
             </NODEREF>
@@ -1428,7 +1427,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="Map" Layer="Split">
-            <POSITION x="1451.16931" y="433.942719" />
+            <POSITION x="1079.263" y="546.9167" />
             <NODEREF LastCat="2D" LastFile="Basics.vl">
               <OPERATIONNODE Name="Map" />
               <CATEGORY Name="2D" IsDirectParent="true" />
@@ -1448,28 +1447,12 @@
           </OPERATION>
         </NODES>
         <LINKS>
-          <Link source="Inlets/GazeData#3" sink="Nodes/SmoothedCoordinates#3/Inputs/Input" />
           <Link source="Constants/Map Values#1" sink="Nodes/TETPoint2DtoVector2#1/Inputs/Map Values" />
           <Link source="Constants/Map Values" sink="Nodes/TETPoint2DtoVector2/Inputs/Map Values" />
           <Link source="Constants/Map Values#4" sink="Nodes/TETPoint2DtoVector2#4/Inputs/Map Values" />
           <Link source="Constants/Output Maximum#1" sink="Nodes/Map#1/Inputs/Output Maximum" />
           <Link source="Constants/Output Minimum#1" sink="Nodes/Map#1/Inputs/Output Minimum" />
           <Link source="Constants/Input Maximum#1" sink="Nodes/Map#1/Inputs/Input Maximum" />
-          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#5/Inputs/Condition">
-            <SEGMENTS>
-              <Point x="-9.164001" y="318.7413" />
-            </SEGMENTS>
-          </Link>
-          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#4/Inputs/Condition">
-            <SEGMENTS>
-              <Point x="-358.480347" y="307.424957" />
-            </SEGMENTS>
-          </Link>
-          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#3/Inputs/Condition">
-            <SEGMENTS>
-              <Point x="-367.9848" y="297.9205" />
-            </SEGMENTS>
-          </Link>
           <Link source="Constants/Map Values#2" sink="Nodes/TETPoint2DtoVector2#2/Inputs/Map Values" />
           <Link source="Constants/Map Values#3" sink="Nodes/TETPoint2DtoVector2#3/Inputs/Map Values" />
           <Link source="Constants/Input Maximum" sink="Nodes/Map/Inputs/Input Maximum" />
@@ -1482,14 +1465,14 @@
           <Link source="Nodes/Map#1/Outputs/Output" sink="Outlets/L Pupil Position" />
           <Link source="Nodes/PupilSize#2/Outputs/Pupil Size" sink="Outlets/L Pupil Size">
             <SEGMENTS>
-              <Point x="385.082275" y="6.46057129" />
+              <Point x="383.267883" y="33.67621" />
             </SEGMENTS>
           </Link>
           <Link source="Nodes/TETPoint2DtoVector2#2/Outputs/Vector2" sink="Outlets/R Coordinates" />
           <Link source="Nodes/Map/Outputs/Output" sink="Outlets/R Pupil Position" />
           <Link source="Nodes/PupilSize#3/Outputs/Pupil Size" sink="Outlets/R Pupil Size">
             <SEGMENTS>
-              <Point x="335.2362" y="9.799652" />
+              <Point x="333.421753" y="37.01529" />
             </SEGMENTS>
           </Link>
           <Link source="Nodes/RawCoordinates#4/Outputs/Output" sink="Nodes/IsFixated#1/Inputs/Input" />
@@ -1518,10 +1501,29 @@
           <Link source="Nodes/PupilCenterCoordinates#1/Outputs/Pupil Center Coordinates" sink="Nodes/TETPoint2DtoVector2#3/Inputs/TETPoint2D" />
           <Link source="Nodes/SwitchInput#5/Outputs/Output" sink="Nodes/TETPoint2DtoVector2#2/Inputs/TETPoint2D" />
           <Link source="Nodes/TETPoint2DtoVector2#3/Outputs/Vector2" sink="Nodes/Map/Inputs/Input" />
+          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#3/Inputs/Condition">
+            <SEGMENTS>
+              <Point x="-133.6084" y="349.942322" />
+              <Point x="-1072.81641" y="369.3274" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#4/Inputs/Condition">
+            <SEGMENTS>
+              <Point x="-113.254028" y="360.604126" />
+              <Point x="-628.897644" y="368.358154" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Inlets/Coordinate Smoothing#1" sink="Nodes/SwitchInput#5/Inputs/Condition">
+            <SEGMENTS>
+              <Point x="-92.46863" y="340.465576" />
+              <Point x="85.22815" y="342.619446" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Inlets/GazeData" sink="Nodes/SmoothedCoordinates#3/Inputs/Input" />
           <Link source="Nodes/RightEye/Outputs/Output" sink="Outlets/GazeData">
             <SEGMENTS>
-              <Point x="-6.661499" y="386.104919" />
-              <Point x="-1192.6615" y="399.104919" />
+              <Point x="-55.62854" y="408.4499" />
+              <Point x="-1195.81445" y="425.266785" />
             </SEGMENTS>
           </Link>
         </LINKS>

@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.100.dtd" >
-   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\vl\Eyetracker (Devices TheEyeTribe) help.v4p" scrollx="0" scrolly="0" locked="0">
+   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\vl\Eyetracker (Devices TheEyeTribe) help.v4p" scrollx="0" scrolly="-360" locked="0">
    <BOUNDS type="Window" left="4410" top="0" width="21045" height="18180">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -763,9 +763,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="131" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="840" top="3225" width="7125" height="3000">
+   <BOUNDS type="Node" left="1215" top="3255" width="7125" height="3000">
    </BOUNDS>
-   <BOUNDS type="Box" left="840" top="3225" width="8085" height="3690">
+   <BOUNDS type="Box" left="1215" top="3255" width="8085" height="3690">
    </BOUNDS>
    <PIN pinname="Input String" visible="0" slicecount="1" values="|- Gazestate&cr;&lf;&tab;Tells you about the Gaze itself. Might be ONE OR MORE of the following:&cr;&lf;&tab;&tab;-STATE_TRACKING_EYES&cr;&lf;&tab;&tab;set when engine has detected eyes&cr;&lf;&tab;&tab;-STATE_TRACKING_FAIL&cr;&lf;&tab;&tab;set when tracking failed in the last process frame&cr;&lf;&tab;&tab;-STATE_TRACKING_GAZE&cr;&lf;&tab;&tab;set when engine is calibrated and glint tracking successfully (whatever that means)&cr;&lf;&tab;&tab;-STATE_TRACKING_LOST&cr;&lf;&tab;&tab;set when tracking has failed consecutively over a period of time defined by the engine&cr;&lf;&tab;&tab;-STATE_TRACKING_PRESENCE&cr;&lf;&tab;&tab;set when engine has detected either face, eyes or glint&cr;&lf;   - Is Fixated&cr;&lf;&tab;whether your eyes are fixated on one point&cr;&lf;&cr;&lf;&cr;&lf;&tab;most important, often used for tracking|">
    </PIN>
@@ -935,6 +935,8 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
    <NODE id="93" systemname="xyZ (3d XY)" nodename="xyZ (3d XY)" componentmode="Hidden">
    <BOUNDS type="Node" left="9615" top="10215" width="100" height="100">
@@ -1088,18 +1090,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE id="154" systemname="GazeData (GazeData TheEyeTribe Split)" filename="VVVV.Value.TET_Main.vl" nodename="Split (Devices GazeData)" componentmode="Hidden">
-   <BOUNDS type="Node" left="9435" top="8940" width="1455" height="270">
-   </BOUNDS>
-   <PIN pinname="Gaze CoordinatesXY" visible="1">
-   </PIN>
-   <PIN pinname="GazeData" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Coordinate Smoothing">
-   </LINK>
-   <LINK srcnodeid="154" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
-   </LINK>
    <NODE nodename="Group (EX9)" id="156" systemname="Group (EX9)">
    <BOUNDS type="Node" left="8925" top="12180" width="0" height="0">
    </BOUNDS>
@@ -1113,8 +1103,10 @@
    <LINK srcnodeid="90" srcpinname="Layer" dstnodeid="156" dstpinname="Layer 1">
    </LINK>
    <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="VVVV.Value.TET_Main.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="157">
-   <BOUNDS type="Node" left="9435" top="2460" width="2205" height="270">
+   <BOUNDS type="Node" left="9555" top="2385" width="2205" height="270">
    </BOUNDS>
+   <PIN pinname="GazeData" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="157" srcpinname="Is Calibrating" dstnodeid="33" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
    </LINK>
@@ -1146,6 +1138,22 @@
    </LINK>
    <LINK srcnodeid="157" srcpinname="R Pupil Size" dstnodeid="151" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="157" srcpinname="GazeData" dstnodeid="154" dstpinname="GazeData">
+   <NODE systemname="GazeData (GazeData TheEyeTribe Split)" filename="VVVV.Value.TheEyeTribe.vl" nodename="GazeData (GazeData TheEyeTribe Split)" componentmode="Hidden" id="164">
+   <BOUNDS type="Node" left="9600" top="9000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Gaze CoordinatesXY" visible="1">
+   </PIN>
+   <PIN pinname="GazeData" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="R Pupil Size" visible="1">
+   </PIN>
+   <PIN pinname="Coordinate Smoothing" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="164" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="157" srcpinname="GazeData" dstnodeid="164" dstpinname="GazeData">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="164" dstpinname="Coordinate Smoothing">
    </LINK>
    </PATCH>
