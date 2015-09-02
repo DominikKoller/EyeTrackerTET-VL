@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.100.dtd" >
-   <PATCH nodename="D:\vvvv\sketchbook\theEyeTribe\vl\CalibrationRunner (TheEyeTribe) help.v4p" scrollx="0" scrolly="0">
+   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\vl\CalibrationRunner (TheEyeTribe) help.v4p" scrollx="0" scrolly="0">
    <BOUNDS type="Window" left="4035" top="150" width="22590" height="15510">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -979,6 +979,10 @@
    <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="VVVV.Value.TheEyeTribe.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="202">
    <BOUNDS type="Node" left="17235" top="12975" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Gaze CoordinatesXY" visible="1">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
+   </PIN>
    </NODE>
    <INFO author="dominikKoller" description="TheEyeTribe Eyetracker helppatch" tags="">
    </INFO>
@@ -1016,7 +1020,7 @@
    </NODE>
    <LINK srcnodeid="205" srcpinname="Y Output Value" dstnodeid="204" dstpinname="Select">
    </LINK>
-   <NODE id="206" nodename="CalibrationRunner (TheEyeTribe)" componentmode="Hidden" systemname="CalibrationRunner (TheEyeTribe)" filename="VVVV.Value.TheEyeTribeCalibration.vl" hiddenwhenlocked="0" managers="">
+   <NODE id="209" nodename="CalibrationRunner (TheEyeTribe)" componentmode="Hidden" systemname="CalibrationRunner (TheEyeTribe)" filename="VVVV.Value.TheEyeTribeCalibration.vl" hiddenwhenlocked="0" managers="">
    <BOUNDS type="Node" left="9945" top="3120" width="0" height="0">
    </BOUNDS>
    <BOUNDS type="Box" left="9945" top="3120" width="0" height="0">
@@ -1024,26 +1028,26 @@
    <BOUNDS type="Window" left="0" top="0" width="6000" height="4500">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="206" dstpinname="CalibrationAbort">
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="209" dstpinname="CalibrationAbort">
    </LINK>
-   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="206" dstpinname="Point Calibration Time" hiddenwhenlocked="1">
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="209" dstpinname="Point Calibration Time" hiddenwhenlocked="1">
    </LINK>
-   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="206" dstpinname="Point Idle Time" hiddenwhenlocked="1">
+   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="209" dstpinname="Point Idle Time" hiddenwhenlocked="1">
    </LINK>
-   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="206" dstpinname="Start Calibration">
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="209" dstpinname="Start Calibration">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="State" dstnodeid="132" dstpinname="Enum" hiddenwhenlocked="1">
+   <LINK srcnodeid="209" srcpinname="State" dstnodeid="132" dstpinname="Enum" hiddenwhenlocked="1">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="ErrorMessages" dstnodeid="135" dstpinname="Input String" hiddenwhenlocked="1">
+   <LINK srcnodeid="209" srcpinname="ErrorMessages" dstnodeid="135" dstpinname="Input String" hiddenwhenlocked="1">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="ResultSuccess" dstnodeid="138" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   <LINK srcnodeid="209" srcpinname="ResultSuccess" dstnodeid="138" dstpinname="Y Input Value" hiddenwhenlocked="1">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="ResultAverageErrorDegree" dstnodeid="139" dstpinname="Y Input Value" hiddenwhenlocked="0">
+   <LINK srcnodeid="209" srcpinname="ResultAverageErrorDegree" dstnodeid="139" dstpinname="Y Input Value" hiddenwhenlocked="0">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="CalibrationPointsXY" dstnodeid="145" dstpinname="Y Input Value">
+   <LINK srcnodeid="209" srcpinname="CalibrationPointsXY" dstnodeid="145" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="206" srcpinname="Is Calibrating" dstnodeid="158" dstpinname="Y Input Value">
+   <LINK srcnodeid="209" srcpinname="Is Calibrating" dstnodeid="158" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="125" srcpinname="Output" dstnodeid="206" dstpinname="CalibrationPointsXY">
+   <LINK srcnodeid="125" srcpinname="Output" dstnodeid="209" dstpinname="CalibrationPointsXY">
    </LINK>
    </PATCH>
