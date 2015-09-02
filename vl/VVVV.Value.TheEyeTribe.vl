@@ -21,7 +21,7 @@
     <DEPENDENCY Name="VVVV.Value.TheEyeTribeUtils.vl" Location="./VVVV.Value.TheEyeTribeUtils.vl" />
   </DEPENDENCIES>
   <PATCHES>
-    <PATCH Name="EyetrackerVL" Category="TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+    <PATCH Name="EyetrackerVL" Category="Devices" Version="TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
       <INFO>
         <SUMMARY>Managing imported TETCsharpClient</SUMMARY>
       </INFO>
@@ -589,7 +589,7 @@
             <POSITION x="222.912323" y="830.4112" />
           </OUTLET>
           <OUTLET Name="Is Fixated" Layer="Update">
-            <POSITION x="318.632751" y="830.4112" />
+            <POSITION x="328.314941" y="830.4112" />
           </OUTLET>
           <OUTLET Name="GazeState" Layer="Update">
             <POSITION x="390.140228" y="830.4112" />
@@ -662,9 +662,9 @@
               <NODES>
                 <OPERATION Name="Create" Layer="True">
                   <POSITION x="344.7983" y="247.553955" />
-                  <NODEREF LastCat="TheEyeTribe.EyetrackerVL" LastFile="VVVV.Value.TheEyeTribe.vl">
+                  <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
                     <OPERATIONNODE Name="Create" />
-                    <CATEGORY Name="EyetrackerVL" IsDirectParent="true" />
+                    <CATEGORY Name="EyetrackerVL (TheEyeTribe)" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS />
                   <OUTPUTS>
@@ -673,9 +673,9 @@
                 </OPERATION>
                 <OPERATION Name="Destroy" Layer="True">
                   <POSITION x="233.997467" y="248.0823" />
-                  <NODEREF LastCat="TheEyeTribe.EyetrackerVL" LastFile="VVVV.Value.TheEyeTribe.vl">
+                  <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
                     <OPERATIONNODE Name="Destroy" />
-                    <CATEGORY Name="EyetrackerVL" IsDirectParent="true" />
+                    <CATEGORY Name="EyetrackerVL (TheEyeTribe)" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -719,9 +719,9 @@
               <NODES>
                 <OPERATION Name="Update" Layer="True">
                   <POSITION x="235.305389" y="382.6029" />
-                  <NODEREF LastCat="TheEyeTribe.EyetrackerVL" LastFile="VVVV.Value.TheEyeTribe.vl">
+                  <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
                     <OPERATIONNODE Name="Update" />
-                    <CATEGORY Name="EyetrackerVL" />
+                    <CATEGORY Name="EyetrackerVL (TheEyeTribe)" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -767,9 +767,9 @@
               <NODES>
                 <OPERATION Name="Destroy" Layer="True">
                   <POSITION x="235.793121" y="506.772644" />
-                  <NODEREF LastCat="TheEyeTribe.EyetrackerVL" LastFile="VVVV.Value.TheEyeTribe.vl">
+                  <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
                     <OPERATIONNODE Name="Destroy" />
-                    <CATEGORY Name="EyetrackerVL" IsDirectParent="true" />
+                    <CATEGORY Name="EyetrackerVL (TheEyeTribe)" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -897,7 +897,7 @@
           </PROCESS>
           <OPERATION Name="GetGazeData" Layer="Update">
             <POSITION x="234.237549" y="596.7312" />
-            <NODEREF LastCat="TheEyeTribe.EyetrackerVL" LastFile="VVVV.Value.TheEyeTribe.vl">
+            <NODEREF LastCat="Devices.EyetrackerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribe.vl">
               <OPERATIONNODE Name="GetGazeData" />
             </NODEREF>
             <INPUTS>
@@ -908,16 +908,20 @@
               <OUPUT Name="GazeData" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="GazeData" Layer="Update">
-            <POSITION x="317.8088" y="737.7711" />
-            <NODEREF LastCat="VVVV.GazeData" LastFile="VVVV.Value.TheEyeTribe.vl">
-              <OPERATIONNODE Name="GazeData" Version="TheEyeTribe Split" />
+          <OPERATION Name="Split" Layer="Update">
+            <POSITION x="333.555542" y="656.03595" />
+            <NODEREF LastCat="TheEyeTribe.GazeData" LastFile="VVVV.Value.TheEyeTribe.vl">
+              <OPERATIONNODE Name="Split" />
+              <CATEGORY Name="GazeData" IsDirectParent="true">
+                <CATEGORY Name="TheEyeTribe" IsDirectParent="true" />
+              </CATEGORY>
             </NODEREF>
             <INPUTS>
               <INPUT Name="GazeData" />
               <INPUT Name="Coordinate Smoothing" />
             </INPUTS>
             <OUTPUTS>
+              <OUPUT Name="GazeData" />
               <OUPUT Name="Gaze Coordinates" />
               <OUPUT Name="Is Fixated" />
               <OUPUT Name="State" />
@@ -952,19 +956,6 @@
               <OUPUT Name="Is Activated" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="ShareInstance" Layer="Update">
-            <POSITION x="250.468292" y="708.9538" />
-            <NODEREF LastCat="Primitive.Object" LastFile="VL.Lib.Basics.dll">
-              <OPERATIONNODE Name="ShareInstance" Version="KillTheSystemsExpectations" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Instance" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output 1" />
-              <OUPUT Name="Output 2" />
-            </OUTPUTS>
-          </OPERATION>
         </NODES>
         <LINKS>
           <Link source="Regions/IfElse/Outputs/Output" sink="Regions/IfElse#1/Inputs/Output Default" />
@@ -989,15 +980,15 @@
               <Point x="91.36221" y="314.917236" />
             </SEGMENTS>
           </Link>
-          <Link source="Nodes/GazeData/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
-          <Link source="Nodes/GazeData/Outputs/L Pupil Size" sink="Outlets/L PupilSize" />
-          <Link source="Nodes/GazeData/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
-          <Link source="Nodes/GazeData/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
-          <Link source="Nodes/GazeData/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
-          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/GazeData/Inputs/Coordinate Smoothing" />
+          <Link source="Nodes/Split/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
+          <Link source="Nodes/Split/Outputs/L Pupil Size" sink="Outlets/L PupilSize" />
+          <Link source="Nodes/Split/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
+          <Link source="Nodes/Split/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
+          <Link source="Nodes/Split/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
+          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/Split/Inputs/Coordinate Smoothing" />
           <Link source="Nodes/GetGazeData/Outputs/Output" sink="Outlets/EyetrackerVL" />
-          <Link source="Nodes/GazeData/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
-          <Link source="Nodes/GazeData/Outputs/State" sink="Outlets/GazeState" />
+          <Link source="Nodes/Split/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
+          <Link source="Nodes/Split/Outputs/State" sink="Outlets/GazeState" />
           <Link source="Regions/IfElse#2/Outputs/Output" sink="Nodes/GetGazeData/Inputs/Input" />
           <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/IsActivated/Inputs/Input" />
           <Link source="Nodes/IsActivated/Outputs/Output" sink="Regions/IfElse#3/IfElseBody/Nodes/GetTrackerState#1/Inputs/Gazemanager" />
@@ -1010,11 +1001,10 @@
               <Point x="229.703491" y="25.758728" />
             </SEGMENTS>
           </Link>
-          <Link source="Nodes/GazeData/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
-          <Link source="Nodes/GazeData/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
-          <Link source="Nodes/GetGazeData/Outputs/GazeData" sink="Nodes/ShareInstance/Inputs/Instance" />
-          <Link source="Nodes/ShareInstance/Outputs/Output 2" sink="Nodes/GazeData/Inputs/GazeData" />
-          <Link source="Nodes/ShareInstance/Outputs/Output 1" sink="Outlets/GazeData" />
+          <Link source="Nodes/Split/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
+          <Link source="Nodes/Split/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
+          <Link source="Nodes/Split/Outputs/GazeData" sink="Outlets/GazeData" />
+          <Link source="Nodes/GetGazeData/Outputs/GazeData" sink="Nodes/Split/Inputs/GazeData" />
         </LINKS>
       </BODY>
     </PATCH>
