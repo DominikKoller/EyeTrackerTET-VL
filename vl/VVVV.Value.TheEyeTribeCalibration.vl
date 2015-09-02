@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VLDOCUMENT Version="0.31.1172.0">
+<VLDOCUMENT Version="0.31.1202.0">
   <DEPENDENCIES>
     <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
     <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
@@ -285,11 +285,11 @@
           </INLET>
         </INLETS>
         <OUTLETS>
-          <OUTLET Name="OCalibrationData" Layer="Create" PadType="Field">
-            <POSITION x="-386.6133" y="645.1629" />
-          </OUTLET>
           <OUTLET Name="CalibrationData#2" Layer="GetCalibrationData">
             <POSITION x="-384.957336" y="882.010559" />
+          </OUTLET>
+          <OUTLET Name="OCalibrationData" Layer="Create" PadType="Field">
+            <POSITION x="-384.6133" y="628.1629" />
           </OUTLET>
           <OUTLET Name="CalibrationPointsPositions" Layer="Create" PadType="Field">
             <POSITION x="43.7700348" y="225.937332" />
@@ -731,10 +731,10 @@
                                 <OUPUT Name="Output" />
                               </OUTPUTS>
                             </OPERATION>
-                            <OPERATION Name="Vector2ToTETPoint2D" Layer="True">
+                            <OPERATION Name="FromVector2" Layer="True">
                               <POSITION x="1436.896" y="1404.707" />
-                              <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
-                                <OPERATIONNODE Name="Vector2ToTETPoint2D" />
+                              <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                                <OPERATIONNODE Name="FromVector2" />
                               </NODEREF>
                               <INPUTS>
                                 <INPUT Name="Vector2" />
@@ -762,11 +762,11 @@
                           <LINKS>
                             <Link source="Nodes/SetState/Outputs/Output" sink="Outlets/Output" />
                             <Link source="Inlets/Output" sink="Nodes/SetState/Inputs/Input" />
-                            <Link source="Nodes/GetPosition/Outputs/Position" sink="Nodes/Vector2ToTETPoint2D/Inputs/Vector2" />
+                            <Link source="Nodes/GetPosition/Outputs/Position" sink="Nodes/FromVector2/Inputs/Vector2" />
                             <Link source="Inlets/Output" sink="Nodes/GetPosition/Inputs/Input" />
-                            <Link source="Constants/Map Values" sink="Nodes/Vector2ToTETPoint2D/Inputs/Map Values" />
-                            <Link source="Nodes/Vector2ToTETPoint2D/Outputs/X" sink="Nodes/CalibrationPointStart/Inputs/X" />
-                            <Link source="Nodes/Vector2ToTETPoint2D/Outputs/Y" sink="Nodes/CalibrationPointStart/Inputs/Y" />
+                            <Link source="Constants/Map Values" sink="Nodes/FromVector2/Inputs/Map Values" />
+                            <Link source="Nodes/FromVector2/Outputs/X" sink="Nodes/CalibrationPointStart/Inputs/X" />
+                            <Link source="Nodes/FromVector2/Outputs/Y" sink="Nodes/CalibrationPointStart/Inputs/Y" />
                             <Link source="Inlets/GazeManager" sink="Nodes/CalibrationPointStart/Inputs/Input" />
                             <Link source="Nodes/CalibrationPointStart/Outputs/Output" sink="Outlets/GazeManager" />
                             <Link source="Constants/State#1" sink="Nodes/SetState/Inputs/State" />
@@ -787,17 +787,6 @@
                           <OUPUT Name="StartTime" />
                         </OUTPUTS>
                       </OPERATION>
-                      <OPERATION Name="Now" Layer="True">
-                        <POSITION x="1276.54639" y="1280.7666" />
-                        <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
-                          <OPERATIONNODE Name="Now" />
-                          <CATEGORY Name="Time" IsDirectParent="true" />
-                        </NODEREF>
-                        <INPUTS />
-                        <OUTPUTS>
-                          <OUPUT Name="Now" />
-                        </OUTPUTS>
-                      </OPERATION>
                       <OPERATION Name="&gt;=" Layer="True">
                         <POSITION x="1300.437" y="1312.63965" />
                         <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
@@ -815,7 +804,6 @@
                     </NODES>
                     <LINKS>
                       <Link source="Inlets/CalibrationPoint" sink="Nodes/GetStartTime/Inputs/Input" />
-                      <Link source="Nodes/Now/Outputs/Now" sink="Nodes/&gt;=/Inputs/Input" />
                       <Link source="Nodes/GetStartTime/Outputs/StartTime" sink="Nodes/&gt;=/Inputs/Input 2" />
                       <Link source="Regions/IfElse/Outputs/Output" sink="Outlets/CalibrationPoint" />
                       <Link source="Nodes/&gt;=/Outputs/Result" sink="Regions/IfElse/Inputs/Condition" />
@@ -886,17 +874,6 @@
                           <OUPUT Name="EndTime" />
                         </OUTPUTS>
                       </OPERATION>
-                      <OPERATION Name="Now" Layer="True">
-                        <POSITION x="1889.24341" y="1243.48657" />
-                        <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
-                          <OPERATIONNODE Name="Now" />
-                          <CATEGORY Name="Time" IsDirectParent="true" />
-                        </NODEREF>
-                        <INPUTS />
-                        <OUTPUTS>
-                          <OUPUT Name="Now" />
-                        </OUTPUTS>
-                      </OPERATION>
                       <OPERATION Name="&gt;=" Layer="True">
                         <POSITION x="1905.26" y="1279.41284" />
                         <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
@@ -942,7 +919,6 @@
                     </NODES>
                     <LINKS>
                       <Link source="Inlets/CalibrationPoint" sink="Nodes/GetEndTime/Inputs/Input" />
-                      <Link source="Nodes/Now/Outputs/Now" sink="Nodes/&gt;=/Inputs/Input" />
                       <Link source="Inlets/GazeManager" sink="Nodes/CalibrationPointEnd/Inputs/Input" />
                       <Link source="Nodes/CalibrationPointEnd/Outputs/Output" sink="Outlets/GazeManager" />
                       <Link source="Nodes/GetEndTime/Outputs/EndTime" sink="Nodes/&gt;=/Inputs/Input 2" />
@@ -1151,17 +1127,6 @@
                     <OUPUT Name="Since" />
                   </OUTPUTS>
                 </OPERATION>
-                <OPERATION Name="Now" Layer="True">
-                  <POSITION x="1189.93274" y="1705.54126" />
-                  <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
-                    <OPERATIONNODE Name="Now" />
-                    <CATEGORY Name="Time" IsDirectParent="true" />
-                  </NODEREF>
-                  <INPUTS />
-                  <OUTPUTS>
-                    <OUPUT Name="Now" />
-                  </OUTPUTS>
-                </OPERATION>
                 <OPERATION Name="-" Layer="True">
                   <POSITION x="1209.63879" y="1729.18872" />
                   <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
@@ -1237,7 +1202,6 @@
                 <Link source="Nodes/SetCurrentCalibrationPoint/Outputs/Output" sink="Regions/IfElse#5/Inputs/CalibrationData Default" />
                 <Link source="Nodes/GetWaitingForServer/Outputs/WaitingForServer" sink="Nodes/AND/Inputs/Input" />
                 <Link source="Nodes/GetWaitingForServer/Outputs/Since" sink="Nodes/-/Inputs/Input 2" />
-                <Link source="Nodes/Now/Outputs/Now" sink="Nodes/-/Inputs/Input" />
                 <Link source="Nodes/-/Outputs/Output" sink="Nodes/ToTimeSpan/Inputs/Input" />
                 <Link source="Nodes/ToTimeSpan/Outputs/Result" sink="Nodes/&gt;/Inputs/Input" />
                 <Link source="Nodes/&gt;/Outputs/Result" sink="Nodes/AND/Inputs/Input 2" />
@@ -1352,7 +1316,7 @@
                       </OPERATION>
                       <OPERATION Name="HasListeners#1" Layer="Update">
                         <POSITION x="-48.34204" y="453.17334" />
-                        <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
                           <OPERATIONNODE Name="HasListeners" />
                         </NODEREF>
                         <INPUTS>
@@ -1638,6 +1602,17 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
+          <OPERATION Name="Now#1" Layer="Update">
+            <POSITION x="1020.20496" y="1237.63452" />
+            <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
+              <OPERATIONNODE Name="Now" />
+              <CATEGORY Name="Time" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS />
+            <OUTPUTS>
+              <OUPUT Name="Now" />
+            </OUTPUTS>
+          </OPERATION>
         </NODES>
         <LINKS>
           <Link source="Inlets/OCalibrationData" sink="Nodes/Sampler/Inputs/Async Notifications" />
@@ -1678,6 +1653,9 @@
               <Point x="-213.819855" y="283.310577" />
             </SEGMENTS>
           </Link>
+          <Link source="Nodes/Now#1/Outputs/Now" sink="Regions/IfElse#2/IfElseBody/Regions/IfElse#1/IfElseBody/Nodes/&gt;=/Inputs/Input" />
+          <Link source="Nodes/Now#1/Outputs/Now" sink="Regions/IfElse#2/IfElseBody/Regions/IfElse/IfElseBody/Nodes/&gt;=/Inputs/Input" />
+          <Link source="Nodes/Now#1/Outputs/Now" sink="Regions/IfElse#2/IfElseBody/Nodes/-/Inputs/Input" />
         </LINKS>
       </BODY>
     </PATCH>
@@ -1712,22 +1690,22 @@
             <POSITION x="151.246933" y="831.087" />
           </OUTLET>
           <OUTLET Name="CalibrationPoints" Layer="Update">
-            <POSITION x="297.48172" y="1105.56189" />
+            <POSITION x="325.756378" y="983.980957" />
           </OUTLET>
           <OUTLET Name="ResultSuccess" Layer="Update">
-            <POSITION x="566.612" y="1105.56189" />
+            <POSITION x="594.886658" y="983.980957" />
           </OUTLET>
           <OUTLET Name="ResultAverageErrorDegree" Layer="Update">
-            <POSITION x="651.5267" y="1105.56189" />
+            <POSITION x="679.801331" y="983.980957" />
           </OUTLET>
           <OUTLET Name="State" Layer="Update">
-            <POSITION x="845.9521" y="1105.56189" />
+            <POSITION x="874.226746" y="983.980957" />
           </OUTLET>
           <OUTLET Name="ErrorMessages" Layer="Update">
-            <POSITION x="941.0901" y="1105.56189" />
+            <POSITION x="969.364746" y="983.980957" />
           </OUTLET>
           <OUTLET Name="Is Calibrating" Layer="Update">
-            <POSITION x="1066.815" y="1105.56189" />
+            <POSITION x="1095.09009" y="983.980957" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
@@ -1903,7 +1881,7 @@
             </BODY>
           </REGION>
           <REGION Name="ForEachLoop" Layer="Update" Kind="ForEachLoop">
-            <POSITION x="295.1667" y="993.0723" />
+            <POSITION x="323.441345" y="871.4914" />
             <SIZE x="38.03296" y="57.0495" />
             <INPUTS>
               <INPUT Name="CalibrationPoints" />
@@ -1920,22 +1898,22 @@
               </LAYERS>
               <INLETS>
                 <INLET Name="CalibrationPoint" Layer="Update">
-                  <POSITION x="298.843567" y="994.7005" />
+                  <POSITION x="327.118225" y="873.119568" />
                 </INLET>
               </INLETS>
               <OUTLETS>
                 <OUTLET Name="Position" Layer="Update">
-                  <POSITION x="298.919983" y="1077.34351" />
+                  <POSITION x="327.194641" y="955.7626" />
                 </OUTLET>
                 <OUTLET Name="State" Layer="Update">
-                  <POSITION x="416.298767" y="1077.34351" />
+                  <POSITION x="444.573425" y="955.7626" />
                 </OUTLET>
               </OUTLETS>
               <CONSTS />
               <REGIONS />
               <NODES>
                 <OPERATION Name="GetPosition" Layer="Update">
-                  <POSITION x="300.1667" y="1033.04614" />
+                  <POSITION x="328.441345" y="911.4652" />
                   <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetPosition" />
                     <CATEGORY Name="CalibrationPointData" />
@@ -1948,7 +1926,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="GetState" Layer="Update">
-                  <POSITION x="417.74762" y="1032.81958" />
+                  <POSITION x="446.022278" y="911.238647" />
                   <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetState" />
                     <CATEGORY Name="CalibrationPointData" />
@@ -2058,7 +2036,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="IsCalibrating" Layer="Update">
-            <POSITION x="1006.246" y="1062.17273" />
+            <POSITION x="1034.52075" y="940.5918" />
             <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="IsCalibrating" />
               <CATEGORY Name="GazeManager" IsDirectParent="true" />
@@ -2072,7 +2050,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="get_Instance" Layer="Update">
-            <POSITION x="1006.24622" y="1031.309" />
+            <POSITION x="1034.521" y="909.728" />
             <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="get_Instance" />
             </NODEREF>
@@ -2082,7 +2060,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="GetState" Layer="Update">
-            <POSITION x="847.3217" y="1046.52893" />
+            <POSITION x="875.5964" y="924.948" />
             <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetState" />
               <CATEGORY Name="CalibrationData" IsDirectParent="true" />
@@ -2095,7 +2073,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="GetCalibrationPoints" Layer="Update">
-            <POSITION x="301.1788" y="946.901245" />
+            <POSITION x="329.453461" y="825.3203" />
             <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationPoints" />
             </NODEREF>
@@ -2107,7 +2085,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="GetCalibrationResult" Layer="Update">
-            <POSITION x="567.932" y="1039.41223" />
+            <POSITION x="596.206665" y="917.8313" />
             <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationResult" />
             </NODEREF>
@@ -2120,7 +2098,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="GetErrormessages" Layer="Update">
-            <POSITION x="943.6283" y="990.725952" />
+            <POSITION x="971.902954" y="869.145" />
             <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetErrormessages" />
             </NODEREF>
@@ -4315,10 +4293,10 @@
                           <OUPUT Name="Output" />
                         </OUTPUTS>
                       </OPERATION>
-                      <OPERATION Name="TETPoint2DtoVector2" Layer="True">
+                      <OPERATION Name="ToVector2" Layer="True">
                         <POSITION x="294.257446" y="417.191162" />
-                        <NODEREF LastCat="2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
-                          <OPERATIONNODE Name="TETPoint2DtoVector2" />
+                        <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                          <OPERATIONNODE Name="ToVector2" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="TETPoint2D" />
@@ -4331,11 +4309,11 @@
                     </NODES>
                     <LINKS>
                       <Link source="Nodes/Create/Outputs/Output" sink="Nodes/Add/Inputs/Item" />
-                      <Link source="Constants/Map Values" sink="Nodes/TETPoint2DtoVector2/Inputs/Map Values" />
-                      <Link source="Nodes/TETPoint2DtoVector2/Outputs/Vector2" sink="Nodes/Create/Inputs/Position" />
+                      <Link source="Constants/Map Values" sink="Nodes/ToVector2/Inputs/Map Values" />
+                      <Link source="Nodes/ToVector2/Outputs/Vector2" sink="Nodes/Create/Inputs/Position" />
                       <Link source="Inlets/ToResample" sink="Nodes/Add/Inputs/Input" />
                       <Link source="Nodes/Add/Outputs/Output" sink="Outlets/ToResample" />
-                      <Link source="Nodes/Coordinates/Outputs/Coordinates" sink="Nodes/TETPoint2DtoVector2/Inputs/TETPoint2D" />
+                      <Link source="Nodes/Coordinates/Outputs/Coordinates" sink="Nodes/ToVector2/Inputs/TETPoint2D" />
                     </LINKS>
                   </BODY>
                 </REGION>

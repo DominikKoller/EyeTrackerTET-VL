@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VLDOCUMENT Version="0.31.1173.0">
+<VLDOCUMENT Version="0.31.1202.0">
   <DEPENDENCIES>
     <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
     <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
@@ -20,62 +20,43 @@
     <DEPENDENCY Name="TETWrapper.dll.vlimport" Location="..\tetdlls\TETWrapper.dll.vlimport" />
   </DEPENDENCIES>
   <PATCHES>
-    <PATCH Name="Utils" Category="2D" IsClosed="true">
+    <PATCH Name="TETPoint2Utils" Category="TETCSharpClient.Data.Point2D">
       <BODY Name="UtilsBody">
         <LAYERS>
-          <LAYER Name="TETPoint2DtoVector2" />
-          <LAYER Name="Update" />
-          <LAYER Name="PixelXYtoVVVVCoord" />
-          <LAYER Name="Coordinates" />
-          <LAYER Name="VVVVCoordToPixelXY" />
-          <LAYER Name="Vector2ToTETPoint2D" />
-          <LAYER Name="HasListeners" />
+          <LAYER Name="ToVector2" />
+          <LAYER Name="FromVector2" />
         </LAYERS>
         <INLETS>
-          <INLET Name="Vector2" Layer="Vector2ToTETPoint2D">
+          <INLET Name="Vector2" Layer="FromVector2">
             <POSITION x="-432.319733" y="219.539948" />
           </INLET>
-          <INLET Name="Map Values#1" Layer="Vector2ToTETPoint2D">
+          <INLET Name="Map Values#1" Layer="FromVector2">
             <POSITION x="-299.393646" y="219.539948" />
           </INLET>
-          <INLET Name="TETPoint2D" Layer="TETPoint2DtoVector2">
+          <INLET Name="TETPoint2D" Layer="ToVector2">
             <POSITION x="132" y="209" />
           </INLET>
-          <INLET Name="Map Values" Layer="TETPoint2DtoVector2">
+          <INLET Name="Map Values" Layer="ToVector2">
             <POSITION x="308" y="209" />
-          </INLET>
-          <INLET Name="GazeManager" Layer="HasListeners">
-            <POSITION x="502.143066" y="236.0398" />
           </INLET>
         </INLETS>
         <OUTLETS>
-          <OUTLET Name="Point2D" Layer="Vector2ToTETPoint2D">
+          <OUTLET Name="Point2D" Layer="FromVector2">
             <POSITION x="-436.747131" y="745.0502" />
           </OUTLET>
-          <OUTLET Name="X" Layer="Vector2ToTETPoint2D">
+          <OUTLET Name="X" Layer="FromVector2">
             <POSITION x="-337.802032" y="745.0502" />
           </OUTLET>
-          <OUTLET Name="Y" Layer="Vector2ToTETPoint2D">
+          <OUTLET Name="Y" Layer="FromVector2">
             <POSITION x="-295.274933" y="745.0502" />
           </OUTLET>
-          <OUTLET Name="Vector2" Layer="TETPoint2DtoVector2">
-            <POSITION x="115.836517" y="794.5375" />
-          </OUTLET>
-          <OUTLET Name="GazeManager" Layer="HasListeners">
-            <POSITION x="498.816223" y="519.457458" />
-          </OUTLET>
-          <OUTLET Name="HasListeners" Layer="HasListeners">
-            <POSITION x="654.8162" y="519.457458" />
+          <OUTLET Name="Vector2" Layer="ToVector2">
+            <POSITION x="129.836517" y="726.5375" />
           </OUTLET>
         </OUTLETS>
-        <CONSTS>
-          <CONST Name="zero" Layer="HasListeners">
-            <POSITION x="685.746643" y="481.278778" />
-            <VALUE><![CDATA[0]]></VALUE>
-          </CONST>
-        </CONSTS>
+        <CONSTS />
         <REGIONS>
-          <REGION Name="IfElse" Layer="TETPoint2DtoVector2" Kind="IfElse">
+          <REGION Name="IfElse" Layer="ToVector2" Kind="IfElse">
             <POSITION x="123.858734" y="408.346344" />
             <SIZE x="357" y="231" />
             <INPUTS>
@@ -197,7 +178,7 @@
               </LINKS>
             </BODY>
           </REGION>
-          <REGION Name="IfElse#1" Layer="Vector2ToTETPoint2D" Kind="IfElse">
+          <REGION Name="IfElse#1" Layer="FromVector2" Kind="IfElse">
             <POSITION x="-438.2075" y="323.698639" />
             <SIZE x="80" y="80" />
             <INPUTS>
@@ -324,7 +305,7 @@
           </REGION>
         </REGIONS>
         <NODES>
-          <OPERATION Name="ToFloat32#1" Layer="TETPoint2DtoVector2">
+          <OPERATION Name="ToFloat32#1" Layer="ToVector2">
             <POSITION x="200.578491" y="329.814575" />
             <NODEREF LastCat="Math.Float64" LastFile="VL.Lib.Basics.dll">
               <OPERATIONNODE Name="ToFloat32" />
@@ -337,7 +318,7 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="ToFloat32" Layer="TETPoint2DtoVector2">
+          <OPERATION Name="ToFloat32" Layer="ToVector2">
             <POSITION x="133" y="330.2844" />
             <NODEREF LastCat="Math.Float64" LastFile="VL.Lib.Basics.dll">
               <OPERATIONNODE Name="ToFloat32" />
@@ -350,7 +331,7 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Vector" Layer="TETPoint2DtoVector2">
+          <OPERATION Name="Vector" Layer="ToVector2">
             <POSITION x="133.552368" y="373.9901" />
             <NODEREF LastCat="2D.Vector2" LastFile="SharpDX.dll">
               <OPERATIONNODE Name="Vector" Version="Join" />
@@ -364,7 +345,7 @@
               <OUPUT Name="Output" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="X" Layer="TETPoint2DtoVector2">
+          <OPERATION Name="X" Layer="ToVector2">
             <POSITION x="134.1065" y="274.9606" />
             <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="X" />
@@ -378,7 +359,7 @@
               <OUPUT Name="X" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Y" Layer="TETPoint2DtoVector2">
+          <OPERATION Name="Y" Layer="ToVector2">
             <POSITION x="134.404114" y="237" />
             <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
               <OPERATIONNODE Name="Y" />
@@ -392,7 +373,7 @@
               <OUPUT Name="Y" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Vector#1" Layer="Vector2ToTETPoint2D">
+          <OPERATION Name="Vector#1" Layer="FromVector2">
             <POSITION x="-434.1114" y="667.699341" />
             <NODEREF LastCat="2D.Vector2" LastFile="VL.Lib.Basics.dll">
               <OPERATIONNODE Name="Vector" Version="Split" />
@@ -406,7 +387,7 @@
               <OUPUT Name="Y" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Create" Layer="Vector2ToTETPoint2D">
+          <OPERATION Name="Create" Layer="FromVector2">
             <POSITION x="-434.909454" y="697.2259" />
             <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="TETCSharpClient.dll">
               <CATEGORY Name="Point2D" />
@@ -420,7 +401,7 @@
               <OUPUT Name="Output" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Floor" Layer="Vector2ToTETPoint2D">
+          <OPERATION Name="Floor" Layer="FromVector2">
             <POSITION x="-337.438873" y="678.863037" />
             <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
               <CATEGORY Name="Adaptive" IsDirectParent="true" />
@@ -433,7 +414,7 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="Floor#1" Layer="Vector2ToTETPoint2D">
+          <OPERATION Name="Floor#1" Layer="FromVector2">
             <POSITION x="-294.018524" y="678.045" />
             <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
               <CATEGORY Name="Adaptive" IsDirectParent="true" />
@@ -443,90 +424,6 @@
               <INPUT Name="Input" />
             </INPUTS>
             <OUTPUTS>
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="+" Layer="HasListeners">
-            <POSITION x="657.6302" y="439.4951" />
-            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
-              <OPERATIONNODE Name="+" />
-              <CATEGORY Name="Adaptive" IsDirectParent="true" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-              <INPUT Name="Input 2" />
-              <INPUT Name="Input 3" />
-              <INPUT Name="Input 4" />
-              <INPUT Name="Input 5" />
-              <INPUT Name="Enabled" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="&gt;" Layer="HasListeners">
-            <POSITION x="657.579651" y="490.961243" />
-            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
-              <OPERATIONNODE Name="&gt;" />
-              <CATEGORY Name="Adaptive" IsDirectParent="true" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-              <INPUT Name="Input 2" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="GetNumTrackerStateListeners" Layer="HasListeners">
-            <POSITION x="504.1493" y="412.4372" />
-            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-              <OPERATIONNODE Name="GetNumTrackerStateListeners" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="GetNumGazeListeners" Layer="HasListeners">
-            <POSITION x="506.143066" y="359.909515" />
-            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-              <OPERATIONNODE Name="GetNumGazeListeners" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="GetNumConnectionStateListeners" Layer="HasListeners">
-            <POSITION x="505.143066" y="323.7122" />
-            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-              <OPERATIONNODE Name="GetNumConnectionStateListeners" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
-              <OUPUT Name="Result" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="GetNumCalibrationResultListeners" Layer="HasListeners">
-            <POSITION x="505.143066" y="282.039734" />
-            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
-              <OPERATIONNODE Name="GetNumCalibrationResultListeners" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Output" />
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
@@ -560,18 +457,133 @@
           <Link source="Nodes/Vector#1/Outputs/Y" sink="Nodes/Floor#1/Inputs/Input" />
           <Link source="Nodes/Floor/Outputs/Result" sink="Outlets/X" />
           <Link source="Nodes/Floor#1/Outputs/Result" sink="Outlets/Y" />
-          <Link source="Nodes/+/Outputs/Output" sink="Nodes/&gt;/Inputs/Input" />
-          <Link source="Constants/zero" sink="Nodes/&gt;/Inputs/Input 2" />
-          <Link source="Nodes/GetNumTrackerStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input" />
-          <Link source="Nodes/GetNumGazeListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 2" />
-          <Link source="Nodes/GetNumGazeListeners/Outputs/Output" sink="Nodes/GetNumTrackerStateListeners/Inputs/Input" />
-          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 3" />
-          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Output" sink="Nodes/GetNumGazeListeners/Inputs/Input" />
-          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 4" />
-          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Output" sink="Nodes/GetNumConnectionStateListeners/Inputs/Input" />
+        </LINKS>
+      </BODY>
+    </PATCH>
+    <PATCH Name="GazeManagerUtils" Category="TETCSharpClient.GazeManager">
+      <BODY Name="Utils2Body">
+        <LAYERS>
+          <LAYER Name="HasListeners" />
+        </LAYERS>
+        <INLETS>
+          <INLET Name="GazeManager" Layer="HasListeners">
+            <POSITION x="545.326843" y="232" />
+          </INLET>
+        </INLETS>
+        <OUTLETS>
+          <OUTLET Name="GazeManager" Layer="HasListeners">
+            <POSITION x="542" y="515.417664" />
+          </OUTLET>
+          <OUTLET Name="HasListeners" Layer="HasListeners">
+            <POSITION x="698" y="515.417664" />
+          </OUTLET>
+        </OUTLETS>
+        <CONSTS>
+          <CONST Name="zero" Layer="HasListeners">
+            <POSITION x="728.9304" y="477.238983" />
+            <VALUE><![CDATA[0]]></VALUE>
+          </CONST>
+        </CONSTS>
+        <REGIONS />
+        <NODES>
+          <OPERATION Name="GetNumCalibrationResultListeners" Layer="HasListeners">
+            <POSITION x="548.326843" y="277.999939" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumCalibrationResultListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumGazeListeners" Layer="HasListeners">
+            <POSITION x="549.326843" y="355.86972" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumGazeListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumConnectionStateListeners" Layer="HasListeners">
+            <POSITION x="548.326843" y="319.6724" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumConnectionStateListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="+" Layer="HasListeners">
+            <POSITION x="700.813965" y="435.4553" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="+" />
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+              <INPUT Name="Input 2" />
+              <INPUT Name="Input 3" />
+              <INPUT Name="Input 4" />
+              <INPUT Name="Input 5" />
+              <INPUT Name="Enabled" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="GetNumTrackerStateListeners" Layer="HasListeners">
+            <POSITION x="547.333069" y="408.3974" />
+            <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="TETCSharpClient.dll">
+              <OPERATIONNODE Name="GetNumTrackerStateListeners" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Output" />
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+          <OPERATION Name="&gt;" Layer="HasListeners">
+            <POSITION x="700.7634" y="486.921448" />
+            <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
+              <OPERATIONNODE Name="&gt;" />
+              <CATEGORY Name="Adaptive" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+              <INPUT Name="Input 2" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
+        </NODES>
+        <LINKS>
           <Link source="Inlets/GazeManager" sink="Nodes/GetNumCalibrationResultListeners/Inputs/Input" />
-          <Link source="Nodes/&gt;/Outputs/Result" sink="Outlets/HasListeners" />
+          <Link source="Constants/zero" sink="Nodes/&gt;/Inputs/Input 2" />
           <Link source="Nodes/GetNumTrackerStateListeners/Outputs/Output" sink="Outlets/GazeManager" />
+          <Link source="Nodes/&gt;/Outputs/Result" sink="Outlets/HasListeners" />
+          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Output" sink="Nodes/GetNumConnectionStateListeners/Inputs/Input" />
+          <Link source="Nodes/GetNumCalibrationResultListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 4" />
+          <Link source="Nodes/GetNumGazeListeners/Outputs/Output" sink="Nodes/GetNumTrackerStateListeners/Inputs/Input" />
+          <Link source="Nodes/GetNumGazeListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 2" />
+          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Output" sink="Nodes/GetNumGazeListeners/Inputs/Input" />
+          <Link source="Nodes/GetNumConnectionStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input 3" />
+          <Link source="Nodes/+/Outputs/Output" sink="Nodes/&gt;/Inputs/Input" />
+          <Link source="Nodes/GetNumTrackerStateListeners/Outputs/Result" sink="Nodes/+/Inputs/Input" />
         </LINKS>
       </BODY>
     </PATCH>

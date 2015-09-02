@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.100.dtd" >
-   <PATCH nodename="D:\vvvv\sketchbook\theEyeTribe\Record Eyetracks.v4p" scrollx="0" scrolly="0" systemname="Record Eyetracks" filename="D:\vvvv\sketchbook\theEyeTribe\girlpower\Record Eyetracks.v4p">
+   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\Record Eyetracks.v4p" scrollx="0" scrolly="0" systemname="Record Eyetracks" filename="D:\vvvv\sketchbook\theEyeTribe\girlpower\Record Eyetracks.v4p">
    <BOUNDS type="Window" left="7110" top="1545" width="10140" height="12210">
    </BOUNDS>
    <PACK Name="addonpack" Version="34.100.0">
@@ -550,40 +550,6 @@
    <BOUNDS type="Node" left="420" top="660" width="100" height="100">
    </BOUNDS>
    </NODE>
-   <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="vl\VVVV.Value.TheEyeTribe.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="43">
-   <BOUNDS type="Node" left="4095" top="1965" width="2205" height="270">
-   </BOUNDS>
-   <PIN pinname="Gaze CoordinatesXY" visible="1">
-   </PIN>
-   <PIN pinname="L CoordinatesXY" visible="1">
-   </PIN>
-   <PIN pinname="L Pupil PositionXY" visible="1">
-   </PIN>
-   <PIN pinname="L PupilSize" visible="1">
-   </PIN>
-   <PIN pinname="R CoordinatesXY" visible="1">
-   </PIN>
-   <PIN pinname="R Pupil PositionXY" visible="1">
-   </PIN>
-   <PIN pinname="R Pupil Size" visible="1">
-   </PIN>
-   <PIN pinname="Enabled" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Coordinate Smoothing" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Is Activated" visible="1">
-   </PIN>
-   <PIN pinname="Is Fixated" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Enabled">
-   </LINK>
-   <LINK srcnodeid="35" srcpinname="Y Output Value" dstnodeid="43" dstpinname="Coordinate Smoothing">
-   </LINK>
-   <LINK srcnodeid="43" srcpinname="Is Activated" dstnodeid="39" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="43" srcpinname="Gaze CoordinatesXY" dstnodeid="4" dstpinname="XY">
-   </LINK>
    <NODE systemname="Line (EX9.Geometry)" filename="" nodename="Line (EX9.Geometry)" componentmode="Hidden" id="25">
    <BOUNDS type="Node" left="4875" top="7320" width="100" height="100">
    </BOUNDS>
@@ -610,6 +576,18 @@
    </LINK>
    <LINK srcnodeid="4" srcpinname="XYZ" dstnodeid="9" dstpinname="Input">
    </LINK>
-   <LINK srcnodeid="43" srcpinname="Is Fixated" dstnodeid="24" dstpinname="Input 1">
+   <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="vl\VVVV.Value.TheEyeTribe.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="45">
+   <BOUNDS type="Node" left="4095" top="1965" width="2205" height="270">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="35" srcpinname="Y Output Value" dstnodeid="45" dstpinname="Coordinate Smoothing">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Is Activated" dstnodeid="39" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Gaze CoordinatesXY" dstnodeid="4" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="45" srcpinname="Is Fixated" dstnodeid="24" dstpinname="Input 1">
    </LINK>
    </PATCH>
