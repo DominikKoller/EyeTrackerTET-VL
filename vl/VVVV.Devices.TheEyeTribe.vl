@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VLDOCUMENT Version="0.31.1259.0">
+  <DEPENDENCIES>
+    <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
+    <DEPENDENCY Name="SharpDX.dll.vlimport" Location="SharpDX.dll.vlimport" />
+    <DEPENDENCY Name="System.Collections.Immutable.dll.vlimport" Location="System.Collections.Immutable.dll.vlimport" />
+    <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
+    <DEPENDENCY Name="System.Interactive.dll.vlimport" Location="System.Interactive.dll.vlimport" />
+    <DEPENDENCY Name="System.Reactive.Linq.dll.vlimport" Location="System.Reactive.Linq.dll.vlimport" />
+    <DEPENDENCY Name="System.Windows.Forms.dll.vlimport" Location="System.Windows.Forms.dll.vlimport" />
+    <DEPENDENCY Name="VVVV.Utils.dll.vlimport" Location="VVVV.Utils.dll.vlimport" />
+    <DEPENDENCY Name="VL.Core.dll" Location="VL.Core.dll" />
+    <DEPENDENCY Name="VL.Lib.Basics.dll" Location="VL.Lib.Basics.dll" />
+    <DEPENDENCY Name="Basics.vl" Location="Basics.vl" />
+    <DEPENDENCY Name="VL.Lib.Integration.dll" Location="VL.Lib.Integration.dll" />
+    <DEPENDENCY Name="Integration.vl" Location="Integration.vl" />
+    <DEPENDENCY Name="VL.Devices.TheEyeTribe.vl" Location="./VL.Devices.TheEyeTribe.vl" />
+    <DEPENDENCY Name="VL.Devices.TheEyeTribeCalibration.vl" Location="./VL.Devices.TheEyeTribeCalibration.vl" />
+  </DEPENDENCIES>
+  <PATCHES>
+    <PATCH Name="EyeTracker" Category="VVVV.Devices.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+      <BODY Name="UtilsBody">
+        <LAYERS>
+          <LAYER Name="Create" />
+          <LAYER Name="Update" />
+        </LAYERS>
+        <INLETS>
+          <INLET Name="Enabled" Layer="Update">
+            <POSITION x="749" y="404" />
+          </INLET>
+          <INLET Name="Coordinate Smoothing" Layer="Update">
+            <POSITION x="946" y="404" />
+          </INLET>
+        </INLETS>
+        <OUTLETS>
+          <OUTLET Name="GazeData" Layer="Update">
+            <POSITION x="311" y="614" />
+          </OUTLET>
+          <OUTLET Name="Gaze Coordinates" Layer="Update">
+            <POSITION x="410" y="614" />
+          </OUTLET>
+          <OUTLET Name="Is Fixated" Layer="Update">
+            <POSITION x="525" y="614" />
+          </OUTLET>
+          <OUTLET Name="GazeState" Layer="Update">
+            <POSITION x="609" y="614" />
+          </OUTLET>
+          <OUTLET Name="L Coordinates" Layer="Update">
+            <POSITION x="691" y="614" />
+          </OUTLET>
+          <OUTLET Name="L Pupil Position" Layer="Update">
+            <POSITION x="797" y="614" />
+          </OUTLET>
+          <OUTLET Name="L PupilSize" Layer="Update">
+            <POSITION x="900" y="614" />
+          </OUTLET>
+          <OUTLET Name="R Coordinates" Layer="Update">
+            <POSITION x="993" y="614" />
+          </OUTLET>
+          <OUTLET Name="R Pupil Position" Layer="Update">
+            <POSITION x="1106" y="614" />
+          </OUTLET>
+          <OUTLET Name="R Pupil Size" Layer="Update">
+            <POSITION x="1225" y="614" />
+          </OUTLET>
+          <OUTLET Name="Is Calibrated" Layer="Update">
+            <POSITION x="1324" y="614" />
+          </OUTLET>
+          <OUTLET Name="Is Calibrating" Layer="Update">
+            <POSITION x="1420" y="614" />
+          </OUTLET>
+          <OUTLET Name="TrackerState" Layer="Update">
+            <POSITION x="1518" y="614" />
+          </OUTLET>
+          <OUTLET Name="Is Activated" Layer="Update">
+            <POSITION x="1617" y="614" />
+          </OUTLET>
+        </OUTLETS>
+        <CONSTS>
+          <CONST Name="comment#16" Layer="Update" Type="String">
+            <POSITION x="394" y="676" />
+            <SIZE width="187.752579" height="17.117157" />
+            <VALUE><![CDATA["This is the vvvvrapper for EyeTracker (TheEyeTribe)"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#15" Layer="Update" Type="String">
+            <POSITION x="394.6057" y="701.9026" />
+            <SIZE width="187.752579" height="17.117157" />
+            <VALUE><![CDATA["Note that it is in the category [VVVV.Devices], whereas the VL implementation is in the category [Devices]."]]></VALUE>
+          </CONST>
+        </CONSTS>
+        <REGIONS />
+        <NODES>
+          <PROCESS Name="Eyetracker">
+            <POSITION x="750" y="443" />
+            <NODEREF LastCat="Devices" LastFile="VL.Devices.TheEyeTribe.vl">
+              <PROCESSNODE Name="Eyetracker" Version="TheEyeTribe" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Enabled" FragmentId="Update" />
+              <INPUT Name="Coordinate Smoothing" FragmentId="Update" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="GazeData" FragmentId="Update" />
+              <OUPUT Name="Gaze Coordinates" FragmentId="Update" />
+              <OUPUT Name="Is Fixated" FragmentId="Update" />
+              <OUPUT Name="GazeState" FragmentId="Update" />
+              <OUPUT Name="L Coordinates" FragmentId="Update" />
+              <OUPUT Name="L Pupil Position" FragmentId="Update" />
+              <OUPUT Name="L PupilSize" FragmentId="Update" />
+              <OUPUT Name="R Coordinates" FragmentId="Update" />
+              <OUPUT Name="R Pupil Position" FragmentId="Update" />
+              <OUPUT Name="R Pupil Size" FragmentId="Update" />
+              <OUPUT Name="Is Calibrated" FragmentId="Update" />
+              <OUPUT Name="Is Calibrating" FragmentId="Update" />
+              <OUPUT Name="TrackerState" FragmentId="Update" />
+              <OUPUT Name="Is Activated" FragmentId="Update" />
+            </OUTPUTS>
+            <FRAGMENTS>
+              <FRAGMENT Name="Create" />
+              <FRAGMENT Name="Update" />
+            </FRAGMENTS>
+          </PROCESS>
+        </NODES>
+        <LINKS>
+          <Link source="Inlets/Enabled" sink="Nodes/Eyetracker/Inputs/Enabled" />
+          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/Eyetracker/Inputs/Coordinate Smoothing" />
+          <Link source="Nodes/Eyetracker/Outputs/GazeData" sink="Outlets/GazeData" />
+          <Link source="Nodes/Eyetracker/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
+          <Link source="Nodes/Eyetracker/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
+          <Link source="Nodes/Eyetracker/Outputs/GazeState" sink="Outlets/GazeState" />
+          <Link source="Nodes/Eyetracker/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
+          <Link source="Nodes/Eyetracker/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
+          <Link source="Nodes/Eyetracker/Outputs/L PupilSize" sink="Outlets/L PupilSize" />
+          <Link source="Nodes/Eyetracker/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
+          <Link source="Nodes/Eyetracker/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
+          <Link source="Nodes/Eyetracker/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
+          <Link source="Nodes/Eyetracker/Outputs/Is Calibrated" sink="Outlets/Is Calibrated" />
+          <Link source="Nodes/Eyetracker/Outputs/Is Calibrating" sink="Outlets/Is Calibrating" />
+          <Link source="Nodes/Eyetracker/Outputs/TrackerState" sink="Outlets/TrackerState" />
+          <Link source="Nodes/Eyetracker/Outputs/Is Activated" sink="Outlets/Is Activated" />
+        </LINKS>
+      </BODY>
+    </PATCH>
+    <PATCH Name="Calibration" Category="VVVV.Devices.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+      <BODY Name="UtilsBody">
+        <LAYERS>
+          <LAYER Name="Create" />
+          <LAYER Name="Update" />
+        </LAYERS>
+        <INLETS>
+          <INLET Name="Start Calibration" Layer="Update">
+            <POSITION x="879" y="387" />
+          </INLET>
+          <INLET Name="CalibrationPoints" Layer="Update">
+            <POSITION x="976" y="387" />
+          </INLET>
+          <INLET Name="Point Idle Time" Layer="Update">
+            <POSITION x="1083" y="387" />
+          </INLET>
+          <INLET Name="Point Calibration Time" Layer="Update">
+            <POSITION x="1182" y="387" />
+          </INLET>
+          <INLET Name="CalibrationAbort" Layer="Update">
+            <POSITION x="1318" y="387" />
+          </INLET>
+        </INLETS>
+        <OUTLETS>
+          <OUTLET Name="CalibrationPoints" Layer="Update">
+            <POSITION x="785" y="611" />
+          </OUTLET>
+          <OUTLET Name="ResultSuccess" Layer="Update">
+            <POSITION x="913" y="611" />
+          </OUTLET>
+          <OUTLET Name="ResultAverageErrorDegree" Layer="Update">
+            <POSITION x="1021" y="611" />
+          </OUTLET>
+          <OUTLET Name="State" Layer="Update">
+            <POSITION x="1196" y="611" />
+          </OUTLET>
+          <OUTLET Name="ErrorMessages" Layer="Update">
+            <POSITION x="1276" y="611" />
+          </OUTLET>
+          <OUTLET Name="Is Activated" Layer="Update">
+            <POSITION x="1395" y="611" />
+          </OUTLET>
+          <OUTLET Name="Is Calibrating" Layer="Update">
+            <POSITION x="1499" y="611" />
+          </OUTLET>
+        </OUTLETS>
+        <CONSTS />
+        <REGIONS />
+        <NODES>
+          <PROCESS Name="CalibrationLifetimeManager">
+            <POSITION x="912" y="465" />
+            <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+              <PROCESSNODE Name="CalibrationLifetimeManager" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Start Calibration" FragmentId="Update" />
+              <INPUT Name="CalibrationPoints" FragmentId="Update" />
+              <INPUT Name="Point Idle Time" FragmentId="Update" />
+              <INPUT Name="Point Calibration Time" FragmentId="Update" />
+              <INPUT Name="CalibrationAbort" FragmentId="Update" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="CalibrationPoints" FragmentId="Update" />
+              <OUPUT Name="ResultSuccess" FragmentId="Update" />
+              <OUPUT Name="ResultAverageErrorDegree" FragmentId="Update" />
+              <OUPUT Name="State" FragmentId="Update" />
+              <OUPUT Name="ErrorMessages" FragmentId="Update" />
+              <OUPUT Name="Is Activated" FragmentId="Update" />
+              <OUPUT Name="Is Calibrating" FragmentId="Update" />
+            </OUTPUTS>
+            <FRAGMENTS>
+              <FRAGMENT Name="Create" />
+              <FRAGMENT Name="Update" />
+            </FRAGMENTS>
+          </PROCESS>
+        </NODES>
+        <LINKS>
+          <Link source="Inlets/Start Calibration" sink="Nodes/CalibrationLifetimeManager/Inputs/Start Calibration" />
+          <Link source="Inlets/CalibrationPoints" sink="Nodes/CalibrationLifetimeManager/Inputs/CalibrationPoints" />
+          <Link source="Inlets/Point Idle Time" sink="Nodes/CalibrationLifetimeManager/Inputs/Point Idle Time" />
+          <Link source="Inlets/Point Calibration Time" sink="Nodes/CalibrationLifetimeManager/Inputs/Point Calibration Time" />
+          <Link source="Inlets/CalibrationAbort" sink="Nodes/CalibrationLifetimeManager/Inputs/CalibrationAbort" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/CalibrationPoints" sink="Outlets/CalibrationPoints" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/ResultSuccess" sink="Outlets/ResultSuccess" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/ResultAverageErrorDegree" sink="Outlets/ResultAverageErrorDegree" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/State" sink="Outlets/State" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/ErrorMessages" sink="Outlets/ErrorMessages" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/Is Activated" sink="Outlets/Is Activated" />
+          <Link source="Nodes/CalibrationLifetimeManager/Outputs/Is Calibrating" sink="Outlets/Is Calibrating" />
+        </LINKS>
+      </BODY>
+    </PATCH>
+    <PATCH Name="LastFrame" Category="VVVV.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+      <BODY Name="UtilsBody">
+        <LAYERS>
+          <LAYER Name="Create" />
+          <LAYER Name="Update" />
+        </LAYERS>
+        <INLETS>
+          <INLET Name="GazeData" Layer="Update">
+            <POSITION x="798" y="276" />
+          </INLET>
+          <INLET Name="Coordinate Smoothing" Layer="Update">
+            <POSITION x="910" y="276" />
+          </INLET>
+        </INLETS>
+        <OUTLETS>
+          <OUTLET Name="Gaze Coordinates" Layer="Update">
+            <POSITION x="774" y="451" />
+          </OUTLET>
+          <OUTLET Name="Is Fixated" Layer="Update">
+            <POSITION x="882" y="451" />
+          </OUTLET>
+          <OUTLET Name="State" Layer="Update">
+            <POSITION x="956" y="451" />
+          </OUTLET>
+          <OUTLET Name="L Coordinates" Layer="Update">
+            <POSITION x="1009" y="451" />
+          </OUTLET>
+          <OUTLET Name="L Pupil Position" Layer="Update">
+            <POSITION x="1102" y="451" />
+          </OUTLET>
+          <OUTLET Name="L Pupil Size" Layer="Update">
+            <POSITION x="1201" y="451" />
+          </OUTLET>
+          <OUTLET Name="R Coordinates" Layer="Update">
+            <POSITION x="1283" y="451" />
+          </OUTLET>
+          <OUTLET Name="R Pupil Position" Layer="Update">
+            <POSITION x="1383" y="451" />
+          </OUTLET>
+          <OUTLET Name="R Pupil Size" Layer="Update">
+            <POSITION x="1484" y="451" />
+          </OUTLET>
+        </OUTLETS>
+        <CONSTS>
+          <CONST Name="comment#18" Layer="Update" Type="String">
+            <POSITION x="784" y="491" />
+            <SIZE width="187.752579" height="17.117157" />
+            <VALUE><![CDATA["This is the vvvvrapper for LastFrame [TheEyeTribe.GazeData]"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#17" Layer="Update" Type="String">
+            <POSITION x="786.3761" y="517.729065" />
+            <SIZE width="619.9677" height="11.3320618" />
+            <VALUE><![CDATA["Note that it is in the category [VVVV.TheEyeTribe.GazeData], whereas the VL implementation is in the category [TheEyeTribe.GazeData]"]]></VALUE>
+          </CONST>
+        </CONSTS>
+        <REGIONS />
+        <NODES>
+          <PROCESS Name="LastFrame">
+            <POSITION x="802" y="341" />
+            <NODEREF LastFile="VL.Devices.TheEyeTribe.vl">
+              <PROCESSNODE Name="LastFrame" />
+              <CATEGORYPATH Name="Devices.TheEyeTribe.GazeData" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="GazeData" FragmentId="Update" />
+              <INPUT Name="Coordinate Smoothing" FragmentId="Update" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Gaze Coordinates" FragmentId="Update" />
+              <OUPUT Name="Is Fixated" FragmentId="Update" />
+              <OUPUT Name="State" FragmentId="Update" />
+              <OUPUT Name="L Coordinates" FragmentId="Update" />
+              <OUPUT Name="L Pupil Position" FragmentId="Update" />
+              <OUPUT Name="L Pupil Size" FragmentId="Update" />
+              <OUPUT Name="R Coordinates" FragmentId="Update" />
+              <OUPUT Name="R Pupil Position" FragmentId="Update" />
+              <OUPUT Name="R Pupil Size" FragmentId="Update" />
+            </OUTPUTS>
+            <FRAGMENTS>
+              <FRAGMENT Name="Create" />
+              <FRAGMENT Name="Update" />
+            </FRAGMENTS>
+          </PROCESS>
+        </NODES>
+        <LINKS>
+          <Link source="Inlets/Coordinate Smoothing" sink="Nodes/LastFrame/Inputs/Coordinate Smoothing" />
+          <Link source="Inlets/GazeData" sink="Nodes/LastFrame/Inputs/GazeData" />
+          <Link source="Nodes/LastFrame/Outputs/Gaze Coordinates" sink="Outlets/Gaze Coordinates" />
+          <Link source="Nodes/LastFrame/Outputs/Is Fixated" sink="Outlets/Is Fixated" />
+          <Link source="Nodes/LastFrame/Outputs/State" sink="Outlets/State" />
+          <Link source="Nodes/LastFrame/Outputs/L Coordinates" sink="Outlets/L Coordinates" />
+          <Link source="Nodes/LastFrame/Outputs/L Pupil Position" sink="Outlets/L Pupil Position" />
+          <Link source="Nodes/LastFrame/Outputs/L Pupil Size" sink="Outlets/L Pupil Size" />
+          <Link source="Nodes/LastFrame/Outputs/R Coordinates" sink="Outlets/R Coordinates" />
+          <Link source="Nodes/LastFrame/Outputs/R Pupil Position" sink="Outlets/R Pupil Position" />
+          <Link source="Nodes/LastFrame/Outputs/R Pupil Size" sink="Outlets/R Pupil Size" />
+        </LINKS>
+      </BODY>
+    </PATCH>
+  </PATCHES>
+</VLDOCUMENT>

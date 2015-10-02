@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.100.dtd" >
-   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\vl\Eyetracker (Devices TheEyeTribe) help.v4p" scrollx="0" scrolly="-360" locked="0">
-   <BOUNDS type="Window" left="4365" top="0" width="21090" height="18180">
+   <PATCH nodename="C:\Users\vvvv_2\Documents\DOMINIK\EyeTrackerTET-VL\vl\Eyetracker (Devices.TheEyeTribe) help.v4p" scrollx="0" scrolly="-360" locked="0">
+   <BOUNDS type="Window" left="3405" top="1245" width="21090" height="18180">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Node" left="255" top="195" width="5100" height="450">
@@ -41,7 +41,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="33" systemname="IOBox (Value Advanced)">
@@ -291,7 +291,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="13215" top="675" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -301,7 +301,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <PACK Name="addonpack" Version="34.100.0">
@@ -365,7 +365,7 @@
    </PIN>
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
-   <PIN pinname="Input String" slicecount="1" visible="1" values="TRACKER_CONNECTED">
+   <PIN pinname="Input String" slicecount="1" visible="1" values="||">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="81" systemname="IOBox (String)">
@@ -379,7 +379,7 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
-   <PIN pinname="Input String" slicecount="1" values="STATE_TRACKING_LOST">
+   <PIN pinname="Input String" slicecount="1" values="STATE_TRACKING_FAIL">
    </PIN>
    </NODE>
    <NODE id="29" nodename="IOBox (String)" componentmode="InABox" systemname="IOBox (String)">
@@ -468,10 +468,6 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="CalibrationRunner (TheEyeTribe)" filename="VVVV.Value.TET_Calibration.vl" nodename="CalibrationRunner (Devices TheEyeTribe)" componentmode="Hidden" id="96">
-   <BOUNDS type="Node" left="14820" top="15870" width="100" height="100">
-   </BOUNDS>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="98" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="16650" top="4755" width="480" height="480">
    </BOUNDS>
@@ -485,7 +481,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="99" systemname="IOBox (String)">
@@ -1102,54 +1098,6 @@
    </LINK>
    <LINK srcnodeid="90" srcpinname="Layer" dstnodeid="156" dstpinname="Layer 1">
    </LINK>
-   <NODE systemname="GazeData (GazeData TheEyeTribe Split)" filename="VVVV.Value.TheEyeTribe.vl" nodename="GazeData (GazeData TheEyeTribe Split)" componentmode="Hidden" id="169">
-   <BOUNDS type="Node" left="9600" top="9000" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="GazeData" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="State" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="169" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="169" dstpinname="Coordinate Smoothing">
-   </LINK>
-   <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="VVVV.Value.TET_Main.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="170">
-   <BOUNDS type="Node" left="9555" top="2385" width="2205" height="270">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="170" srcpinname="Is Calibrating" dstnodeid="33" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="Is Calibrated" dstnodeid="40" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="Is Fixated" dstnodeid="28" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="170" dstpinname="Enabled">
-   </LINK>
-   <LINK srcnodeid="62" srcpinname="Y Output Value" dstnodeid="170" dstpinname="Coordinate Smoothing">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="GazeState" dstnodeid="81" dstpinname="Input String" hiddenwhenlocked="0">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="TrackerState" dstnodeid="75" dstpinname="Input String" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="Is Activated" dstnodeid="98" dstpinname="Y Input Value" hiddenwhenlocked="0">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="Gaze CoordinatesXY" dstnodeid="23" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="L CoordinatesXY" dstnodeid="24" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="L Pupil PositionXY" dstnodeid="25" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="L PupilSize" dstnodeid="149" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="R CoordinatesXY" dstnodeid="26" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="R Pupil PositionXY" dstnodeid="27" dstpinname="Y Input Value" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="R Pupil Size" dstnodeid="151" dstpinname="Y Input Value">
-   </LINK>
-   <LINK srcnodeid="170" srcpinname="GazeData" dstnodeid="169" dstpinname="GazeData">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="171" systemname="IOBox (String)">
    <BOUNDS type="Box" left="11565" top="9705" width="1725" height="705">
    </BOUNDS>
@@ -1161,7 +1109,61 @@
    </PIN>
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
+   <PIN pinname="Input String" slicecount="1" values="||">
+   </PIN>
    </NODE>
+   <NODE systemname="LastFrame (TheEyeTribe)" filename="VVVV.Devices.TheEyeTribe.vl" nodename="LastFrame (TheEyeTribe)" componentmode="Hidden" id="169">
+   <BOUNDS type="Node" left="9600" top="9000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="GazeData" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="169" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="169" dstpinname="Coordinate Smoothing">
+   </LINK>
    <LINK srcnodeid="169" srcpinname="State" dstnodeid="171" dstpinname="Input String">
+   </LINK>
+   <NODE systemname="Calibration (Devices.TheEyeTribe)" filename="VVVV.Devices.TheEyeTribe.vl" nodename="Calibration (Devices.TheEyeTribe)" componentmode="Hidden" id="96">
+   <BOUNDS type="Node" left="14820" top="15870" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="EyeTracker (Devices.TheEyeTribe)" filename="VVVV.Devices.TheEyeTribe.vl" nodename="EyeTracker (Devices.TheEyeTribe)" componentmode="Hidden" id="172">
+   <BOUNDS type="Node" left="9555" top="2385" width="2205" height="270">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="172" srcpinname="Is Calibrating" dstnodeid="33" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Is Calibrated" dstnodeid="40" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Is Fixated" dstnodeid="28" dstpinname="Y Input Value" linkstyle="PolyLine" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="172" dstpinname="Enabled">
+   </LINK>
+   <LINK srcnodeid="62" srcpinname="Y Output Value" dstnodeid="172" dstpinname="Coordinate Smoothing">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="GazeState" dstnodeid="81" dstpinname="Input String" hiddenwhenlocked="0">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="TrackerState" dstnodeid="75" dstpinname="Input String" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Is Activated" dstnodeid="98" dstpinname="Y Input Value" hiddenwhenlocked="0">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="Gaze CoordinatesXY" dstnodeid="23" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="L CoordinatesXY" dstnodeid="24" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="L Pupil PositionXY" dstnodeid="25" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="L PupilSize" dstnodeid="149" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="R CoordinatesXY" dstnodeid="26" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="R Pupil PositionXY" dstnodeid="27" dstpinname="Y Input Value" hiddenwhenlocked="1">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="R Pupil Size" dstnodeid="151" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="172" srcpinname="GazeData" dstnodeid="169" dstpinname="GazeData">
    </LINK>
    </PATCH>

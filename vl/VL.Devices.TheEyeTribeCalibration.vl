@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VLDOCUMENT Version="0.31.1202.0">
+<VLDOCUMENT Version="0.31.1259.0">
   <DEPENDENCIES>
     <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
     <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
@@ -18,10 +18,10 @@
     <DEPENDENCY Name="Newtonsoft.Json.dll" Location="..\tetdlls\Newtonsoft.Json.dll" />
     <DEPENDENCY Name="TETCSharpClient.dll.vlimport" Location="..\tetdlls\TETCSharpClient.dll.vlimport" />
     <DEPENDENCY Name="TETWrapper.dll.vlimport" Location="..\tetdlls\TETWrapper.dll.vlimport" />
-    <DEPENDENCY Name="VVVV.Value.TheEyeTribeUtils.vl" Location="./VVVV.Value.TheEyeTribeUtils.vl" />
+    <DEPENDENCY Name="VL.Devices.TheEyeTribe.Utils.vl" Location="./VL.Devices.TheEyeTribe.Utils.vl" />
   </DEPENDENCIES>
   <PATCHES>
-    <PATCH Name="CalibrationProcessHandlerAdapter" Category="TheEyeTribe" IsDatatype="true" IsMutable="true">
+    <PATCH Name="CalibrationProcessHandlerAdapter" Category="Devices.TheEyeTribe" IsDatatype="true" IsMutable="true">
       <INTERFACES>
         <TYPEREF>
           <ANYTYPE Name="ICalibrationProcessHandler" />
@@ -146,7 +146,7 @@
           </OPERATION>
           <OPERATION Name="Create" Layer="OnCalibrationStarted">
             <POSITION x="368.283936" y="297.836761" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <CATEGORY Name="CalibrationNotification" />
               <OPERATIONNODE Name="Create" />
             </NODEREF>
@@ -161,7 +161,7 @@
           </OPERATION>
           <OPERATION Name="Create#1" Layer="OnCalibrationProgress">
             <POSITION x="636.9474" y="328.3781" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <CATEGORY Name="CalibrationNotification" />
               <OPERATIONNODE Name="Create" />
             </NODEREF>
@@ -176,7 +176,7 @@
           </OPERATION>
           <OPERATION Name="Create#2" Layer="OnCalibrationProcessing">
             <POSITION x="934.799744" y="298.784637" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <CATEGORY Name="CalibrationNotification" />
               <OPERATIONNODE Name="Create" />
             </NODEREF>
@@ -191,7 +191,7 @@
           </OPERATION>
           <OPERATION Name="Create#3" Layer="OnCalibrationResult">
             <POSITION x="1203.07129" y="306.7604" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <CATEGORY Name="CalibrationNotification" />
               <OPERATIONNODE Name="Create" />
             </NODEREF>
@@ -238,7 +238,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationRunnerVL" Category="TheEyeTribe" Version="TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+    <PATCH Name="CalibrationRunner" Category="Devices.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -341,6 +341,56 @@
             <SIZE width="259.3402" height="10.7563477" />
             <VALUE><![CDATA["Sends commands to start or end to TheEyeTribe Server"]]></VALUE>
           </CONST>
+          <CONST Name="comment#11" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="1039.14185" />
+            <SIZE width="343.1032" height="10.7563477" />
+            <VALUE><![CDATA["The lifetime of an instance is handled in the CalibrationLifetimeManager."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#10" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="995.581" />
+            <SIZE width="320.699554" height="11.69873" />
+            <VALUE><![CDATA["Also, don't add another Observer, as subscribing will call CalibrationStart and unsubscribing will call CalibrationAbort when a calibration is active."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#9" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="970.868835" />
+            <SIZE width="320.699554" height="11.69873" />
+            <VALUE><![CDATA["Don't pass the Observable OCalibrationData - it should be handled only in here."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#8" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="941.444458" />
+            <SIZE width="320.699554" height="11.69873" />
+            <VALUE><![CDATA["Never have two Instances of this type at one time. They will conflict,"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#7" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="913.905" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["The calibration ends when Dispose is called. The Sampler will call Unsubscribe on the Observable and therefore end the Calibration."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#6" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="887.308044" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["The async Messages from the Server will be  collected and handled by the Sampler"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#5" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="864.480652" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["It will call Subscribe on the observable and therefore start the Calibration"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#14" Layer="Create" Type="String">
+            <POSITION x="112.721191" y="844.480652" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["An instance of this datatype will run exactly one calibration"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#13" Layer="Create" Type="String">
+            <POSITION x="92.72119" y="824.480652" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["An instance of this datatype will run exactly one calibration"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#12" Layer="Create" Type="String">
+            <POSITION x="96.72119" y="779.480652" />
+            <SIZE width="283.006226" height="10.7563477" />
+            <VALUE><![CDATA["CalibrationRunner"]]></VALUE>
+          </CONST>
         </CONSTS>
         <REGIONS>
           <REGION Name="ForEachLoop#1" Layer="Update" Kind="ForEachLoop">
@@ -402,7 +452,7 @@
               <NODES>
                 <OPERATION Name="GetNotificationType" Layer="Update">
                   <POSITION x="1391.20923" y="172.5845" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetNotificationType" />
                   </NODEREF>
                   <INPUTS>
@@ -471,7 +521,7 @@
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="Update">
                   <POSITION x="1156.00281" y="204.48436" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -485,7 +535,7 @@
                 </OPERATION>
                 <OPERATION Name="CalibrationPointDone" Layer="Update">
                   <POSITION x="1157.41248" y="415.862946" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CalibrationPointDone" Version="CalibrationData" />
                   </NODEREF>
                   <INPUTS>
@@ -500,7 +550,7 @@
                 </OPERATION>
                 <OPERATION Name="SetComputingResult" Layer="Update">
                   <POSITION x="1157.18188" y="487.827972" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetComputingResult" />
                   </NODEREF>
                   <INPUTS>
@@ -515,7 +565,7 @@
                 </OPERATION>
                 <OPERATION Name="CheckCalibrationResult" Layer="Update">
                   <POSITION x="1155.83948" y="594.4242" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckCalibrationResult" />
                   </NODEREF>
                   <INPUTS>
@@ -532,7 +582,7 @@
                 </OPERATION>
                 <OPERATION Name="InitializeCalibration" Layer="Update">
                   <POSITION x="1158.144" y="347.5131" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="InitializeCalibration" Version="CalibrationData" />
                   </NODEREF>
                   <INPUTS>
@@ -626,7 +676,7 @@
               <NODES>
                 <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1240.54248" y="1040.33423" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -639,7 +689,7 @@
                 </OPERATION>
                 <OPERATION Name="GetState" Layer="True">
                   <POSITION x="1436.45081" y="1123.119" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetState" />
                     <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
                   </NODEREF>
@@ -680,7 +730,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1169.88" y="1321.04333" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -694,7 +744,7 @@
                 </OPERATION>
                 <OPERATION Name="CheckForServerTimeout" Layer="True">
                   <POSITION x="1170.83374" y="1461.57544" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForServerTimeout" />
                   </NODEREF>
                   <INPUTS>
@@ -708,7 +758,7 @@
                 </OPERATION>
                 <OPERATION Name="CheckForCalibrationPointStart" Layer="True">
                   <POSITION x="1242.79272" y="1217.34167" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForCalibrationPointStart" />
                   </NODEREF>
                   <INPUTS>
@@ -722,7 +772,7 @@
                 </OPERATION>
                 <OPERATION Name="CheckForCalibrationPointEnd" Layer="True">
                   <POSITION x="1242.67957" y="1271.45068" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForCalibrationPointEnd" />
                   </NODEREF>
                   <INPUTS>
@@ -737,7 +787,7 @@
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="True">
                   <POSITION x="1170.40271" y="1389.18677" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -875,7 +925,7 @@
                       </OPERATION>
                       <OPERATION Name="HasListeners#1" Layer="Update">
                         <POSITION x="-48.34204" y="453.17334" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="VL.Devices.TheEyeTribe.Utils.vl">
                           <OPERATIONNODE Name="HasListeners" />
                         </NODEREF>
                         <INPUTS>
@@ -989,7 +1039,7 @@
                 </OPERATION>
                 <OPERATION Name="Create" Layer="Update">
                   <POSITION x="-254.400787" y="319.025" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationProcessHandlerAdapter" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationProcessHandlerAdapter" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="Create" />
                     <CATEGORY Name="CalibrationProcessHandlerAdapter" IsDirectParent="true" />
                   </NODEREF>
@@ -1027,7 +1077,7 @@
         <NODES>
           <OPERATION Name="Create" Layer="Create">
             <POSITION x="608.6738" y="172.4133" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="Create" />
               <CATEGORY Name="CalibrationData" />
             </NODEREF>
@@ -1067,7 +1117,7 @@
           </OPERATION>
           <OPERATION Name="SetWaitingForServer" Layer="Create">
             <POSITION x="607.619263" y="295.148743" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="SetWaitingForServer" />
             </NODEREF>
             <INPUTS>
@@ -1081,7 +1131,7 @@
           </OPERATION>
           <OPERATION Name="GetState" Layer="Update">
             <POSITION x="1144.69824" y="855.455444" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetState" />
               <CATEGORY Name="CalibrationData" IsDirectParent="true" />
             </NODEREF>
@@ -1137,7 +1187,7 @@
           </OPERATION>
           <OPERATION Name="SetMaxResampleCount" Layer="Create">
             <POSITION x="609.398254" y="214.845932" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="SetMaxResampleCount" />
             </NODEREF>
             <INPUTS>
@@ -1226,7 +1276,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationRunner" Category="VVVV.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
+    <PATCH Name="CalibrationLifetimeManager" Category="Devices.TheEyeTribe" IsDatatype="true" IsClosed="true" IsMutable="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -1292,6 +1342,29 @@
             <SIZE width="233.8695" height="10.7563477" />
             <VALUE><![CDATA["^ These can be made accessible in vvvv if needed"]]></VALUE>
           </CONST>
+          <CONST Name="comment#2" Layer="Update" Type="String">
+            <POSITION x="594.334961" y="496.134766" />
+            <VALUE><![CDATA["It will call CalibrationStart on Initialization and CalibrationEnd or CalibrationAbort on Dispose."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#1" Layer="Update" Type="String">
+            <POSITION x="594.334961" y="470.457947" />
+            <VALUE><![CDATA["An instance of CalibrationRunner stands for exactly one Calibration. "]]></VALUE>
+          </CONST>
+          <CONST Name="comment#3" Layer="Update" Type="String">
+            <POSITION x="594.334961" y="444.27832" />
+            <SIZE width="240.363647" height="10.7563477" />
+            <VALUE><![CDATA["This type manages instances of CalibrationRunner."]]></VALUE>
+          </CONST>
+          <CONST Name="comment#4" Layer="Update" Type="String">
+            <POSITION x="594.873047" y="408.325317" />
+            <SIZE width="240.363647" height="10.7563477" />
+            <VALUE><![CDATA["Ideally, this would be the only publically visible type in [TheEyeTribe.Calibration]"]]></VALUE>
+          </CONST>
+          <CONST Name="comment#5" Layer="Update" Type="String">
+            <POSITION x="595.873047" y="359.325317" />
+            <SIZE width="240.363647" height="10.7563477" />
+            <VALUE><![CDATA["CalibrationLifetimeManager"]]></VALUE>
+          </CONST>
         </CONSTS>
         <REGIONS>
           <REGION Name="IfElse" Layer="Update" Kind="IfElse">
@@ -1323,9 +1396,9 @@
               <NODES>
                 <OPERATION Name="Create" Layer="True">
                   <POSITION x="349.164734" y="251.4138" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationRunnerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="Create" />
-                    <CATEGORY Name="CalibrationRunnerVL (TheEyeTribe)" IsDirectParent="true" />
+                    <CATEGORY Name="CalibrationRunner" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="CalibrationPoints" />
@@ -1340,9 +1413,9 @@
                 </OPERATION>
                 <OPERATION Name="Destroy" Layer="True">
                   <POSITION x="205.604736" y="252.2124" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationRunnerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="Destroy" />
-                    <CATEGORY Name="CalibrationRunnerVL (TheEyeTribe)" IsDirectParent="true" />
+                    <CATEGORY Name="CalibrationRunner" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -1386,9 +1459,9 @@
               <NODES>
                 <OPERATION Name="Destroy" Layer="True">
                   <POSITION x="201.831223" y="515.1675" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationRunnerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="Destroy" />
-                    <CATEGORY Name="CalibrationRunnerVL (TheEyeTribe)" IsDirectParent="true" />
+                    <CATEGORY Name="CalibrationRunner" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -1436,7 +1509,7 @@
               <NODES>
                 <OPERATION Name="GetPosition" Layer="Update">
                   <POSITION x="330.323059" y="785.3928" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetPosition" />
                     <CATEGORY Name="CalibrationPointData" />
                   </NODEREF>
@@ -1449,7 +1522,7 @@
                 </OPERATION>
                 <OPERATION Name="GetState" Layer="Update">
                   <POSITION x="447.904" y="785.16626" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetState" />
                     <CATEGORY Name="CalibrationPointData" />
                   </NODEREF>
@@ -1583,7 +1656,7 @@
           </OPERATION>
           <OPERATION Name="GetState" Layer="Update">
             <POSITION x="877.4781" y="798.8756" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetState" />
               <CATEGORY Name="CalibrationData" IsDirectParent="true" />
             </NODEREF>
@@ -1596,7 +1669,7 @@
           </OPERATION>
           <OPERATION Name="GetCalibrationPoints" Layer="Update">
             <POSITION x="331.335175" y="699.2479" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationPoints" />
             </NODEREF>
             <INPUTS>
@@ -1608,7 +1681,7 @@
           </OPERATION>
           <OPERATION Name="GetCalibrationResult" Layer="Update">
             <POSITION x="598.0884" y="791.7589" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationResult" />
             </NODEREF>
             <INPUTS>
@@ -1621,7 +1694,7 @@
           </OPERATION>
           <OPERATION Name="GetErrormessages" Layer="Update">
             <POSITION x="973.784668" y="743.072632" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetErrormessages" />
             </NODEREF>
             <INPUTS>
@@ -1633,7 +1706,7 @@
           </OPERATION>
           <OPERATION Name="GetCalibrationData" Layer="Update">
             <POSITION x="199.188232" y="618.608459" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationRunnerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationData" />
             </NODEREF>
             <INPUTS>
@@ -1659,9 +1732,9 @@
           </OPERATION>
           <OPERATION Name="Update" Layer="Update">
             <POSITION x="203.4555" y="408.7138" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationRunnerVL (TheEyeTribe)" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="Update" />
-              <CATEGORY Name="CalibrationRunnerVL (TheEyeTribe)" IsDirectParent="true" />
+              <CATEGORY Name="CalibrationRunner" IsDirectParent="true" />
             </NODEREF>
             <INPUTS>
               <INPUT Name="Input" />
@@ -1739,7 +1812,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationData" Category="TheEyeTribe" IsDatatype="true">
+    <PATCH Name="CalibrationData" Category="Devices.TheEyeTribe" IsDatatype="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -2249,7 +2322,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationNotification" Category="TheEyeTribe" IsDatatype="true" IsMutable="true">
+    <PATCH Name="CalibrationNotification" Category="Devices.TheEyeTribe" IsDatatype="true" IsMutable="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -2309,7 +2382,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationPointData" Category="TheEyeTribe" IsDatatype="true">
+    <PATCH Name="CalibrationPointData" Category="Devices.TheEyeTribe" IsDatatype="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -2772,7 +2845,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationUtils" Category="TheEyeTribe">
+    <PATCH Name="CalibrationUtils" Category="Devices.TheEyeTribe">
       <BODY Name="UtilsBody">
         <LAYERS>
           <LAYER Name="InitializeCalibration" Version="CalibrationData" />
@@ -2967,7 +3040,7 @@
                     <NODES>
                       <OPERATION Name="Create#1" Layer="Update">
                         <POSITION x="329.285065" y="385.305023" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <CATEGORY Name="CalibrationPointData" />
                           <OPERATIONNODE Name="Create" />
                         </NODEREF>
@@ -2991,7 +3064,7 @@
               <NODES>
                 <OPERATION Name="AddCalibrationPointsAndStart" Layer="True">
                   <POSITION x="249.75119" y="521.0694" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="AddCalibrationPointsAndStart" />
                   </NODEREF>
                   <INPUTS>
@@ -3107,7 +3180,7 @@
                     <NODES>
                       <OPERATION Name="SetState" Layer="True">
                         <POSITION x="1236.4707" y="485.476654" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                           <OPERATIONNODE Name="SetState" />
                         </NODEREF>
@@ -3122,7 +3195,7 @@
                       </OPERATION>
                       <OPERATION Name="SetCalibrationPoints" Layer="True">
                         <POSITION x="1237.9137" y="570.7501" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetCalibrationPoints" />
                         </NODEREF>
                         <INPUTS>
@@ -3136,7 +3209,7 @@
                       </OPERATION>
                       <OPERATION Name="SetWaitingForServer" Layer="True">
                         <POSITION x="1237.09326" y="660.796143" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetWaitingForServer" />
                         </NODEREF>
                         <INPUTS>
@@ -3194,7 +3267,7 @@
                     <NODES>
                       <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
                         <POSITION x="1263.88208" y="798.8906" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                         </NODEREF>
                         <INPUTS>
@@ -3207,7 +3280,7 @@
                       </OPERATION>
                       <OPERATION Name="SetState" Layer="True">
                         <POSITION x="1264.58044" y="867.631" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetState" />
                           <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
                         </NODEREF>
@@ -3222,7 +3295,7 @@
                       </OPERATION>
                       <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
                         <POSITION x="1238.76038" y="906.7989" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                         </NODEREF>
                         <INPUTS>
@@ -3249,7 +3322,7 @@
               <NODES>
                 <OPERATION Name="RemoveCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1237.0824" y="348.9818" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="RemoveCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -3262,7 +3335,7 @@
                 </OPERATION>
                 <OPERATION Name="GetAttributes" Layer="True">
                   <POSITION x="1499.87341" y="360.809082" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetAttributes" />
                     <CATEGORY Name="CalibrationNotification" IsDirectParent="true" />
                   </NODEREF>
@@ -3370,7 +3443,7 @@
               <NODES>
                 <OPERATION Name="SetState#2" Layer="True">
                   <POSITION x="1802.0719" y="345.699829" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                     <OPERATIONNODE Name="SetState" />
                   </NODEREF>
@@ -3385,7 +3458,7 @@
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="True">
                   <POSITION x="1801.92383" y="445.6958" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -3495,7 +3568,7 @@
                       </OPERATION>
                       <OPERATION Name="IncreaseResampleCount" Layer="True">
                         <POSITION x="2484.79663" y="790.722534" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="IncreaseResampleCount" />
                         </NODEREF>
                         <INPUTS>
@@ -3509,7 +3582,7 @@
                       </OPERATION>
                       <OPERATION Name="OverMaxResampleCount" Layer="True">
                         <POSITION x="2484.84375" y="852.629639" />
-                        <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="OverMaxResampleCount" />
                         </NODEREF>
                         <INPUTS>
@@ -3535,7 +3608,7 @@
                       </OPERATION>
                       <OPERATION Name="AddCalibrationPointsAndStart" Layer="True">
                         <POSITION x="2485.22974" y="891.4635" />
-                        <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="AddCalibrationPointsAndStart" />
                         </NODEREF>
                         <INPUTS>
@@ -3564,7 +3637,7 @@
               <NODES>
                 <OPERATION Name="SetState" Layer="True">
                   <POSITION x="2327.02124" y="682.557861" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                     <OPERATIONNODE Name="SetState" />
                   </NODEREF>
@@ -3605,7 +3678,7 @@
                 </OPERATION>
                 <OPERATION Name="CheckCalibrationPoints" Layer="True">
                   <POSITION x="2565.431" y="458.141144" />
-                  <NODEREF LastCat="TheEyeTribe" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -3632,7 +3705,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationResult" Layer="True">
                   <POSITION x="2326.38379" y="384.195221" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationResult" />
                   </NODEREF>
                   <INPUTS>
@@ -3646,7 +3719,7 @@
                 </OPERATION>
                 <OPERATION Name="GetAttributes#1" Layer="True">
                   <POSITION x="2793.461" y="324.971527" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationNotification" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationNotification" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetAttributes" />
                     <CATEGORY Name="CalibrationNotification" IsDirectParent="true" />
                   </NODEREF>
@@ -3720,7 +3793,7 @@
               <NODES>
                 <OPERATION Name="SetState" Layer="True">
                   <POSITION x="280.417969" y="1619.18445" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetState" />
                     <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                   </NODEREF>
@@ -3735,7 +3808,7 @@
                 </OPERATION>
                 <OPERATION Name="AddErrorMessage" Layer="True">
                   <POSITION x="281.438477" y="1685.44812" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="AddErrorMessage" />
                   </NODEREF>
                   <INPUTS>
@@ -3842,7 +3915,7 @@
                     <NODES>
                       <OPERATION Name="SetState" Layer="True">
                         <POSITION x="926.2441" y="1623.1189" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetState" />
                           <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
                         </NODEREF>
@@ -3857,7 +3930,7 @@
                       </OPERATION>
                       <OPERATION Name="CalibrationPointStart#1" Layer="True">
                         <POSITION x="1081.85767" y="1664.43433" />
-                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                        <NODEREF LastCat="TETCSharpClient.GazeManager" LastFile="VL.Devices.TheEyeTribe.Utils.vl">
                           <OPERATIONNODE Name="CalibrationPointStart" Version="Vector2 Mapped" />
                         </NODEREF>
                         <INPUTS>
@@ -3870,7 +3943,7 @@
                       </OPERATION>
                       <OPERATION Name="GetPosition" Layer="True">
                         <POSITION x="1192.24109" y="1605.20776" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="GetPosition" />
                         </NODEREF>
                         <INPUTS>
@@ -3905,7 +3978,7 @@
               <NODES>
                 <OPERATION Name="GetStartTime" Layer="True">
                   <POSITION x="1001.55829" y="1488.49023" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetStartTime" />
                   </NODEREF>
                   <INPUTS>
@@ -3976,7 +4049,7 @@
               <NODES>
                 <OPERATION Name="GetEndTime" Layer="True">
                   <POSITION x="2077.01782" y="1470.52686" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetEndTime" />
                   </NODEREF>
                   <INPUTS>
@@ -4094,7 +4167,7 @@
           </OPERATION>
           <OPERATION Name="GetWaitingForServer" Layer="CheckForServerTimeout">
             <POSITION x="149.2015" y="1365.805" />
-            <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <CATEGORY Name="CalibrationData" IsDirectParent="true" />
               <OPERATIONNODE Name="GetWaitingForServer" />
             </NODEREF>
@@ -4177,7 +4250,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationUtils2" Category="TheEyeTribe">
+    <PATCH Name="CalibrationUtils2" Category="Devices.TheEyeTribe">
       <BODY Name="UtilsBody">
         <LAYERS>
           <LAYER Name="CheckCalibrationPoints" />
@@ -4324,7 +4397,7 @@
                       </OPERATION>
                       <OPERATION Name="Create" Layer="True">
                         <POSITION x="294.338379" y="451.1305" />
-                        <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <CATEGORY Name="CalibrationPointData" />
                           <OPERATIONNODE Name="Create" />
                         </NODEREF>
@@ -4339,8 +4412,9 @@
                       </OPERATION>
                       <OPERATION Name="ToVector2" Layer="True">
                         <POSITION x="294.257446" y="417.191162" />
-                        <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
+                        <NODEREF LastFile="VL.Devices.TheEyeTribe.Utils.vl">
                           <OPERATIONNODE Name="ToVector2" />
+                          <CATEGORYPATH Name="TETCSharpClient.Data.Point2D" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="TETPoint2D" />
@@ -4469,7 +4543,7 @@
               <NODES>
                 <OPERATION Name="SetState" Layer="True">
                   <POSITION x="829.893433" y="269.198059" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetState" />
                     <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                   </NODEREF>
@@ -4484,7 +4558,7 @@
                 </OPERATION>
                 <OPERATION Name="AddErrorMessage" Layer="True">
                   <POSITION x="828.504" y="328.595764" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="AddErrorMessage" />
                   </NODEREF>
                   <INPUTS>
@@ -4498,7 +4572,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationPoints" Layer="True">
                   <POSITION x="827.796143" y="413.429047" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4581,7 +4655,7 @@
               <NODES>
                 <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1428.08643" y="416.79895" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -4594,7 +4668,7 @@
                 </OPERATION>
                 <OPERATION Name="SetState" Layer="True">
                   <POSITION x="1427.90869" y="457.3499" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationPointData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetState" />
                     <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
                   </NODEREF>
@@ -4609,7 +4683,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1374.13623" y="503.7354" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -4623,7 +4697,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationPoints" Layer="True">
                   <POSITION x="1372.02075" y="365.908325" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4653,7 +4727,7 @@
                 </OPERATION>
                 <OPERATION Name="GetCalibrationPoints" Layer="True">
                   <POSITION x="1387.71338" y="279.780182" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4665,7 +4739,7 @@
                 </OPERATION>
                 <OPERATION Name="SetState#1" Layer="True">
                   <POSITION x="1370.66846" y="587.8408" />
-                  <NODEREF LastCat="TheEyeTribe.CalibrationData" LastFile="VVVV.Value.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetState" />
                     <CATEGORY Name="CalibrationData" IsDirectParent="true" />
                   </NODEREF>
