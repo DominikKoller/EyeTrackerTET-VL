@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<VLDOCUMENT Version="0.31.1248.0">
+<VLDOCUMENT Version="0.31.1202.0">
   <DEPENDENCIES>
     <DEPENDENCY Name="mscorlib.dll.vlimport" Location="mscorlib.dll.vlimport" />
     <DEPENDENCY Name="System.Core.dll.vlimport" Location="System.Core.dll.vlimport" />
@@ -468,27 +468,24 @@
         </LAYERS>
         <INLETS>
           <INLET Name="GazeManager" Layer="HasListeners">
-            <POSITION x="544.64386" y="240.879181" />
+            <POSITION x="545.326843" y="232" />
           </INLET>
           <INLET Name="GazeManager#1" Layer="CalibrationPointStart (Vector2 Mapped)">
-            <POSITION x="988.53595" y="239.098083" />
+            <POSITION x="994" y="235" />
           </INLET>
           <INLET Name="Vector2" Layer="CalibrationPointStart (Vector2 Mapped)">
-            <POSITION x="1089" y="239.098083" />
-          </INLET>
-          <INLET Name="Enabled" Layer="CalibrationPointStart (Vector2 Mapped)">
-            <POSITION x="1157.35278" y="239.098083" />
+            <POSITION x="1089" y="235" />
           </INLET>
         </INLETS>
         <OUTLETS>
           <OUTLET Name="GazeManager" Layer="HasListeners">
-            <POSITION x="544.732056" y="510.636536" />
+            <POSITION x="542" y="515.417664" />
           </OUTLET>
           <OUTLET Name="HasListeners" Layer="HasListeners">
-            <POSITION x="698" y="510.636536" />
+            <POSITION x="698" y="515.417664" />
           </OUTLET>
           <OUTLET Name="GazeManager#1" Layer="CalibrationPointStart (Vector2 Mapped)">
-            <POSITION x="989.04895" y="352.803833" />
+            <POSITION x="987" y="361" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
@@ -497,7 +494,7 @@
             <VALUE><![CDATA[0]]></VALUE>
           </CONST>
           <CONST Name="Map Values" Layer="CalibrationPointStart (Vector2 Mapped)">
-            <POSITION x="1099.80383" y="274.683" />
+            <POSITION x="1108" y="274" />
             <SIZE width="40" height="12" />
             <VALUE><![CDATA[true]]></VALUE>
           </CONST>
@@ -590,7 +587,7 @@
           </OPERATION>
           <OPERATION Name="FromVector2" Layer="CalibrationPointStart (Vector2 Mapped)">
             <POSITION x="1006.37988" y="276.109619" />
-            <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="VL.Devices.TheEyeTribeUtils.vl">
+            <NODEREF LastCat="TETCSharpClient.Data.Point2D" LastFile="VVVV.Value.TheEyeTribeUtils.vl">
               <OPERATIONNODE Name="FromVector2" />
             </NODEREF>
             <INPUTS>
@@ -638,7 +635,6 @@
           <Link source="Inlets/Vector2" sink="Nodes/FromVector2/Inputs/Vector2" />
           <Link source="Nodes/CalibrationPointStart/Outputs/Output" sink="Outlets/GazeManager#1" />
           <Link source="Constants/Map Values" sink="Nodes/FromVector2/Inputs/Map Values" />
-          <Link source="Inlets/Enabled" sink="Nodes/CalibrationPointStart/Inputs/Enabled" />
         </LINKS>
       </BODY>
     </PATCH>
