@@ -44,10 +44,10 @@ Temporary Items
 
 # vvvv backup xml files.
 *~.xml
-# Stuff in my solution that I dont need
+# Build artefacts
 c#/TETWrapper/packages/
 c#/TETWrapper/TETWrapper/obj
 c#/TETWrapper/TETWrapper/bin
 
 # Stuff that you need to compile yourself
-tetdlls/*.dll
+tetdlls/TETWrapper.dll
