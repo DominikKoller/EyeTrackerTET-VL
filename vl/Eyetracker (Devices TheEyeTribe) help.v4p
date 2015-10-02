@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv50alpha34.100.dtd" >
-   <PATCH nodename="D:\gitHub\EyeTrackerTET-VL\vl\Eyetracker (Devices TheEyeTribe) help.v4p" scrollx="0" scrolly="-360" locked="0">
+   <PATCH nodename="C:\Users\vvvv_2\Documents\DOMINIK\EyeTrackerTET-VL\vl\Eyetracker (Devices TheEyeTribe) help.v4p" scrollx="0" scrolly="-360" locked="0">
    <BOUNDS type="Window" left="4365" top="0" width="21090" height="18180">
    </BOUNDS>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
@@ -468,7 +468,7 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="CalibrationRunner (TheEyeTribe)" filename="VVVV.Value.TET_Calibration.vl" nodename="CalibrationRunner (Devices TheEyeTribe)" componentmode="Hidden" id="96">
+   <NODE systemname="Calibration (TheEyeTribe)" filename="VVVV.Value.TET_Calibration.vl" nodename="CalibrationRunner (Devices TheEyeTribe)" componentmode="Hidden" id="96">
    <BOUNDS type="Node" left="14820" top="15870" width="100" height="100">
    </BOUNDS>
    </NODE>
@@ -1102,18 +1102,6 @@
    </LINK>
    <LINK srcnodeid="90" srcpinname="Layer" dstnodeid="156" dstpinname="Layer 1">
    </LINK>
-   <NODE systemname="GazeData (GazeData TheEyeTribe Split)" filename="VVVV.Value.TheEyeTribe.vl" nodename="GazeData (GazeData TheEyeTribe Split)" componentmode="Hidden" id="169">
-   <BOUNDS type="Node" left="9600" top="9000" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="GazeData" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="State" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="169" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
-   </LINK>
-   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="169" dstpinname="Coordinate Smoothing">
-   </LINK>
    <NODE systemname="Eyetracker (Devices TheEyeTribe)" filename="VVVV.Value.TET_Main.vl" nodename="Eyetracker (Devices TheEyeTribe)" componentmode="Hidden" id="170">
    <BOUNDS type="Node" left="9555" top="2385" width="2205" height="270">
    </BOUNDS>
@@ -1148,8 +1136,6 @@
    </LINK>
    <LINK srcnodeid="170" srcpinname="R Pupil Size" dstnodeid="151" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="170" srcpinname="GazeData" dstnodeid="169" dstpinname="GazeData">
-   </LINK>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="171" systemname="IOBox (String)">
    <BOUNDS type="Box" left="11565" top="9705" width="1725" height="705">
    </BOUNDS>
@@ -1162,6 +1148,20 @@
    <PIN pinname="Maximum Characters" slicecount="1" values="-1">
    </PIN>
    </NODE>
+   <NODE systemname="LastFrame (TheEyeTribe.GazeData)" filename="VVVV.Devices.TheEyeTribe.vl" nodename="LastFrame (TheEyeTribe.GazeData)" componentmode="Hidden" id="169">
+   <BOUNDS type="Node" left="9600" top="9000" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="GazeData" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="State" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="169" srcpinname="Gaze CoordinatesXY" dstnodeid="93" dstpinname="XY">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="169" dstpinname="Coordinate Smoothing">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="GazeData" dstnodeid="169" dstpinname="GazeData">
+   </LINK>
    <LINK srcnodeid="169" srcpinname="State" dstnodeid="171" dstpinname="Input String">
    </LINK>
    </PATCH>
