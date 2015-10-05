@@ -54,7 +54,7 @@ namespace TETCSharpClient
         CalibrationResult
     }
 
-    public enum CalibrationState
+    public enum CalibrationStadium
     {
         Inactive,
         Calibrating,
@@ -64,7 +64,7 @@ namespace TETCSharpClient
         Error
     }
 
-    public enum CalibrationPointState
+    public enum CalibrationPointStadium
     {
         Inactive,
         Idle,

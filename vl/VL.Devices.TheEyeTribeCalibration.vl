@@ -247,7 +247,7 @@
           <LAYER Name="GetCalibrationData" />
         </LAYERS>
         <INLETS>
-          <INLET Name="CalibrationData#1" Layer="GetCalibrationData" PadType="Field">
+          <INLET Name="CalibrationState" Layer="GetCalibrationData" PadType="Field">
             <POSITION x="-390.359558" y="687.122253" />
           </INLET>
           <INLET Name="CalibrationPoints" Layer="Create" Type="Spread&lt;Vector2&gt;">
@@ -277,10 +277,10 @@
           <INLET Name="PointCalibrationTime#1" Layer="Update" PadType="Field">
             <POSITION x="1073.6521" y="265.811737" />
           </INLET>
-          <INLET Name="OCalibrationData" Layer="Update" PadType="Field">
+          <INLET Name="OCalibrationState" Layer="Update" PadType="Field">
             <POSITION x="1347.41284" y="82.1679153" />
           </INLET>
-          <INLET Name="CalibrationData" Layer="Update" PadType="Field">
+          <INLET Name="CalibrationState#1" Layer="Update" PadType="Field">
             <POSITION x="1533.05261" y="105.365875" />
           </INLET>
         </INLETS>
@@ -288,7 +288,7 @@
           <OUTLET Name="CalibrationData#2" Layer="GetCalibrationData">
             <POSITION x="-390.487244" y="720.5378" />
           </OUTLET>
-          <OUTLET Name="OCalibrationData" Layer="Create" PadType="Field">
+          <OUTLET Name="OCalibrationState" Layer="Create" PadType="Field">
             <POSITION x="-384.6133" y="628.1629" />
           </OUTLET>
           <OUTLET Name="CalibrationPointsPositions" Layer="Create" PadType="Field">
@@ -303,11 +303,11 @@
           <OUTLET Name="Max Server Response Time" Layer="Create" PadType="Field">
             <POSITION x="408.649139" y="220.9902" />
           </OUTLET>
-          <OUTLET Name="CalibrationData#1" Layer="Create" PadType="Field">
-            <POSITION x="604.357" y="345.245972" />
+          <OUTLET Name="CalibrationState" Layer="Create" PadType="Field">
+            <POSITION x="605.3527" y="345.245972" />
           </OUTLET>
-          <OUTLET Name="CalibrationData" Layer="Update" PadType="Field">
-            <POSITION x="1166.41357" y="1532.92053" />
+          <OUTLET Name="CalibrationState#1" Layer="Update" PadType="Field">
+            <POSITION x="1161.83691" y="1532.00525" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
@@ -315,16 +315,6 @@
             <POSITION x="632.316467" y="266.70105" />
             <SIZE width="40" height="12" />
             <VALUE><![CDATA[true]]></VALUE>
-          </CONST>
-          <CONST Name="Value" Layer="Update">
-            <POSITION x="1091.51575" y="804.990356" />
-            <SIZE width="80.11564" height="15.50846" />
-            <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":4}]]></VALUE>
-          </CONST>
-          <CONST Name="Value#1" Layer="Update">
-            <POSITION x="1065.18127" y="777.7294" />
-            <SIZE width="80.11564" height="15.50846" />
-            <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":5}]]></VALUE>
           </CONST>
           <CONST Name="comment" Layer="Update" Type="String">
             <POSITION x="1553.33533" y="397.405518" />
@@ -390,6 +380,16 @@
             <POSITION x="96.72119" y="779.480652" />
             <SIZE width="283.006226" height="10.7563477" />
             <VALUE><![CDATA["CalibrationRunner"]]></VALUE>
+          </CONST>
+          <CONST Name="Value#2" Layer="Update">
+            <POSITION x="1053.74121" y="783.263855" />
+            <SIZE width="82.9833145" height="15.50846" />
+            <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":5}]]></VALUE>
+          </CONST>
+          <CONST Name="Value#3" Layer="Update">
+            <POSITION x="1081.14355" y="811.622" />
+            <SIZE width="84.25779" height="15.50846" />
+            <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":4}]]></VALUE>
           </CONST>
         </CONSTS>
         <REGIONS>
@@ -521,7 +521,7 @@
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="Update">
                   <POSITION x="1156.00281" y="204.48436" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -628,7 +628,7 @@
             </BODY>
           </REGION>
           <REGION Name="IfElse#2" Layer="Update" Kind="IfElse">
-            <POSITION x="1150.7179" y="964.469238" />
+            <POSITION x="1158.9054" y="963.47345" />
             <SIZE x="994.5908" y="1173.65356" />
             <INPUTS>
               <INPUT Name="Condition" />
@@ -643,40 +643,40 @@
               </LAYERS>
               <INLETS>
                 <INLET Name="CalibrationData" Layer="True">
-                  <POSITION x="1168.28809" y="965.8474" />
+                  <POSITION x="1162.31348" y="964.8516" />
                 </INLET>
               </INLETS>
               <OUTLETS>
                 <OUTLET Name="CalibrationData" Layer="True">
-                  <POSITION x="1168.42529" y="1505.38806" />
+                  <POSITION x="1162.31348" y="1504.39209" />
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="state" Layer="True">
-                  <POSITION x="1455.898" y="1190.77563" />
-                  <SIZE width="54.26214" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":1}]]></VALUE>
-                </CONST>
-                <CONST Name="state#1" Layer="True">
-                  <POSITION x="1455.33557" y="1239.6825" />
-                  <SIZE width="54.26214" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":2}]]></VALUE>
-                </CONST>
                 <CONST Name="True" Layer="True">
-                  <POSITION x="1226.566" y="1364.07861" />
+                  <POSITION x="1220.59143" y="1363.08276" />
                   <VALUE><![CDATA[true]]></VALUE>
                 </CONST>
                 <CONST Name="Comment" Layer="True" Type="String">
-                  <POSITION x="1297.80115" y="1390.12854" />
+                  <POSITION x="1291.82654" y="1389.13257" />
                   <SIZE width="262.844757" height="11.7056036" />
                   <VALUE><![CDATA["If a Point just Ended, we're waiting for the server to respond"]]></VALUE>
+                </CONST>
+                <CONST Name="Stadium" Layer="True">
+                  <POSITION x="1451.52893" y="1191.672" />
+                  <SIZE width="54.26214" height="15.50846" />
+                  <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":1}]]></VALUE>
+                </CONST>
+                <CONST Name="Stadium#1" Layer="True">
+                  <POSITION x="1454.12378" y="1238.3811" />
+                  <SIZE width="54.6327438" height="16.2499161" />
+                  <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":2}]]></VALUE>
                 </CONST>
               </CONSTS>
               <REGIONS />
               <NODES>
                 <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
-                  <POSITION x="1240.54248" y="1040.33423" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <POSITION x="1234.56787" y="1039.33838" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -687,11 +687,11 @@
                     <OUPUT Name="Success" />
                   </OUTPUTS>
                 </OPERATION>
-                <OPERATION Name="GetState" Layer="True">
-                  <POSITION x="1436.45081" y="1123.119" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="GetState" />
-                    <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
+                <OPERATION Name="GetCurrentStadium" Layer="True">
+                  <POSITION x="1422.51" y="1108.18213" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="GetCurrentStadium" />
+                    <CATEGORY Name="CalibrationPointState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -701,7 +701,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="=" Layer="True">
-                  <POSITION x="1429.72021" y="1197.01147" />
+                  <POSITION x="1423.74561" y="1196.01563" />
                   <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
                     <OPERATIONNODE Name="=" />
                     <CATEGORY Name="Adaptive" IsDirectParent="true" />
@@ -715,7 +715,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="=#2" Layer="True">
-                  <POSITION x="1429.26941" y="1246.25378" />
+                  <POSITION x="1423.2948" y="1245.25781" />
                   <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
                     <OPERATIONNODE Name="=" />
                     <CATEGORY Name="Adaptive" IsDirectParent="true" />
@@ -729,8 +729,8 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
-                  <POSITION x="1169.88" y="1321.04333" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <POSITION x="1163.9054" y="1320.04736" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -743,7 +743,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="CheckForServerTimeout" Layer="True">
-                  <POSITION x="1170.83374" y="1461.57544" />
+                  <POSITION x="1164.85913" y="1460.57959" />
                   <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForServerTimeout" />
                   </NODEREF>
@@ -757,7 +757,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="CheckForCalibrationPointStart" Layer="True">
-                  <POSITION x="1242.79272" y="1217.34167" />
+                  <POSITION x="1236.81812" y="1216.3457" />
                   <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForCalibrationPointStart" />
                   </NODEREF>
@@ -771,7 +771,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="CheckForCalibrationPointEnd" Layer="True">
-                  <POSITION x="1242.67957" y="1271.45068" />
+                  <POSITION x="1236.705" y="1270.45483" />
                   <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="CheckForCalibrationPointEnd" />
                   </NODEREF>
@@ -786,8 +786,8 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="True">
-                  <POSITION x="1170.40271" y="1389.18677" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <POSITION x="1164.4281" y="1388.19092" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -801,11 +801,9 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Constants/state" sink="Nodes/=/Inputs/Input 2" />
-                <Link source="Constants/state#1" sink="Nodes/=#2/Inputs/Input 2" />
-                <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/GetState/Inputs/Input" />
-                <Link source="Nodes/GetState/Outputs/State" sink="Nodes/=/Inputs/Input" />
-                <Link source="Nodes/GetState/Outputs/State" sink="Nodes/=#2/Inputs/Input" />
+                <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/GetCurrentStadium/Inputs/Input" />
+                <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Nodes/=/Inputs/Input" />
+                <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Nodes/=#2/Inputs/Input" />
                 <Link source="Inlets/CalibrationData" sink="Nodes/GetCurrentCalibrationPoint/Inputs/Input" />
                 <Link source="Nodes/CheckForServerTimeout/Outputs/CalibrationData" sink="Outlets/CalibrationData" />
                 <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/CheckForCalibrationPointStart/Inputs/CalibrationPoint" />
@@ -818,6 +816,8 @@
                 <Link source="Nodes/SetCurrentCalibrationPoint/Outputs/Output" sink="Nodes/SetWaitingForServer/Inputs/Input" />
                 <Link source="Nodes/CheckForCalibrationPointEnd/Outputs/DidEnd" sink="Nodes/SetWaitingForServer/Inputs/Enabled" />
                 <Link source="Nodes/SetWaitingForServer/Outputs/Output" sink="Nodes/CheckForServerTimeout/Inputs/CalibrationData" />
+                <Link source="Constants/Stadium" sink="Nodes/=/Inputs/Input 2" />
+                <Link source="Constants/Stadium#1" sink="Nodes/=#2/Inputs/Input 2" />
               </LINKS>
             </BODY>
           </REGION>
@@ -1077,9 +1077,9 @@
         <NODES>
           <OPERATION Name="Create" Layer="Create">
             <POSITION x="608.6738" y="172.4133" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="Create" />
-              <CATEGORY Name="CalibrationData" />
+              <CATEGORY Name="CalibrationState" />
             </NODEREF>
             <INPUTS />
             <OUTPUTS>
@@ -1117,7 +1117,7 @@
           </OPERATION>
           <OPERATION Name="SetWaitingForServer" Layer="Create">
             <POSITION x="607.619263" y="295.148743" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="SetWaitingForServer" />
             </NODEREF>
             <INPUTS>
@@ -1129,11 +1129,11 @@
               <OUPUT Name="Output" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="GetState" Layer="Update">
+          <OPERATION Name="GetCurrentStadium" Layer="Update">
             <POSITION x="1144.69824" y="855.455444" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-              <OPERATIONNODE Name="GetState" />
-              <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+              <OPERATIONNODE Name="GetCurrentStadium" />
+              <CATEGORY Name="CalibrationState" IsDirectParent="true" />
             </NODEREF>
             <INPUTS>
               <INPUT Name="Input" />
@@ -1187,7 +1187,7 @@
           </OPERATION>
           <OPERATION Name="SetMaxResampleCount" Layer="Create">
             <POSITION x="609.398254" y="214.845932" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="SetMaxResampleCount" />
             </NODEREF>
             <INPUTS>
@@ -1224,23 +1224,21 @@
           </OPERATION>
         </NODES>
         <LINKS>
-          <Link source="Inlets/OCalibrationData" sink="Nodes/Sampler/Inputs/Async Notifications" />
+          <Link source="Inlets/OCalibrationState" sink="Nodes/Sampler/Inputs/Async Notifications" />
           <Link source="Nodes/Sampler/Outputs/Notifications" sink="Regions/ForEachLoop#1/Inputs/CalibrationNotifications" />
-          <Link source="Inlets/CalibrationData" sink="Regions/ForEachLoop#1/Inputs/CalibrationData" />
+          <Link source="Inlets/CalibrationState#1" sink="Regions/ForEachLoop#1/Inputs/CalibrationData" />
           <Link source="Inlets/Max Server Response Time#1" sink="Outlets/Max Server Response Time" />
-          <Link source="Nodes/SetWaitingForServer/Outputs/Output" sink="Outlets/CalibrationData#1" />
+          <Link source="Nodes/SetWaitingForServer/Outputs/Output" sink="Outlets/CalibrationState" />
           <Link source="Constants/WaitingForServer" sink="Nodes/SetWaitingForServer/Inputs/WaitingForServer" />
-          <Link source="Regions/IfElse#2/Outputs/CalibrationData" sink="Outlets/CalibrationData" />
-          <Link source="Regions/ForEachLoop#1/Outputs/CalibrationData" sink="Nodes/GetState/Inputs/Input" />
-          <Link source="Nodes/GetState/Outputs/State" sink="Nodes/!=/Inputs/Input 2" />
-          <Link source="Constants/Value" sink="Nodes/!=/Inputs/Input" />
+          <Link source="Regions/IfElse#2/Outputs/CalibrationData" sink="Outlets/CalibrationState#1" />
+          <Link source="Regions/ForEachLoop#1/Outputs/CalibrationData" sink="Nodes/GetCurrentStadium/Inputs/Input" />
+          <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Nodes/!=/Inputs/Input 2" />
           <Link source="Regions/ForEachLoop#1/Outputs/CalibrationData" sink="Regions/IfElse#2/Inputs/CalibrationData Default" />
-          <Link source="Nodes/GetState/Outputs/State" sink="Nodes/!=#1/Inputs/Input 2" />
-          <Link source="Constants/Value#1" sink="Nodes/!=#1/Inputs/Input" />
+          <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Nodes/!=#1/Inputs/Input 2" />
           <Link source="Nodes/!=#1/Outputs/Result" sink="Nodes/AND/Inputs/Input" />
           <Link source="Nodes/!=/Outputs/Result" sink="Nodes/AND/Inputs/Input 2" />
           <Link source="Nodes/AND/Outputs/Output" sink="Regions/IfElse#2/Inputs/Condition" />
-          <Link source="Inlets/CalibrationData#1" sink="Outlets/CalibrationData#2" />
+          <Link source="Inlets/CalibrationState" sink="Outlets/CalibrationData#2" />
           <Link source="Nodes/Create/Outputs/Output" sink="Nodes/SetMaxResampleCount/Inputs/Input" />
           <Link source="Nodes/SetMaxResampleCount/Outputs/Output" sink="Nodes/SetWaitingForServer/Inputs/Input" />
           <Link source="Inlets/Max Resample Count" sink="Nodes/SetMaxResampleCount/Inputs/Max Resample Count" />
@@ -1253,7 +1251,7 @@
           <Link source="Inlets/CalibrationPoints" sink="Nodes/Count/Inputs/Input" />
           <Link source="Inlets/PointIdleTime#1" sink="Regions/ForEachLoop#1/ForEachLoopBody/Nodes/InitializeCalibration/Inputs/Idle Timespan" />
           <Link source="Inlets/PointCalibrationTime#1" sink="Regions/ForEachLoop#1/ForEachLoopBody/Nodes/InitializeCalibration/Inputs/Calibration Timespan" />
-          <Link source="Nodes/Create#1/Outputs/Result" sink="Outlets/OCalibrationData" />
+          <Link source="Nodes/Create#1/Outputs/Result" sink="Outlets/OCalibrationState" />
           <Link source="Regions/Abstraction/Outputs/Functionality" sink="Nodes/Create#1/Inputs/Subscribe" />
           <Link source="Nodes/Count/Outputs/Count" sink="Regions/Abstraction/AbstractionBody/Nodes/CalibrationStart/Inputs/Num Calibration Points">
             <SEGMENTS>
@@ -1273,6 +1271,8 @@
           </Link>
           <Link source="Nodes/Now#1/Outputs/Now" sink="Regions/IfElse#2/IfElseBody/Nodes/CheckForCalibrationPointStart/Inputs/Now" />
           <Link source="Inlets/Max Server Response Time" sink="Regions/IfElse#2/IfElseBody/Nodes/CheckForServerTimeout/Inputs/Max Server Response Time" />
+          <Link source="Constants/Value#2" sink="Nodes/!=#1/Inputs/Input" />
+          <Link source="Constants/Value#3" sink="Nodes/!=/Inputs/Input" />
         </LINKS>
       </BODY>
     </PATCH>
@@ -1286,10 +1286,10 @@
           <INLET Name="Start Calibration" Layer="Update" Type="Boolean">
             <POSITION x="47.33554" y="-50.8695221" />
           </INLET>
-          <INLET Name="CalibrationRunnerVL" Layer="Update" PadType="Field">
-            <POSITION x="190.528259" y="146.270721" />
+          <INLET Name="CalibrationRunner" Layer="Update" PadType="Field">
+            <POSITION x="206.528259" y="164.270721" />
           </INLET>
-          <INLET Name="CalibrationPoints" Layer="Update" Type="Sequence&lt;Vector2&gt;">
+          <INLET Name="CalibrationPoints" Layer="Update">
             <POSITION x="371.840454" y="-50.8695221" />
           </INLET>
           <INLET Name="Point Idle Time" Layer="Update" Type="Float32">
@@ -1303,8 +1303,8 @@
           </INLET>
         </INLETS>
         <OUTLETS>
-          <OUTLET Name="CalibrationRunnerVL" Layer="Update" PadType="Field">
-            <POSITION x="181.480026" y="702.74646" />
+          <OUTLET Name="CalibrationRunner" Layer="Update" PadType="Field">
+            <POSITION x="186.480026" y="690.74646" />
           </OUTLET>
           <OUTLET Name="CalibrationPoints" Layer="Update">
             <POSITION x="327.6381" y="895.4173" />
@@ -1372,22 +1372,22 @@
             <SIZE x="80" y="80" />
             <INPUTS>
               <INPUT Name="Condition" />
-              <INPUT Name="CalibrationRunnerVL Default" />
+              <INPUT Name="CalibrationRunner Default" />
             </INPUTS>
             <OUTPUTS>
-              <OUPUT Name="CalibrationRunnerVL" />
+              <OUPUT Name="CalibrationRunner" />
             </OUTPUTS>
             <BODY Name="IfElseBody">
               <LAYERS>
                 <LAYER Name="True" />
               </LAYERS>
               <INLETS>
-                <INLET Name="CalibrationRunnerVL" Layer="True">
+                <INLET Name="CalibrationRunner" Layer="True">
                   <POSITION x="205.152283" y="226.636948" />
                 </INLET>
               </INLETS>
               <OUTLETS>
-                <OUTLET Name="CalibrationRunnerVL" Layer="True">
+                <OUTLET Name="CalibrationRunner" Layer="True">
                   <POSITION x="204.1034" y="309.697754" />
                 </OUTLET>
               </OUTLETS>
@@ -1395,7 +1395,7 @@
               <REGIONS />
               <NODES>
                 <OPERATION Name="Create" Layer="True">
-                  <POSITION x="349.164734" y="251.4138" />
+                  <POSITION x="322.164734" y="258.413818" />
                   <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="Create" />
                     <CATEGORY Name="CalibrationRunner" IsDirectParent="true" />
@@ -1425,8 +1425,8 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Nodes/Create/Outputs/Output" sink="Outlets/CalibrationRunnerVL" />
-                <Link source="Inlets/CalibrationRunnerVL" sink="Nodes/Destroy/Inputs/Input" />
+                <Link source="Nodes/Create/Outputs/Output" sink="Outlets/CalibrationRunner" />
+                <Link source="Inlets/CalibrationRunner" sink="Nodes/Destroy/Inputs/Input" />
               </LINKS>
             </BODY>
           </REGION>
@@ -1435,22 +1435,22 @@
             <SIZE x="80" y="80" />
             <INPUTS>
               <INPUT Name="Condition" />
-              <INPUT Name="Output Default" />
+              <INPUT Name="CalibrationRunner Default" />
             </INPUTS>
             <OUTPUTS>
-              <OUPUT Name="Output" />
+              <OUPUT Name="CalibrationRunner" />
             </OUTPUTS>
             <BODY Name="IfElseBody">
               <LAYERS>
                 <LAYER Name="True" />
               </LAYERS>
               <INLETS>
-                <INLET Name="Output" Layer="True">
+                <INLET Name="CalibrationRunner" Layer="True">
                   <POSITION x="199.125259" y="487.2533" />
                 </INLET>
               </INLETS>
               <OUTLETS>
-                <OUTLET Name="Output" Layer="True">
+                <OUTLET Name="CalibrationRunner" Layer="True">
                   <POSITION x="199.125259" y="567.2532" />
                 </OUTLET>
               </OUTLETS>
@@ -1471,7 +1471,7 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Inlets/Output" sink="Nodes/Destroy/Inputs/Input" />
+                <Link source="Inlets/CalibrationRunner" sink="Nodes/Destroy/Inputs/Input" />
               </LINKS>
             </BODY>
           </REGION>
@@ -1509,9 +1509,9 @@
               <NODES>
                 <OPERATION Name="GetPosition" Layer="Update">
                   <POSITION x="330.323059" y="785.3928" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetPosition" />
-                    <CATEGORY Name="CalibrationPointData" />
+                    <CATEGORY Name="CalibrationPointState" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -1520,11 +1520,11 @@
                     <OUPUT Name="Position" />
                   </OUTPUTS>
                 </OPERATION>
-                <OPERATION Name="GetState" Layer="Update">
+                <OPERATION Name="GetCurrentStadium" Layer="Update">
                   <POSITION x="447.904" y="785.16626" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="GetState" />
-                    <CATEGORY Name="CalibrationPointData" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="GetCurrentStadium" />
+                    <CATEGORY Name="CalibrationPointState" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -1537,8 +1537,8 @@
               <LINKS>
                 <Link source="Inlets/CalibrationPoint" sink="Nodes/GetPosition/Inputs/Input" />
                 <Link source="Nodes/GetPosition/Outputs/Position" sink="Outlets/Position" />
-                <Link source="Inlets/CalibrationPoint" sink="Nodes/GetState/Inputs/Input" />
-                <Link source="Nodes/GetState/Outputs/State" sink="Outlets/State" />
+                <Link source="Inlets/CalibrationPoint" sink="Nodes/GetCurrentStadium/Inputs/Input" />
+                <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Outlets/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -1654,11 +1654,11 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="GetState" Layer="Update">
+          <OPERATION Name="GetCurrentStadium" Layer="Update">
             <POSITION x="877.4781" y="798.8756" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-              <OPERATIONNODE Name="GetState" />
-              <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+              <OPERATIONNODE Name="GetCurrentStadium" />
+              <CATEGORY Name="CalibrationState" IsDirectParent="true" />
             </NODEREF>
             <INPUTS>
               <INPUT Name="Input" />
@@ -1669,7 +1669,7 @@
           </OPERATION>
           <OPERATION Name="GetCalibrationPoints" Layer="Update">
             <POSITION x="331.335175" y="699.2479" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationPoints" />
             </NODEREF>
             <INPUTS>
@@ -1681,7 +1681,7 @@
           </OPERATION>
           <OPERATION Name="GetCalibrationResult" Layer="Update">
             <POSITION x="598.0884" y="791.7589" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationResult" />
             </NODEREF>
             <INPUTS>
@@ -1694,7 +1694,7 @@
           </OPERATION>
           <OPERATION Name="GetErrormessages" Layer="Update">
             <POSITION x="973.784668" y="743.072632" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetErrormessages" />
             </NODEREF>
             <INPUTS>
@@ -1705,7 +1705,7 @@
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="GetCalibrationData" Layer="Update">
-            <POSITION x="199.188232" y="618.608459" />
+            <POSITION x="200.188232" y="600.608459" />
             <NODEREF LastCat="Devices.TheEyeTribe.CalibrationRunner" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetCalibrationData" />
             </NODEREF>
@@ -1715,19 +1715,6 @@
             <OUTPUTS>
               <OUPUT Name="Output" />
               <OUPUT Name="CalibrationData" />
-            </OUTPUTS>
-          </OPERATION>
-          <OPERATION Name="ToSpread" Layer="Update">
-            <POSITION x="374.218658" y="-28.5564575" />
-            <NODEREF LastCat="Collections.Sequence" LastFile="VL.Core.dll">
-              <OPERATIONNODE Name="ToSpread" />
-              <CATEGORY Name="Sequence" IsDirectParent="true" />
-            </NODEREF>
-            <INPUTS>
-              <INPUT Name="Input" />
-            </INPUTS>
-            <OUTPUTS>
-              <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
           <OPERATION Name="Update" Layer="Update">
@@ -1763,7 +1750,7 @@
           <Link source="Nodes/FromSeconds/Outputs/Result" sink="Regions/IfElse/IfElseBody/Nodes/Create/Inputs/PointIdleTime" />
           <Link source="Inlets/Point Calibration Time" sink="Nodes/FromSeconds#1/Inputs/Value" />
           <Link source="Nodes/FromSeconds#1/Outputs/Result" sink="Regions/IfElse/IfElseBody/Nodes/Create/Inputs/PointCalibrationTime" />
-          <Link source="Inlets/CalibrationRunnerVL" sink="Regions/IfElse/Inputs/CalibrationRunnerVL Default" />
+          <Link source="Inlets/CalibrationRunner" sink="Regions/IfElse/Inputs/CalibrationRunner Default" />
           <Link source="Regions/ForEachLoop/Outputs/Positions" sink="Outlets/CalibrationPoints" />
           <Link source="Nodes/FromSeconds#2/Outputs/Result" sink="Regions/IfElse/IfElseBody/Nodes/Create/Inputs/Max Server Response Time" />
           <Link source="Constants/Max Server Response Time" sink="Nodes/FromSeconds#2/Inputs/Value" />
@@ -1783,23 +1770,15 @@
           <Link source="Nodes/GetCalibrationResult/Outputs/ResultSuccess" sink="Outlets/ResultSuccess" />
           <Link source="Nodes/GetCalibrationResult/Outputs/ResultAverageErrorDegree" sink="Outlets/ResultAverageErrorDegree" />
           <Link source="Nodes/GetCalibrationPoints/Outputs/CalibrationPoints" sink="Regions/ForEachLoop/Inputs/CalibrationPoints" />
-          <Link source="Nodes/GetState/Outputs/State" sink="Outlets/State" />
-          <Link source="Nodes/GetCalibrationData/Outputs/Output" sink="Outlets/CalibrationRunnerVL" />
-          <Link source="Regions/IfElse#2/Outputs/Output" sink="Nodes/GetCalibrationData/Inputs/Input" />
-          <Link source="Nodes/GetCalibrationData/Outputs/CalibrationData" sink="Nodes/GetState/Inputs/Input" />
+          <Link source="Nodes/GetCurrentStadium/Outputs/State" sink="Outlets/State" />
+          <Link source="Nodes/GetCalibrationData/Outputs/Output" sink="Outlets/CalibrationRunner" />
+          <Link source="Regions/IfElse#2/Outputs/CalibrationRunner" sink="Nodes/GetCalibrationData/Inputs/Input" />
+          <Link source="Nodes/GetCalibrationData/Outputs/CalibrationData" sink="Nodes/GetCurrentStadium/Inputs/Input" />
           <Link source="Nodes/GetCalibrationData/Outputs/CalibrationData" sink="Nodes/GetCalibrationPoints/Inputs/Input" />
           <Link source="Nodes/GetCalibrationData/Outputs/CalibrationData" sink="Nodes/GetCalibrationResult/Inputs/Input" />
           <Link source="Nodes/GetCalibrationData/Outputs/CalibrationData" sink="Nodes/GetErrormessages/Inputs/Input" />
-          <Link source="Inlets/CalibrationPoints" sink="Nodes/ToSpread/Inputs/Input" />
-          <Link source="Nodes/ToSpread/Outputs/Result" sink="Regions/IfElse/IfElseBody/Nodes/Create/Inputs/CalibrationPoints" />
-          <Link source="Regions/IfElse/Outputs/CalibrationRunnerVL" sink="Nodes/Update/Inputs/Input" />
-          <Link source="Nodes/Update/Outputs/Output" sink="Regions/IfElse#2/Inputs/Output Default" />
-          <Link source="Nodes/FlipFlop/Outputs/State" sink="Nodes/Update/Inputs/Enabled">
-            <SEGMENTS>
-              <Point x="4.00943" y="14.3760681" />
-              <Point x="287.00943" y="40.37607" />
-            </SEGMENTS>
-          </Link>
+          <Link source="Regions/IfElse/Outputs/CalibrationRunner" sink="Nodes/Update/Inputs/Input" />
+          <Link source="Nodes/Update/Outputs/Output" sink="Regions/IfElse#2/Inputs/CalibrationRunner Default" />
           <Link source="Nodes/Outbox/Outputs/Output" sink="Regions/IfElse#2/Inputs/Condition">
             <SEGMENTS>
               <Point x="-5.85617065" y="390.505371" />
@@ -1809,10 +1788,17 @@
           <Link source="Nodes/IsCalibrating/Outputs/Output" sink="Nodes/IsActivated/Inputs/Input" />
           <Link source="Nodes/IsActivated/Outputs/Is Activated" sink="Outlets/Is Activated" />
           <Link source="Inlets/Start Calibration" sink="Nodes/Outbox#1/Inputs/Input" />
+          <Link source="Nodes/FlipFlop/Outputs/State" sink="Nodes/Update/Inputs/Enabled">
+            <SEGMENTS>
+              <Point x="3.00943" y="32.37607" />
+              <Point x="230.00943" y="43.37607" />
+            </SEGMENTS>
+          </Link>
+          <Link source="Inlets/CalibrationPoints" sink="Regions/IfElse/IfElseBody/Nodes/Create/Inputs/CalibrationPoints" />
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationData" Category="Devices.TheEyeTribe" IsDatatype="true">
+    <PATCH Name="CalibrationState" Category="Devices.TheEyeTribe" IsDatatype="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -1825,8 +1811,8 @@
           <LAYER Name="GetCalibrationResult" />
           <LAYER Name="SetCurrentCalibrationPoint" />
           <LAYER Name="StartCurrentCalibrationPoint" />
-          <LAYER Name="GetState" />
-          <LAYER Name="SetState" />
+          <LAYER Name="GetCurrentStadium" />
+          <LAYER Name="SetCurrentStadium" />
           <LAYER Name="GetErrormessages" />
           <LAYER Name="AddErrorMessage" />
           <LAYER Name="GetWaitingForServer" />
@@ -1837,10 +1823,10 @@
           <LAYER Name="GetMaxResampleCount" />
         </LAYERS>
         <INLETS>
-          <INLET Name="State" Layer="GetState" PadType="Field">
+          <INLET Name="CurrentStadium" Layer="GetCurrentStadium" PadType="Field">
             <POSITION x="770.7136" y="202.727844" />
           </INLET>
-          <INLET Name="State#1" Layer="SetState" Type="CalibrationState">
+          <INLET Name="State#1" Layer="SetCurrentStadium" Type="CalibrationStadium">
             <POSITION x="772.5091" y="135.2622" />
           </INLET>
           <INLET Name="CalibrationPoints#3" Layer="GetCurrentCalibrationPoint" PadType="Field">
@@ -1859,7 +1845,7 @@
             <POSITION x="1029.96167" y="189.379822" />
           </INLET>
           <INLET Name="CalibrationPoints#2" Layer="SetCalibrationPoints">
-            <POSITION x="1033.642" y="124.023071" />
+            <POSITION x="1035.33716" y="117.242493" />
           </INLET>
           <INLET Name="CalibrationResult" Layer="SetCalibrationResult" Type="CalibrationResult">
             <POSITION x="1348.17432" y="121.50824" />
@@ -1911,16 +1897,16 @@
           <OUTLET Name="Resample Count#2" Layer="Create" PadType="Field">
             <POSITION x="259.736267" y="184.453918" />
           </OUTLET>
-          <OUTLET Name="CalibrationPoints" Layer="Create" PadType="Field" Type="Spread&lt;CalibrationPointData&gt;">
-            <POSITION x="450.4772" y="182.639709" />
+          <OUTLET Name="CalibrationPoints" Layer="Create" PadType="Field" Type="Spread&lt;CalibrationPointState&gt;">
+            <POSITION x="427.55304" y="182.1367" />
           </OUTLET>
-          <OUTLET Name="State#3" Layer="Create" PadType="Field">
-            <POSITION x="527.292" y="181.289124" />
+          <OUTLET Name="CurrentStadium" Layer="Create" PadType="Field">
+            <POSITION x="530.1143" y="180.72464" />
           </OUTLET>
-          <OUTLET Name="State#1" Layer="GetState">
+          <OUTLET Name="State#1" Layer="GetCurrentStadium">
             <POSITION x="771.4394" y="224.756287" />
           </OUTLET>
-          <OUTLET Name="State" Layer="SetState" PadType="Field">
+          <OUTLET Name="CurrentStadium#1" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="772.7145" y="155.84613" />
           </OUTLET>
           <OUTLET Name="CurrentPoint" Layer="GetCurrentCalibrationPoint">
@@ -1936,7 +1922,7 @@
             <POSITION x="1030.36" y="209.372864" />
           </OUTLET>
           <OUTLET Name="CalibrationPoints#2" Layer="SetCalibrationPoints" PadType="Field">
-            <POSITION x="1033.253" y="143.871155" />
+            <POSITION x="1034.10059" y="140.480865" />
           </OUTLET>
           <OUTLET Name="Success" Layer="RemoveCurrentCalibrationPoint">
             <POSITION x="1047.0304" y="1033.06714" />
@@ -1998,11 +1984,6 @@
             <POSITION x="1032.78674" y="353.1701" />
             <VALUE><![CDATA[0]]></VALUE>
           </CONST>
-          <CONST Name="State#5" Layer="Create">
-            <POSITION x="530.384766" y="128.929352" />
-            <SIZE width="80.11564" height="15.50846" />
-            <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":0}]]></VALUE>
-          </CONST>
           <CONST Name="Index" Layer="AddErrorMessage">
             <POSITION x="2898.504" y="189.497864" />
             <VALUE><![CDATA[0]]></VALUE>
@@ -2015,6 +1996,10 @@
           <CONST Name="Resample Count" Layer="Create">
             <POSITION x="262.207642" y="155.621277" />
             <VALUE><![CDATA[0]]></VALUE>
+          </CONST>
+          <CONST Name="CurrentStadium" Layer="Create">
+            <POSITION x="500.702881" y="146.36174" />
+            <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":0}]]></VALUE>
           </CONST>
         </CONSTS>
         <REGIONS>
@@ -2279,7 +2264,7 @@
           <Link source="Nodes/SetSlice/Outputs/Output" sink="Outlets/CalibrationPoints#4" />
           <Link source="Inlets/ResultAverageErrorDegree" sink="Outlets/ResultAverageErrorDegree#1" />
           <Link source="Inlets/ResultSuccess" sink="Outlets/ResultSuccess#1" />
-          <Link source="Inlets/State" sink="Outlets/State#1" />
+          <Link source="Inlets/CurrentStadium" sink="Outlets/State#1" />
           <Link source="Inlets/CalibrationPoints#3" sink="Nodes/IsEmpty#1/Inputs/Input" />
           <Link source="Nodes/IsEmpty#1/Outputs/Is Empty" sink="Nodes/NOT#1/Inputs/Input" />
           <Link source="Regions/IfElse/Outputs/Result" sink="Outlets/CurrentPoint" />
@@ -2290,8 +2275,7 @@
           <Link source="Nodes/AverageErrorDegree/Outputs/Average Error Degree" sink="Outlets/ResultAverageErrorDegree" />
           <Link source="Inlets/CalibrationResult" sink="Nodes/AverageErrorDegree/Inputs/Input" />
           <Link source="Nodes/Result/Outputs/Result" sink="Outlets/ResultSuccess" />
-          <Link source="Inlets/State#1" sink="Outlets/State" />
-          <Link source="Constants/State#5" sink="Outlets/State#3" />
+          <Link source="Inlets/State#1" sink="Outlets/CurrentStadium#1" />
           <Link source="Inlets/ErrorMessages#2" sink="Outlets/Error" />
           <Link source="Inlets/CalibrationPoints#4" sink="Nodes/IsEmpty/Inputs/Input" />
           <Link source="Nodes/IsEmpty/Outputs/Is Empty" sink="Nodes/NOT#2/Inputs/Input" />
@@ -2319,6 +2303,7 @@
           <Link source="Inlets/Max Resample Count" sink="Outlets/Max Resample Count#1" />
           <Link source="Inlets/Max Resample Count#2" sink="Outlets/Max Resample Count#2" />
           <Link source="Constants/Resample Count" sink="Outlets/Resample Count#2" />
+          <Link source="Constants/CurrentStadium" sink="Outlets/CurrentStadium" />
         </LINKS>
       </BODY>
     </PATCH>
@@ -2382,7 +2367,7 @@
         </LINKS>
       </BODY>
     </PATCH>
-    <PATCH Name="CalibrationPointData" Category="Devices.TheEyeTribe" IsDatatype="true">
+    <PATCH Name="CalibrationPointState" Category="Devices.TheEyeTribe" IsDatatype="true">
       <BODY Name="Utils2Body">
         <LAYERS>
           <LAYER Name="Create" />
@@ -2393,8 +2378,8 @@
           <LAYER Name="IsCalibrating" />
           <LAYER Name="SetCalibrating" />
           <LAYER Name="SetStarting" />
-          <LAYER Name="GetState" />
-          <LAYER Name="SetState" />
+          <LAYER Name="GetCurrentStadium" />
+          <LAYER Name="SetCurrentStadium" />
           <LAYER Name="GetPosition" />
           <LAYER Name="GetEndTime" />
         </LAYERS>
@@ -2417,7 +2402,7 @@
           <INLET Name="StartTime" Layer="GetTimingInfo" PadType="Field">
             <POSITION x="556.291565" y="372.6849" />
           </INLET>
-          <INLET Name="State" Layer="GetState" PadType="Field">
+          <INLET Name="CurrentStadium" Layer="GetCurrentStadium" PadType="Field">
             <POSITION x="589.318" y="260.22876" />
           </INLET>
           <INLET Name="EndTime#1" Layer="GetEndTime" PadType="Field">
@@ -2429,28 +2414,28 @@
           <INLET Name="StartTime#1" Layer="IsDone" PadType="Field">
             <POSITION x="967.6983" y="274.6752" />
           </INLET>
-          <INLET Name="StartTime#3" Layer="SetState" PadType="Field">
+          <INLET Name="StartTime#3" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1009.10144" y="19.0477066" />
           </INLET>
-          <INLET Name="Idle Timespan#1" Layer="SetState" PadType="Field">
+          <INLET Name="Idle Timespan#1" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1079.2915" y="19.9261169" />
           </INLET>
           <INLET Name="Position#1" Layer="GetPosition" PadType="Field">
             <POSITION x="1147.63208" y="402.959167" />
           </INLET>
-          <INLET Name="State#1" Layer="SetState" Type="CalibrationPointState">
+          <INLET Name="State#1" Layer="SetCurrentStadium" Type="CalibrationPointStadium">
             <POSITION x="1161.9292" y="-129.883179" />
           </INLET>
-          <INLET Name="EndTime" Layer="SetState" PadType="Field">
+          <INLET Name="EndTime" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1230.25049" y="28.12513" />
           </INLET>
-          <INLET Name="Calibration Timespan#1" Layer="SetState" PadType="Field">
+          <INLET Name="Calibration Timespan#1" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1304.15479" y="47.7141876" />
           </INLET>
         </INLETS>
         <OUTLETS>
-          <OUTLET Name="State" Layer="Create" PadType="Field">
-            <POSITION x="149.604919" y="252.5675" />
+          <OUTLET Name="CurrentStadium" Layer="Create" PadType="Field">
+            <POSITION x="124.050568" y="252.5675" />
           </OUTLET>
           <OUTLET Name="Position" Layer="Create" PadType="Field">
             <POSITION x="151.745316" y="136.509964" />
@@ -2476,7 +2461,7 @@
           <OUTLET Name="StartTime#1" Layer="GetTimingInfo">
             <POSITION x="557.0384" y="560.8427" />
           </OUTLET>
-          <OUTLET Name="State#4" Layer="GetState">
+          <OUTLET Name="State#4" Layer="GetCurrentStadium">
             <POSITION x="589.961548" y="283.049927" />
           </OUTLET>
           <OUTLET Name="ElapsedTime" Layer="GetTimingInfo">
@@ -2491,37 +2476,38 @@
           <OUTLET Name="IsDone" Layer="IsDone">
             <POSITION x="926.913147" y="476.969635" />
           </OUTLET>
-          <OUTLET Name="StartTime#3" Layer="SetState" PadType="Field">
-            <POSITION x="1012.06787" y="196.528351" />
+          <OUTLET Name="StartTime#3" Layer="SetCurrentStadium" PadType="Field">
+            <POSITION x="990.0679" y="198.528351" />
           </OUTLET>
           <OUTLET Name="Position#1" Layer="GetPosition">
             <POSITION x="1151.54993" y="478.377075" />
           </OUTLET>
-          <OUTLET Name="State#5" Layer="SetState" PadType="Field">
+          <OUTLET Name="CurrentStadium#1" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1214.55884" y="-96.4902954" />
           </OUTLET>
-          <OUTLET Name="EndTime#1" Layer="SetState" PadType="Field">
+          <OUTLET Name="EndTime#1" Layer="SetCurrentStadium" PadType="Field">
             <POSITION x="1229.36011" y="190.583908" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
-          <CONST Name="State" Layer="Create">
-            <POSITION x="149.068115" y="220.60553" />
+          <CONST Name="Value#2" Layer="SetCurrentStadium">
+            <POSITION x="976.8385" y="-57.5665131" />
             <SIZE width="54.26214" height="15.50846" />
-            <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":0}]]></VALUE>
+            <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":1}]]></VALUE>
           </CONST>
-          <CONST Name="Value" Layer="SetState">
-            <POSITION x="977.360352" y="-53.05072" />
-            <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":1}]]></VALUE>
+          <CONST Name="Value" Layer="SetCurrentStadium">
+            <POSITION x="1188.57263" y="-26.5204315" />
+            <SIZE width="54.26214" height="15.50846" />
+            <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":2}]]></VALUE>
           </CONST>
-          <CONST Name="Value#1" Layer="SetState">
-            <POSITION x="1189.85645" y="-25.3338089" />
-            <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":2}]]></VALUE>
+          <CONST Name="CurrentStadium" Layer="Create">
+            <POSITION x="31.9681854" y="208.625458" />
+            <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":0}]]></VALUE>
           </CONST>
         </CONSTS>
         <REGIONS>
-          <REGION Name="IfElse" Layer="SetState" Kind="IfElse">
-            <POSITION x="1003.78674" y="66.43817" />
+          <REGION Name="IfElse" Layer="SetCurrentStadium" Kind="IfElse">
+            <POSITION x="982.786743" y="63.43817" />
             <SIZE x="134.6701" y="159.70932" />
             <INPUTS>
               <INPUT Name="Condition" />
@@ -2536,19 +2522,19 @@
               </LAYERS>
               <INLETS>
                 <INLET Name="StartTime" Layer="True">
-                  <POSITION x="1011.27917" y="67.8163452" />
+                  <POSITION x="990.2792" y="64.8163452" />
                 </INLET>
               </INLETS>
               <OUTLETS>
                 <OUTLET Name="StartTime" Layer="True">
-                  <POSITION x="1011.27917" y="175.205978" />
+                  <POSITION x="990.2792" y="172.205978" />
                 </OUTLET>
               </OUTLETS>
               <CONSTS />
               <REGIONS />
               <NODES>
                 <OPERATION Name="+" Layer="True">
-                  <POSITION x="1009.42725" y="149.724823" />
+                  <POSITION x="988.427246" y="146.724823" />
                   <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
                     <OPERATIONNODE Name="+" />
                     <CATEGORY Name="Adaptive" IsDirectParent="true" />
@@ -2563,7 +2549,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="Now" Layer="True">
-                  <POSITION x="1008.78674" y="113.381134" />
+                  <POSITION x="987.786743" y="110.381134" />
                   <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
                     <OPERATIONNODE Name="Now" />
                     <CATEGORY Name="Time" IsDirectParent="true" />
@@ -2574,7 +2560,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="FromTimeSpan" Layer="True">
-                  <POSITION x="1048.31018" y="114.580109" />
+                  <POSITION x="1027.31018" y="111.580109" />
                   <NODEREF LastCat="Animation.Time" LastFile="VL.Core.dll">
                     <OPERATIONNODE Name="FromTimeSpan" />
                   </NODEREF>
@@ -2593,7 +2579,7 @@
               </LINKS>
             </BODY>
           </REGION>
-          <REGION Name="IfElse#1" Layer="SetState" Kind="IfElse">
+          <REGION Name="IfElse#1" Layer="SetCurrentStadium" Kind="IfElse">
             <POSITION x="1222.97192" y="59.10251" />
             <SIZE x="134.6701" y="159.70932" />
             <INPUTS>
@@ -2776,7 +2762,7 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="=#2" Layer="SetState">
+          <OPERATION Name="=#2" Layer="SetCurrentStadium">
             <POSITION x="1188.803" y="9.636543" />
             <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
               <OPERATIONNODE Name="=" />
@@ -2790,7 +2776,7 @@
               <OUPUT Name="Result" />
             </OUTPUTS>
           </OPERATION>
-          <OPERATION Name="=#3" Layer="SetState">
+          <OPERATION Name="=#3" Layer="SetCurrentStadium">
             <POSITION x="978.1652" y="-18.15577" />
             <NODEREF LastCat="Adaptive" LastFile="VL.Lib.Basics.dll">
               <OPERATIONNODE Name="=" />
@@ -2824,7 +2810,7 @@
           <Link source="Inlets/Duration#2" sink="Nodes/&lt;/Inputs/Input" />
           <Link source="Nodes/&lt;/Outputs/Result" sink="Outlets/IsDone" />
           <Link source="Inlets/Calibration Timespan" sink="Outlets/Calibration Timespan" />
-          <Link source="Inlets/State" sink="Outlets/State#4" />
+          <Link source="Inlets/CurrentStadium" sink="Outlets/State#4" />
           <Link source="Inlets/StartTime#2" sink="Outlets/StartTime#2" />
           <Link source="Inlets/Idle Timespan#1" sink="Regions/IfElse/IfElseBody/Nodes/FromTimeSpan/Inputs/Input" />
           <Link source="Inlets/StartTime#3" sink="Regions/IfElse/Inputs/StartTime Default" />
@@ -2836,12 +2822,12 @@
           <Link source="Regions/IfElse#1/Outputs/EndTime" sink="Outlets/EndTime#1" />
           <Link source="Inlets/Calibration Timespan#1" sink="Regions/IfElse#1/IfElseBody/Nodes/FromTimeSpan/Inputs/Input" />
           <Link source="Inlets/EndTime#1" sink="Outlets/EndTime#2" />
-          <Link source="Inlets/State#1" sink="Outlets/State#5" />
-          <Link source="Constants/State" sink="Outlets/State" />
+          <Link source="Inlets/State#1" sink="Outlets/CurrentStadium#1" />
           <Link source="Inlets/State#1" sink="Nodes/=#2/Inputs/Input 2" />
           <Link source="Inlets/State#1" sink="Nodes/=#3/Inputs/Input 2" />
-          <Link source="Constants/Value" sink="Nodes/=#3/Inputs/Input" />
-          <Link source="Constants/Value#1" sink="Nodes/=#2/Inputs/Input" />
+          <Link source="Constants/Value#2" sink="Nodes/=#3/Inputs/Input" />
+          <Link source="Constants/Value" sink="Nodes/=#2/Inputs/Input" />
+          <Link source="Constants/CurrentStadium" sink="Outlets/CurrentStadium" />
         </LINKS>
       </BODY>
     </PATCH>
@@ -2902,7 +2888,7 @@
           <INLET Name="Enabled#1" Layer="CalibrationPointDone (CalibrationData)">
             <POSITION x="1644.91833" y="271.119019" />
           </INLET>
-          <INLET Name="CalibrationPoint#1" Layer="CheckForCalibrationPointEnd" Type="CalibrationPointData">
+          <INLET Name="CalibrationPoint#1" Layer="CheckForCalibrationPointEnd" Type="CalibrationPointState">
             <POSITION x="1790.88538" y="1349.5376" />
           </INLET>
           <INLET Name="CalibrationData#2" Layer="SetComputingResult">
@@ -2947,7 +2933,7 @@
             <POSITION x="437.298035" y="591.827637" />
           </OUTLET>
           <OUTLET Name="CalibrationPoint" Layer="CheckForCalibrationPointStart">
-            <POSITION x="923.9202" y="1760.75159" />
+            <POSITION x="922.9795" y="1745.7" />
           </OUTLET>
           <OUTLET Name="Output" Layer="CalibrationPointDone (CalibrationData)">
             <POSITION x="1234.379" y="990.084045" />
@@ -2964,14 +2950,14 @@
           <OUTLET Name="CalibrationNotification#2" Layer="SetComputingResult" Type="CalibrationNotification">
             <POSITION x="2046.67578" y="508.293579" />
           </OUTLET>
+          <OUTLET Name="DidEnd" Layer="CheckForCalibrationPointEnd">
+            <POSITION x="2067.117" y="1594.84448" />
+          </OUTLET>
           <OUTLET Name="CalibrationData#2" Layer="CheckCalibrationResult">
             <POSITION x="2326.15356" y="1034.621" />
           </OUTLET>
           <OUTLET Name="CalibrationNotification#3" Layer="CheckCalibrationResult">
             <POSITION x="2788.78271" y="1034.621" />
-          </OUTLET>
-          <OUTLET Name="DidEnd" Layer="CheckForCalibrationPointEnd">
-            <POSITION x="2067.117" y="1594.84448" />
           </OUTLET>
         </OUTLETS>
         <CONSTS>
@@ -3040,9 +3026,9 @@
                     <NODES>
                       <OPERATION Name="Create#1" Layer="Update">
                         <POSITION x="329.285065" y="385.305023" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                          <CATEGORY Name="CalibrationPointData" />
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="Create" />
+                          <CATEGORY Name="CalibrationPointState" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="Position" />
@@ -3150,11 +3136,6 @@
                       </OUTLET>
                     </OUTLETS>
                     <CONSTS>
-                      <CONST Name="State" Layer="True">
-                        <POSITION x="1309.74048" y="487.5746" />
-                        <SIZE width="80.11564" height="15.50846" />
-                        <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":2}]]></VALUE>
-                      </CONST>
                       <CONST Name="comment" Layer="True" Type="String">
                         <POSITION x="1254.76355" y="523.4984" />
                         <SIZE width="138.335022" height="10.7563477" />
@@ -3175,14 +3156,18 @@
                         <SIZE width="193.551147" height="11.6486816" />
                         <VALUE><![CDATA["v We're waiting for CalibrationProcessing"]]></VALUE>
                       </CONST>
+                      <CONST Name="Stadium" Layer="True">
+                        <POSITION x="1362.46826" y="485.100616" />
+                        <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":2}]]></VALUE>
+                      </CONST>
                     </CONSTS>
                     <REGIONS />
                     <NODES>
-                      <OPERATION Name="SetState" Layer="True">
+                      <OPERATION Name="SetCurrentStadium" Layer="True">
                         <POSITION x="1236.4707" y="485.476654" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                          <CATEGORY Name="CalibrationData" IsDirectParent="true" />
-                          <OPERATIONNODE Name="SetState" />
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                          <OPERATIONNODE Name="SetCurrentStadium" />
+                          <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="Input" />
@@ -3195,7 +3180,7 @@
                       </OPERATION>
                       <OPERATION Name="SetCalibrationPoints" Layer="True">
                         <POSITION x="1237.9137" y="570.7501" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetCalibrationPoints" />
                         </NODEREF>
                         <INPUTS>
@@ -3209,7 +3194,7 @@
                       </OPERATION>
                       <OPERATION Name="SetWaitingForServer" Layer="True">
                         <POSITION x="1237.09326" y="660.796143" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetWaitingForServer" />
                         </NODEREF>
                         <INPUTS>
@@ -3223,12 +3208,12 @@
                       </OPERATION>
                     </NODES>
                     <LINKS>
-                      <Link source="Inlets/CalibrationData" sink="Nodes/SetState/Inputs/Input" />
-                      <Link source="Constants/State" sink="Nodes/SetState/Inputs/State" />
-                      <Link source="Nodes/SetState/Outputs/Output" sink="Nodes/SetCalibrationPoints/Inputs/Input" />
+                      <Link source="Inlets/CalibrationData" sink="Nodes/SetCurrentStadium/Inputs/Input" />
+                      <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Nodes/SetCalibrationPoints/Inputs/Input" />
                       <Link source="Nodes/SetCalibrationPoints/Outputs/Output" sink="Nodes/SetWaitingForServer/Inputs/Input" />
                       <Link source="Nodes/SetWaitingForServer/Outputs/Output" sink="Outlets/CalibrationData" />
                       <Link source="Constants/WaitingForServer" sink="Nodes/SetWaitingForServer/Inputs/WaitingForServer" />
+                      <Link source="Constants/Stadium" sink="Nodes/SetCurrentStadium/Inputs/State" />
                     </LINKS>
                   </BODY>
                 </REGION>
@@ -3257,17 +3242,17 @@
                       </OUTLET>
                     </OUTLETS>
                     <CONSTS>
-                      <CONST Name="State#1" Layer="True">
-                        <POSITION x="1274.64893" y="836.1987" />
-                        <SIZE width="54.26214" height="15.50846" />
-                        <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":1}]]></VALUE>
+                      <CONST Name="State" Layer="True">
+                        <POSITION x="1287.466" y="833.191162" />
+                        <SIZE width="74.01032" height="18.4326134" />
+                        <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":1}]]></VALUE>
                       </CONST>
                     </CONSTS>
                     <REGIONS />
                     <NODES>
                       <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
                         <POSITION x="1263.88208" y="798.8906" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                         </NODEREF>
                         <INPUTS>
@@ -3278,11 +3263,11 @@
                           <OUPUT Name="Success" />
                         </OUTPUTS>
                       </OPERATION>
-                      <OPERATION Name="SetState" Layer="True">
+                      <OPERATION Name="SetCurrentStadium" Layer="True">
                         <POSITION x="1264.58044" y="867.631" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                          <OPERATIONNODE Name="SetState" />
-                          <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                          <OPERATIONNODE Name="SetCurrentStadium" />
+                          <CATEGORY Name="CalibrationPointState" IsDirectParent="true" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="Input" />
@@ -3295,7 +3280,7 @@
                       </OPERATION>
                       <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
                         <POSITION x="1238.76038" y="906.7989" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                         </NODEREF>
                         <INPUTS>
@@ -3309,12 +3294,12 @@
                       </OPERATION>
                     </NODES>
                     <LINKS>
-                      <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/SetState/Inputs/Input" />
-                      <Link source="Nodes/SetState/Outputs/Output" sink="Nodes/SetCurrentCalibrationPoint/Inputs/CurrentPoint" />
+                      <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/SetCurrentStadium/Inputs/Input" />
+                      <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Nodes/SetCurrentCalibrationPoint/Inputs/CurrentPoint" />
                       <Link source="Nodes/SetCurrentCalibrationPoint/Outputs/Output" sink="Outlets/CalibrationData" />
                       <Link source="Inlets/CalibrationData" sink="Nodes/GetCurrentCalibrationPoint/Inputs/Input" />
-                      <Link source="Constants/State#1" sink="Nodes/SetState/Inputs/State" />
                       <Link source="Inlets/CalibrationData" sink="Nodes/SetCurrentCalibrationPoint/Inputs/Input" />
+                      <Link source="Constants/State" sink="Nodes/SetCurrentStadium/Inputs/State" />
                     </LINKS>
                   </BODY>
                 </REGION>
@@ -3322,7 +3307,7 @@
               <NODES>
                 <OPERATION Name="RemoveCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1237.0824" y="348.9818" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="RemoveCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -3424,11 +3409,6 @@
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="State" Layer="True">
-                  <POSITION x="1874.39465" y="346.475616" />
-                  <SIZE width="80.11564" height="17.402523" />
-                  <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":3}]]></VALUE>
-                </CONST>
                 <CONST Name="comment#2" Layer="True" Type="String">
                   <POSITION x="1814.43616" y="395.05423" />
                   <SIZE width="172.259491" height="10.7563477" />
@@ -3438,14 +3418,19 @@
                   <POSITION x="1827.1676" y="416.8491" />
                   <VALUE><![CDATA[true]]></VALUE>
                 </CONST>
+                <CONST Name="State#1" Layer="True">
+                  <POSITION x="1924.97327" y="342.4158" />
+                  <SIZE width="80.11564" height="15.50846" />
+                  <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":3}]]></VALUE>
+                </CONST>
               </CONSTS>
               <REGIONS />
               <NODES>
-                <OPERATION Name="SetState#2" Layer="True">
-                  <POSITION x="1802.0719" y="345.699829" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <CATEGORY Name="CalibrationData" IsDirectParent="true" />
-                    <OPERATIONNODE Name="SetState" />
+                <OPERATION Name="SetCurrentStadium" Layer="True">
+                  <POSITION x="1803.77417" y="345.699829" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -3458,7 +3443,7 @@
                 </OPERATION>
                 <OPERATION Name="SetWaitingForServer" Layer="True">
                   <POSITION x="1801.92383" y="445.6958" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetWaitingForServer" />
                   </NODEREF>
                   <INPUTS>
@@ -3472,12 +3457,12 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Constants/State" sink="Nodes/SetState#2/Inputs/State" />
                 <Link source="Constants/WaitingForServer" sink="Nodes/SetWaitingForServer/Inputs/WaitingForServer" />
-                <Link source="Nodes/SetState#2/Outputs/Output" sink="Nodes/SetWaitingForServer/Inputs/Input" />
+                <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Nodes/SetWaitingForServer/Inputs/Input" />
                 <Link source="Nodes/SetWaitingForServer/Outputs/Output" sink="Outlets/CalibrationData" />
-                <Link source="Inlets/CalibrationData" sink="Nodes/SetState#2/Inputs/Input" />
+                <Link source="Inlets/CalibrationData" sink="Nodes/SetCurrentStadium/Inputs/Input" />
                 <Link source="Inlets/CalibrationNotification" sink="Outlets/CalibrationNotification" />
+                <Link source="Constants/State#1" sink="Nodes/SetCurrentStadium/Inputs/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -3514,15 +3499,15 @@
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="State#1" Layer="True">
-                  <POSITION x="2337.36768" y="614.7206" />
-                  <SIZE width="80.11564" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":4}]]></VALUE>
-                </CONST>
                 <CONST Name="comment" Layer="True" Type="String">
                   <POSITION x="2573.71021" y="476.434479" />
                   <SIZE width="153.7022" height="10.7563477" />
                   <VALUE><![CDATA["< CalibrationPoints to Resample"]]></VALUE>
+                </CONST>
+                <CONST Name="State" Layer="True">
+                  <POSITION x="2343.24414" y="641.542847" />
+                  <SIZE width="80.11564" height="15.50846" />
+                  <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":4}]]></VALUE>
                 </CONST>
               </CONSTS>
               <REGIONS>
@@ -3568,7 +3553,7 @@
                       </OPERATION>
                       <OPERATION Name="IncreaseResampleCount" Layer="True">
                         <POSITION x="2484.79663" y="790.722534" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="IncreaseResampleCount" />
                         </NODEREF>
                         <INPUTS>
@@ -3635,11 +3620,11 @@
                 </REGION>
               </REGIONS>
               <NODES>
-                <OPERATION Name="SetState" Layer="True">
+                <OPERATION Name="SetCurrentStadium" Layer="True">
                   <POSITION x="2327.02124" y="682.557861" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <CATEGORY Name="CalibrationData" IsDirectParent="true" />
-                    <OPERATIONNODE Name="SetState" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -3705,7 +3690,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationResult" Layer="True">
                   <POSITION x="2326.38379" y="384.195221" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationResult" />
                   </NODEREF>
                   <INPUTS>
@@ -3734,14 +3719,13 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Constants/State#1" sink="Nodes/SetState/Inputs/State" />
-                <Link source="Nodes/SetState/Outputs/Output" sink="Regions/IfElse#2/Inputs/CalibrationData Default" />
+                <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Regions/IfElse#2/Inputs/CalibrationData Default" />
                 <Link source="Nodes/NOT#1/Outputs/Output" sink="Regions/IfElse#2/Inputs/Condition" />
                 <Link source="Nodes/IsEmpty/Outputs/Is Empty" sink="Nodes/NOT#1/Inputs/Input" />
-                <Link source="Nodes/IsEmpty/Outputs/Is Empty" sink="Nodes/SetState/Inputs/Enabled" />
+                <Link source="Nodes/IsEmpty/Outputs/Is Empty" sink="Nodes/SetCurrentStadium/Inputs/Enabled" />
                 <Link source="Nodes/CheckCalibrationPoints/Outputs/ToResample" sink="Nodes/IsEmpty/Inputs/Input" />
                 <Link source="Nodes/Calibpoints/Outputs/Calibpoints" sink="Nodes/CheckCalibrationPoints/Inputs/CalibrationPoints" />
-                <Link source="Nodes/SetCalibrationResult/Outputs/Output" sink="Nodes/SetState/Inputs/Input" />
+                <Link source="Nodes/SetCalibrationResult/Outputs/Output" sink="Nodes/SetCurrentStadium/Inputs/Input" />
                 <Link source="Nodes/SetCalibrationResult/Outputs/CalibrationResult" sink="Nodes/Calibpoints/Inputs/Input" />
                 <Link source="Nodes/GetAttributes#1/Outputs/CalibResult" sink="Nodes/SetCalibrationResult/Inputs/CalibrationResult" />
                 <Link source="Regions/IfElse#2/Outputs/CalibrationData" sink="Outlets/CalibrationData" />
@@ -3750,6 +3734,7 @@
                 <Link source="Inlets/CalibrationNotification" sink="Nodes/GetAttributes#1/Inputs/Input" />
                 <Link source="Nodes/CheckCalibrationPoints/Outputs/ToResample" sink="Regions/IfElse#2/IfElseBody/Nodes/Count/Inputs/Input" />
                 <Link source="Nodes/CheckCalibrationPoints/Outputs/ToResample" sink="Regions/IfElse#2/IfElseBody/Nodes/AddCalibrationPointsAndStart/Inputs/ToAdd" />
+                <Link source="Constants/State" sink="Nodes/SetCurrentStadium/Inputs/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -3778,24 +3763,24 @@
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="State" Layer="True">
-                  <POSITION x="294.835938" y="1589.77039" />
-                  <SIZE width="80.11564" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":5}]]></VALUE>
-                </CONST>
                 <CONST Name="ErrorMessages" Layer="True">
                   <POSITION x="294.882324" y="1658.92908" />
                   <SIZE width="73.53491" height="10.7563477" />
                   <VALUE><![CDATA["Server Timeout"]]></VALUE>
                 </CONST>
+                <CONST Name="State#1" Layer="True">
+                  <POSITION x="307.256" y="1587.48718" />
+                  <SIZE width="80.11564" height="16.8166466" />
+                  <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":5}]]></VALUE>
+                </CONST>
               </CONSTS>
               <REGIONS />
               <NODES>
-                <OPERATION Name="SetState" Layer="True">
+                <OPERATION Name="SetCurrentStadium" Layer="True">
                   <POSITION x="280.417969" y="1619.18445" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="SetState" />
-                    <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -3808,7 +3793,7 @@
                 </OPERATION>
                 <OPERATION Name="AddErrorMessage" Layer="True">
                   <POSITION x="281.438477" y="1685.44812" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="AddErrorMessage" />
                   </NODEREF>
                   <INPUTS>
@@ -3845,12 +3830,12 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Inlets/CalibrationData" sink="Nodes/SetState/Inputs/Input" />
-                <Link source="Constants/State" sink="Nodes/SetState/Inputs/State" />
-                <Link source="Nodes/SetState/Outputs/Output" sink="Nodes/AddErrorMessage/Inputs/Input" />
+                <Link source="Inlets/CalibrationData" sink="Nodes/SetCurrentStadium/Inputs/Input" />
+                <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Nodes/AddErrorMessage/Inputs/Input" />
                 <Link source="Nodes/AddErrorMessage/Outputs/Output" sink="Outlets/CalibrationData" />
                 <Link source="Constants/ErrorMessages" sink="Nodes/AddErrorMessage/Inputs/ErrorMessages" />
                 <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/CalibrationAbort/Inputs/Input" />
+                <Link source="Constants/State#1" sink="Nodes/SetCurrentStadium/Inputs/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -3875,7 +3860,7 @@
               </INLETS>
               <OUTLETS>
                 <OUTLET Name="CalibrationPoint" Layer="True">
-                  <POSITION x="926.7137" y="1716.104" />
+                  <POSITION x="925.6748" y="1717.04468" />
                 </OUTLET>
               </OUTLETS>
               <CONSTS />
@@ -3905,19 +3890,18 @@
                       </OUTLET>
                     </OUTLETS>
                     <CONSTS>
-                      <CONST Name="State#1" Layer="True">
-                        <POSITION x="945.94574" y="1587.91968" />
-                        <SIZE width="54.26214" height="15.50846" />
-                        <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":2}]]></VALUE>
+                      <CONST Name="State" Layer="True">
+                        <POSITION x="946.7529" y="1587.74841" />
+                        <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":2}]]></VALUE>
                       </CONST>
                     </CONSTS>
                     <REGIONS />
                     <NODES>
-                      <OPERATION Name="SetState" Layer="True">
+                      <OPERATION Name="SetCurrentStadium" Layer="True">
                         <POSITION x="926.2441" y="1623.1189" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                          <OPERATIONNODE Name="SetState" />
-                          <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                          <OPERATIONNODE Name="SetCurrentStadium" />
+                          <CATEGORY Name="CalibrationPointState" IsDirectParent="true" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="Input" />
@@ -3943,7 +3927,7 @@
                       </OPERATION>
                       <OPERATION Name="GetPosition" Layer="True">
                         <POSITION x="1192.24109" y="1605.20776" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="GetPosition" />
                         </NODEREF>
                         <INPUTS>
@@ -3965,12 +3949,12 @@
                       </OPERATION>
                     </NODES>
                     <LINKS>
-                      <Link source="Nodes/SetState/Outputs/Output" sink="Outlets/Output" />
-                      <Link source="Inlets/Output" sink="Nodes/SetState/Inputs/Input" />
-                      <Link source="Constants/State#1" sink="Nodes/SetState/Inputs/State" />
+                      <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Outlets/Output" />
+                      <Link source="Inlets/Output" sink="Nodes/SetCurrentStadium/Inputs/Input" />
                       <Link source="Nodes/GetPosition/Outputs/Position" sink="Nodes/CalibrationPointStart#1/Inputs/Vector2" />
                       <Link source="Inlets/Output" sink="Nodes/GetPosition/Inputs/Input" />
                       <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/CalibrationPointStart#1/Inputs/GazeManager" />
+                      <Link source="Constants/State" sink="Nodes/SetCurrentStadium/Inputs/State" />
                     </LINKS>
                   </BODY>
                 </REGION>
@@ -3978,7 +3962,7 @@
               <NODES>
                 <OPERATION Name="GetStartTime" Layer="True">
                   <POSITION x="1001.55829" y="1488.49023" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetStartTime" />
                   </NODEREF>
                   <INPUTS>
@@ -4049,7 +4033,7 @@
               <NODES>
                 <OPERATION Name="GetEndTime" Layer="True">
                   <POSITION x="2077.01782" y="1470.52686" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetEndTime" />
                   </NODEREF>
                   <INPUTS>
@@ -4167,9 +4151,9 @@
           </OPERATION>
           <OPERATION Name="GetWaitingForServer" Layer="CheckForServerTimeout">
             <POSITION x="149.2015" y="1365.805" />
-            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-              <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+            <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <OPERATIONNODE Name="GetWaitingForServer" />
+              <CATEGORY Name="CalibrationState" IsDirectParent="true" />
             </NODEREF>
             <INPUTS>
               <INPUT Name="Input" />
@@ -4273,7 +4257,7 @@
           <INLET Name="Enabled" Layer="OverMaxResampleCount">
             <POSITION x="998.3992" y="162.844208" />
           </INLET>
-          <INLET Name="CalibrationData#1" Layer="AddCalibrationPointsAndStart" Type="CalibrationData">
+          <INLET Name="CalibrationData#1" Layer="AddCalibrationPointsAndStart" Type="CalibrationState">
             <POSITION x="1365.34717" y="192.342438" />
           </INLET>
           <INLET Name="ToAdd" Layer="AddCalibrationPointsAndStart">
@@ -4290,17 +4274,11 @@
           <OUTLET Name="CalibrationData" Layer="OverMaxResampleCount">
             <POSITION x="825.908936" y="546.2062" />
           </OUTLET>
-          <OUTLET Name="CalibrationData#1" Layer="AddCalibrationPointsAndStart" Type="CalibrationData">
+          <OUTLET Name="CalibrationData#1" Layer="AddCalibrationPointsAndStart" Type="CalibrationState">
             <POSITION x="1367.92139" y="654.435852" />
           </OUTLET>
         </OUTLETS>
-        <CONSTS>
-          <CONST Name="State" Layer="AddCalibrationPointsAndStart">
-            <POSITION x="1403.4917" y="539.384033" />
-            <SIZE width="80.11564" height="15.50846" />
-            <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":1}]]></VALUE>
-          </CONST>
-        </CONSTS>
+        <CONSTS />
         <REGIONS>
           <REGION Name="ForEachLoop" Layer="CheckCalibrationPoints" Kind="ForEachLoop">
             <POSITION x="131.904053" y="220.095764" />
@@ -4317,7 +4295,7 @@
                 <LAYER Name="Update" />
               </LAYERS>
               <INLETS>
-                <INLET Name="ToResample" Layer="Update" PadType="Accumulator" Type="Spread&lt;CalibrationPointData&gt;">
+                <INLET Name="ToResample" Layer="Update" PadType="Accumulator" Type="Spread&lt;CalibrationPointState&gt;">
                   <POSITION x="208.8092" y="293.499756" />
                 </INLET>
                 <INLET Name="CalibrationPoint" Layer="Update">
@@ -4397,9 +4375,9 @@
                       </OPERATION>
                       <OPERATION Name="Create" Layer="True">
                         <POSITION x="294.338379" y="451.1305" />
-                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                          <CATEGORY Name="CalibrationPointData" />
+                        <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                           <OPERATIONNODE Name="Create" />
+                          <CATEGORY Name="CalibrationPointState" />
                         </NODEREF>
                         <INPUTS>
                           <INPUT Name="Position" />
@@ -4514,11 +4492,6 @@
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="State" Layer="True">
-                  <POSITION x="859.7814" y="242.300476" />
-                  <SIZE width="80.11564" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationState [TETCSharpClient]","value":5}]]></VALUE>
-                </CONST>
                 <CONST Name="ErrorMessages" Layer="True">
                   <POSITION x="843.8883" y="301.851135" />
                   <SIZE width="232.680054" height="12.8332214" />
@@ -4538,14 +4511,19 @@
                   <POSITION x="920.9192" y="449.81665" />
                   <VALUE><![CDATA[true]]></VALUE>
                 </CONST>
+                <CONST Name="State#1" Layer="True">
+                  <POSITION x="877.0594" y="237.988434" />
+                  <SIZE width="80.11564" height="20.25607" />
+                  <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":5}]]></VALUE>
+                </CONST>
               </CONSTS>
               <REGIONS />
               <NODES>
-                <OPERATION Name="SetState" Layer="True">
+                <OPERATION Name="SetCurrentStadium" Layer="True">
                   <POSITION x="829.893433" y="269.198059" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="SetState" />
-                    <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -4558,7 +4536,7 @@
                 </OPERATION>
                 <OPERATION Name="AddErrorMessage" Layer="True">
                   <POSITION x="828.504" y="328.595764" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="AddErrorMessage" />
                   </NODEREF>
                   <INPUTS>
@@ -4572,7 +4550,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationPoints" Layer="True">
                   <POSITION x="827.796143" y="413.429047" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4609,14 +4587,14 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Constants/State" sink="Nodes/SetState/Inputs/State" />
                 <Link source="Constants/ErrorMessages" sink="Nodes/AddErrorMessage/Inputs/ErrorMessages" />
-                <Link source="Nodes/SetState/Outputs/Output" sink="Nodes/AddErrorMessage/Inputs/Input" />
+                <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Nodes/AddErrorMessage/Inputs/Input" />
                 <Link source="Nodes/AddErrorMessage/Outputs/Output" sink="Nodes/SetCalibrationPoints/Inputs/Input" />
                 <Link source="Nodes/get_Instance/Outputs/Result" sink="Nodes/CalibrationAbort/Inputs/Input" />
                 <Link source="Nodes/SetCalibrationPoints/Outputs/Output" sink="Outlets/Output" />
-                <Link source="Inlets/Output" sink="Nodes/SetState/Inputs/Input" />
+                <Link source="Inlets/Output" sink="Nodes/SetCurrentStadium/Inputs/Input" />
                 <Link source="Constants/Enabled" sink="Nodes/CalibrationAbort/Inputs/Enabled" />
+                <Link source="Constants/State#1" sink="Nodes/SetCurrentStadium/Inputs/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -4645,17 +4623,22 @@
                 </OUTLET>
               </OUTLETS>
               <CONSTS>
-                <CONST Name="State#1" Layer="True">
-                  <POSITION x="1518.87793" y="454.804871" />
+                <CONST Name="State" Layer="True">
+                  <POSITION x="1553.86865" y="451.822662" />
                   <SIZE width="54.26214" height="15.50846" />
-                  <VALUE><![CDATA[{"type":"CalibrationPointState [TETCSharpClient]","value":1}]]></VALUE>
+                  <VALUE><![CDATA[{"type":"CalibrationPointStadium [TETCSharpClient]","value":1}]]></VALUE>
+                </CONST>
+                <CONST Name="State#1" Layer="True">
+                  <POSITION x="1496.36951" y="584.593567" />
+                  <SIZE width="80.11564" height="15.50846" />
+                  <VALUE><![CDATA[{"type":"CalibrationStadium [TETCSharpClient]","value":1}]]></VALUE>
                 </CONST>
               </CONSTS>
               <REGIONS />
               <NODES>
                 <OPERATION Name="GetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1428.08643" y="416.79895" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -4666,11 +4649,11 @@
                     <OUPUT Name="Success" />
                   </OUTPUTS>
                 </OPERATION>
-                <OPERATION Name="SetState" Layer="True">
-                  <POSITION x="1427.90869" y="457.3499" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="SetState" />
-                    <CATEGORY Name="CalibrationPointData" IsDirectParent="true" />
+                <OPERATION Name="SetCurrentStadium#1" Layer="True">
+                  <POSITION x="1427.90869" y="456.304474" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationPointState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationPointState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -4683,7 +4666,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCurrentCalibrationPoint" Layer="True">
                   <POSITION x="1374.13623" y="503.7354" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCurrentCalibrationPoint" />
                   </NODEREF>
                   <INPUTS>
@@ -4697,7 +4680,7 @@
                 </OPERATION>
                 <OPERATION Name="SetCalibrationPoints" Layer="True">
                   <POSITION x="1372.02075" y="365.908325" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="SetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4710,7 +4693,7 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="Concat" Layer="True">
-                  <POSITION x="1488.06" y="314.345154" />
+                  <POSITION x="1393.02136" y="325.1847" />
                   <NODEREF LastCat="Collections.Spread" LastFile="VL.Lib.Basics.dll">
                     <CATEGORY Name="Spread" />
                     <OPERATIONNODE Name="Concat" />
@@ -4726,8 +4709,8 @@
                   </OUTPUTS>
                 </OPERATION>
                 <OPERATION Name="GetCalibrationPoints" Layer="True">
-                  <POSITION x="1387.71338" y="279.780182" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                  <POSITION x="1391.1427" y="279.637634" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
                     <OPERATIONNODE Name="GetCalibrationPoints" />
                   </NODEREF>
                   <INPUTS>
@@ -4737,11 +4720,11 @@
                     <OUPUT Name="CalibrationPoints" />
                   </OUTPUTS>
                 </OPERATION>
-                <OPERATION Name="SetState#1" Layer="True">
-                  <POSITION x="1370.66846" y="587.8408" />
-                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationData" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
-                    <OPERATIONNODE Name="SetState" />
-                    <CATEGORY Name="CalibrationData" IsDirectParent="true" />
+                <OPERATION Name="SetCurrentStadium" Layer="True">
+                  <POSITION x="1374.85022" y="587.3181" />
+                  <NODEREF LastCat="Devices.TheEyeTribe.CalibrationState" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
+                    <OPERATIONNODE Name="SetCurrentStadium" />
+                    <CATEGORY Name="CalibrationState" IsDirectParent="true" />
                   </NODEREF>
                   <INPUTS>
                     <INPUT Name="Input" />
@@ -4754,17 +4737,18 @@
                 </OPERATION>
               </NODES>
               <LINKS>
-                <Link source="Constants/State#1" sink="Nodes/SetState/Inputs/State" />
-                <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/SetState/Inputs/Input" />
-                <Link source="Nodes/SetState/Outputs/Output" sink="Nodes/SetCurrentCalibrationPoint/Inputs/CurrentPoint" />
+                <Link source="Nodes/GetCurrentCalibrationPoint/Outputs/CurrentPoint" sink="Nodes/SetCurrentStadium#1/Inputs/Input" />
+                <Link source="Nodes/SetCurrentStadium#1/Outputs/Output" sink="Nodes/SetCurrentCalibrationPoint/Inputs/CurrentPoint" />
                 <Link source="Nodes/SetCalibrationPoints/Outputs/Output" sink="Nodes/GetCurrentCalibrationPoint/Inputs/Input" />
                 <Link source="Nodes/SetCalibrationPoints/Outputs/Output" sink="Nodes/SetCurrentCalibrationPoint/Inputs/Input" />
                 <Link source="Nodes/Concat/Outputs/Output" sink="Nodes/SetCalibrationPoints/Inputs/CalibrationPoints" />
                 <Link source="Nodes/GetCalibrationPoints/Outputs/CalibrationPoints" sink="Nodes/Concat/Inputs/Input" />
                 <Link source="Inlets/Output" sink="Nodes/GetCalibrationPoints/Inputs/Input" />
                 <Link source="Inlets/Output" sink="Nodes/SetCalibrationPoints/Inputs/Input" />
-                <Link source="Nodes/SetCurrentCalibrationPoint/Outputs/Output" sink="Nodes/SetState#1/Inputs/Input" />
-                <Link source="Nodes/SetState#1/Outputs/Output" sink="Outlets/Output" />
+                <Link source="Nodes/SetCurrentCalibrationPoint/Outputs/Output" sink="Nodes/SetCurrentStadium/Inputs/Input" />
+                <Link source="Nodes/SetCurrentStadium/Outputs/Output" sink="Outlets/Output" />
+                <Link source="Constants/State" sink="Nodes/SetCurrentStadium#1/Inputs/State" />
+                <Link source="Constants/State#1" sink="Nodes/SetCurrentStadium/Inputs/State" />
               </LINKS>
             </BODY>
           </REGION>
@@ -4790,11 +4774,10 @@
           <Link source="Regions/IfElse#1/Outputs/Output" sink="Outlets/CalibrationData#1" />
           <Link source="Inlets/CalibrationData#1" sink="Regions/IfElse#1/Inputs/Output Default" />
           <Link source="Inlets/Enabled#1" sink="Regions/IfElse#1/Inputs/Condition" />
-          <Link source="Constants/State" sink="Regions/IfElse#1/IfElseBody/Nodes/SetState#1/Inputs/State" />
           <Link source="Inlets/ToAdd" sink="Regions/IfElse#1/IfElseBody/Nodes/Concat/Inputs/Input 2">
             <SEGMENTS>
-              <Point x="-212.866455" y="89.98392" />
-              <Point x="-370.617432" y="110.389526" />
+              <Point x="-136.672974" y="116.051941" />
+              <Point x="-245.04126" y="116.051941" />
             </SEGMENTS>
           </Link>
         </LINKS>

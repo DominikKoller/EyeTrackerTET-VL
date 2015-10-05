@@ -36,8 +36,9 @@
     },
     {
       "TypeAttribute": {
-        "Name": "CalibrationPointState",
-        "Category": "TETCSharpClient"
+        "Name": "CalibrationPointStadium",
+        "Category": "TETCSharpClient",
+        "IsImmutable": true
       },
       "Members": [
         {
@@ -59,12 +60,13 @@
           "DotNetName": "Inactive"
         }
       ],
-      "DotNetName": "TETCSharpClient.CalibrationPointState"
+      "DotNetName": "TETCSharpClient.CalibrationPointStadium"
     },
     {
       "TypeAttribute": {
-        "Name": "CalibrationState",
-        "Category": "TETCSharpClient"
+        "Name": "CalibrationStadium",
+        "Category": "TETCSharpClient",
+        "IsImmutable": true
       },
       "Members": [
         {
@@ -104,7 +106,7 @@
           "DotNetName": "Inactive"
         }
       ],
-      "DotNetName": "TETCSharpClient.CalibrationState"
+      "DotNetName": "TETCSharpClient.CalibrationStadium"
     },
     {
       "TypeAttribute": {

@@ -149,49 +149,49 @@
         </LAYERS>
         <INLETS>
           <INLET Name="Start Calibration" Layer="Update">
-            <POSITION x="879" y="387" />
+            <POSITION x="368" y="206" />
           </INLET>
           <INLET Name="CalibrationPoints" Layer="Update">
-            <POSITION x="976" y="387" />
+            <POSITION x="465" y="206" />
           </INLET>
           <INLET Name="Point Idle Time" Layer="Update">
-            <POSITION x="1083" y="387" />
+            <POSITION x="572" y="206" />
           </INLET>
           <INLET Name="Point Calibration Time" Layer="Update">
-            <POSITION x="1182" y="387" />
+            <POSITION x="671" y="206" />
           </INLET>
           <INLET Name="CalibrationAbort" Layer="Update">
-            <POSITION x="1318" y="387" />
+            <POSITION x="807" y="206" />
           </INLET>
         </INLETS>
         <OUTLETS>
           <OUTLET Name="CalibrationPoints" Layer="Update">
-            <POSITION x="785" y="611" />
+            <POSITION x="274" y="430" />
           </OUTLET>
           <OUTLET Name="ResultSuccess" Layer="Update">
-            <POSITION x="913" y="611" />
+            <POSITION x="402" y="430" />
           </OUTLET>
           <OUTLET Name="ResultAverageErrorDegree" Layer="Update">
-            <POSITION x="1021" y="611" />
+            <POSITION x="510" y="430" />
           </OUTLET>
           <OUTLET Name="State" Layer="Update">
-            <POSITION x="1196" y="611" />
+            <POSITION x="685" y="430" />
           </OUTLET>
           <OUTLET Name="ErrorMessages" Layer="Update">
-            <POSITION x="1276" y="611" />
+            <POSITION x="765" y="430" />
           </OUTLET>
           <OUTLET Name="Is Activated" Layer="Update">
-            <POSITION x="1395" y="611" />
+            <POSITION x="884" y="430" />
           </OUTLET>
           <OUTLET Name="Is Calibrating" Layer="Update">
-            <POSITION x="1499" y="611" />
+            <POSITION x="988" y="430" />
           </OUTLET>
         </OUTLETS>
         <CONSTS />
         <REGIONS />
         <NODES>
           <PROCESS Name="CalibrationLifetimeManager">
-            <POSITION x="912" y="465" />
+            <POSITION x="401" y="284" />
             <NODEREF LastCat="Devices.TheEyeTribe" LastFile="VL.Devices.TheEyeTribeCalibration.vl">
               <PROCESSNODE Name="CalibrationLifetimeManager" />
             </NODEREF>
@@ -216,10 +216,22 @@
               <FRAGMENT Name="Update" />
             </FRAGMENTS>
           </PROCESS>
+          <OPERATION Name="ToSpread" Layer="Update">
+            <POSITION x="453.6549" y="229.784134" />
+            <NODEREF LastCat="Collections.Sequence" LastFile="VL.Core.dll">
+              <OPERATIONNODE Name="ToSpread" />
+              <CATEGORY Name="Sequence" IsDirectParent="true" />
+            </NODEREF>
+            <INPUTS>
+              <INPUT Name="Input" />
+            </INPUTS>
+            <OUTPUTS>
+              <OUPUT Name="Result" />
+            </OUTPUTS>
+          </OPERATION>
         </NODES>
         <LINKS>
           <Link source="Inlets/Start Calibration" sink="Nodes/CalibrationLifetimeManager/Inputs/Start Calibration" />
-          <Link source="Inlets/CalibrationPoints" sink="Nodes/CalibrationLifetimeManager/Inputs/CalibrationPoints" />
           <Link source="Inlets/Point Idle Time" sink="Nodes/CalibrationLifetimeManager/Inputs/Point Idle Time" />
           <Link source="Inlets/Point Calibration Time" sink="Nodes/CalibrationLifetimeManager/Inputs/Point Calibration Time" />
           <Link source="Inlets/CalibrationAbort" sink="Nodes/CalibrationLifetimeManager/Inputs/CalibrationAbort" />
@@ -230,6 +242,8 @@
           <Link source="Nodes/CalibrationLifetimeManager/Outputs/ErrorMessages" sink="Outlets/ErrorMessages" />
           <Link source="Nodes/CalibrationLifetimeManager/Outputs/Is Activated" sink="Outlets/Is Activated" />
           <Link source="Nodes/CalibrationLifetimeManager/Outputs/Is Calibrating" sink="Outlets/Is Calibrating" />
+          <Link source="Inlets/CalibrationPoints" sink="Nodes/ToSpread/Inputs/Input" />
+          <Link source="Nodes/ToSpread/Outputs/Result" sink="Nodes/CalibrationLifetimeManager/Inputs/CalibrationPoints" />
         </LINKS>
       </BODY>
     </PATCH>
